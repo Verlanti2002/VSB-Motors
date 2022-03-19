@@ -786,7 +786,7 @@
 
   html, body {
     min-height: 100%;
-    background-image: url("/images/11207.webp");
+    /*background-image: url("/images/11207.webp");*/
     }
     body, div, form, input, select { 
     padding: 0;
@@ -797,7 +797,7 @@
     color: white;
     }
     body {
-    background-color: white no-repeat center;
+    background-color: white;
     background-size: cover;
     }
     h1, h2 {

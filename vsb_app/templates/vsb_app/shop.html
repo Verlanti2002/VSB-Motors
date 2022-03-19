@@ -32,7 +32,7 @@
                <td>
                   <select id="" name="marca" onchange="changePlaceholderSelect(this)">
                      <option value="" selected disabled hidden>
-                        Prezzo minimo
+                        Prezzo massimo
                      </option>
                      <option value="">
                         € 500
@@ -156,7 +156,7 @@
                   <input type="number" min="0" max="500000" placeholder="Kilometraggio" name="kilometraggio" class="input_box">
                </td>
                <td>
-                  <input type="number" min="1900" max="2022" name="anno" placeholder="Anno" class="input_box">
+                  <input type="text" placeholder="Cilindrata" name="CC" class="input_box">
                </td>
             </tr>
             <tr>
@@ -164,7 +164,7 @@
                   <input type="text" placeholder="Città" name="città" class="input_box">
                </td>
                <td>
-                  <input type="text" placeholder="CAP" name="CAP" class="input_box">
+                  <input type="number" min="1900" max="2022" name="anno" placeholder="Anno" class="input_box">
                </td>
             </tr>
 
@@ -182,7 +182,7 @@
          <div class="vehicle_card_row_container">
             <div class="vehicle_card">
                <h4 class="title_car" id="marca_modello">Mercedes-Benz Classe A</h4>
-               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <a href="{% url 'vsb_app:single_product' %}"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
                <h3 class="price">€ 1500</h3>
                <table class="details">
                   <tbody>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{% static 'vsb_app/css/sign_up.css' %}" />
+    <title>VSB-MOTORS | SIGN-UP</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="#" class="sign-in-form">
+            <table>
+                <img src="{% static 'vsb_app/images/logo.png' %}" class="image" alt=""/>
+
+                <thead><h2 class="title">Registrazione Vendor</h2></thead>
+
+                <tr>
+                <td>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Ragione Sociale" />
+                      </div>
+                </td>
+                <td>
+                    <div class="input-field">
+                        <i class="fas fa-industry"></i>
+                        <input type="text" placeholder="Partita IVA" />
+                      </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-field">
+                        <i class="fas fa-envelope" aria-hidden="false"></i>
+                        <input type="text" placeholder="Email" />
+                      </div>
+                </td>
+                <td>
+                    <div class="input-field">
+                        <i class="fas fa-map"></i>
+                        <input type="text" placeholder="Indirizzo" />
+                      </div>
+                </td>
+            </tr>
+                    <tr>
+                        <td>
+                            <div class="input-field">
+                                <i class="far fa-building"></i>
+                                <input type="text" placeholder="Città" />
+                              </div>
+                        </td>
+                        <td>
+                            <div class="input-field">
+                                <i class="fas fa-phone-square	"></i>
+                                <input type="text" placeholder="Telefono" />
+                              </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Password" />
+                              </div>
+                        </td>
+                        <td>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Conferma Password" />
+                              </div>
+                        </td>
+                    </tr>
+
+            </table>
+            <input type="submit" value="Submit" class="btn solid" />
+          </form>
+          <form action="#" class="sign-up-form">
+            <table>
+                <img src="{% static 'vsb_app/images/logo.png' %}" class="image" alt="" />
+
+                <thead><h2 class="title">Registrazione Cliente</h2></thead>
+                    <tr>
+                        <td>
+                            <div class="input-field">
+                                <i class="fas fa-user"></i>
+                                <input type="text" placeholder="Nome" />
+                              </div>
+                        </td>
+                        <td>
+                            <div class="input-field">
+                                <i class="fas fa-user"></i>
+                                <input type="text" placeholder="Cognome" />
+                              </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-field">
+                                <i class="fas fa-phone-square" aria-hidden="false"></i>
+                                <input type="text" placeholder="Telefono" />
+                              </div>
+                        </td>
+                        <td>
+                            <div class="input-field">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" placeholder="Email" />
+                              </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Password" />
+                              </div>
+                        </td>
+                        <td>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Conferma Password" />
+                              </div>
+                        </td>
+                    </tr>
+
+            </table>
+
+            <input type="submit" class="btn" value="submit" />
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3> Registrati come cliente </h3>
+            <p>
+               Con noi avrai accesso all'inventario di tuttI Vendors Partner presenti in Italia e potrai scegliere l'auto più adatta alle tue esigenze.
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Sign Up
+            </button>
+          </div>
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Registrati come Vendor</h3>
+            <p>
+                Garantiamo visibilità ai nostri Vendors Partner, andando incontro sia alle vostre esigenze che quella dei vostri futuri clienti.
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Sign Up
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'vsb_app/js/app.js' %}"></script>
+  </body>
+</html>
