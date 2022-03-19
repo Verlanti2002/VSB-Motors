@@ -1,10 +1,100 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <title>VSB-MOTORS | {% block title %} {% endblock %}</title>
+   <!--From fontawesome.com-->
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+   <!-- Google Fonts -->
+   <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,500,600,300,700' rel='stylesheet' type='text/css'>
+   <!-- ionicons Fonts for icons -->
+   <link href="{% static 'vsb_app/css/ionicons.min.css' %}" rel="stylesheet">
+   <!--Font for nav-bar-->
+   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Orbitron" />
+   <!-- bootstrap -->
+   <link href="{% static 'vsb_app/css/bootstrap.css' %}" rel="stylesheet">
+   <!-- Animate CSS-->
+   <link href="{% static 'vsb_app/css/animate.css' %}" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
+   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+   <![endif]-->
+   {% block add_css %}
+
+   {% endblock %}
 </head>
 <body>
+    <div class="header-inner">
+      <!-- navigation panel -->
+      <div class="container">
+         <div class="row">
+            <div class="header-table col-md-12">
+               <div class="brand">
+                  <a href="{% url 'vsb_app:homepage' %}">
+                     <img src="{% static 'vsb_app/images/logo.png' %}" alt="">
+                  </a>
+               </div>
+               <nav id="nav-wrap" class="main-nav">
+                  <div id="mobnav-btn"> </div>
+                  <ul class="sf-menu">
+                     <li>
+                        <a href="{% url 'vsb_app:homepage' %}">Home</a>
+                     </li>
+                      <li>
+                        <a href="{% url 'vsb_app:shop' %}">Shop</a>
+                     </li>
+                      {% comment %}
+                     <li>
+                        <a href="{% url 'vsb_app:sell_my_car' %}">Sell your car</a>
+                     </li>
+                     {% endcomment %}
+                     <li>
+                        <a href="">Contact</a>
+                     </li>
+                     <li class="has-children" style="width: 6%; height: auto;">
+                        <h3 class="user_icon"><i class="bi bi-person-circle"></i></h3>
+                        <ul class="dropdown">
+                            {% comment %}
+                           <li><a href="{% url 'vsb_app:sign_up' %}">SIGN UP</a></li>
+                           <li><a href="{% url 'vsb_app:sign_in' %}">SIGN IN</a></li>
+                           <li><a href="{% url 'vsb_app:my_transaction' %}">MY TRANSACTION</a></li>
+                           {% endcomment %}
+                           <li><a href="#">LOG OUT</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </div>
+   {% block main %}
+   {% endblock %}
 
+   <script src="{% static 'vsb_app/js/jquery.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/superfish.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.easing.js' %}"></script>
+   <script src="{% static 'vsb_app/js/wow.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.isotope.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/owl.carousel.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.magnific-popup.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jflickrfeed.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.fitvids.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.fractionslider.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery-ui-1.10.4.custom.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/SmoothScroll.js' %}"></script>
+   <script src="{% static 'vsb_app/js/main.js' %}"></script>
+
+   {% block add_js %}
+
+   {% endblock %}
 </body>
 </html>

@@ -1,1 +1,196 @@
 {% extends 'vsb_app/base.html' %}
+{% load static %}
+
+{% block title %}
+    HOMEPAGE
+{% endblock %}
+
+{% block add_css %}
+    <link rel="stylesheet" href="{% static 'vsb_app/css/style.css' %}">
+{% endblock %}
+{% block main %}
+        <div class="slider-wrapper" style="height: 500vh;">
+         <div class="fr-slider" >
+            <div class="fs_loader"></div>
+            <div class="slide">
+               <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/features_bg.jpg' %}" alt="Slide">
+               <img data-position="155,554" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e1.png' %}" alt="Enfold">
+               <img data-position="185,430" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e2.png' %}" alt="Enfold">
+               <img data-position="236,449" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e3.png' %}" alt="Enfold">
+               <img data-position="322,468" data-delay="1400" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e4.png' %}" alt="Enfold">
+               <img data-position="384,446" data-delay="1800" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e5.png' %}" alt="Enfold">
+            </div>
+            <div class="slide">
+               <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/slide001.jpg' %}" alt="Slide">
+               <img data-position="108,282" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e1.png' %}" alt="Enfold">
+               <img data-position="262,131" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e2.png' %}" alt="Enfold">
+               <img data-position="322,202" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e3.png' %}" alt="Enfold">
+               <img data-position="369,60" data-delay="1400" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e4.png' %}" alt="Enfold">
+            </div>
+            <div class="slide">
+               <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/slide3.jpg' %}" alt="Slide">
+               <img data-position="93,505" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/deer.png' %}" alt="Enfold">
+               <img data-position="263,274" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s3e1.png' %}" alt="Enfold">
+               <img data-position="338,316" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e4.png' %}" alt="Enfold">
+               <a data-position="440,485" data-delay="1500" data-in="fade" data-out="fade" class="button white-color">Purchase Theme </a>
+            </div>
+         </div>
+      </div>
+      <!-- End Slider -->
+      <!-- About Section -->
+      <div class="container-about">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h3 class="title-un">WHO WE ARE</h3>
+                  <div class="title-un-icon"><i class="fa ion-ios-flame-outline"></i></div>
+                  <p class="title-un-des">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, </p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-4">
+                  <!-- Service item -->
+                  <div class="service-box-sb wow fadeInUp">
+                     <div class="service-img">
+                        <img src="{% static 'vsb_app/images/sas.jpg' %}" alt="Enfold">
+                     </div>
+                     <div class="service-info">
+                        <h5>VENDORS</h5>
+                        <div class="desc">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis sapien sit amet arcu ornare, non commodo ligula consectetur adipiscing elit.
+                           <a class="see-more" href="#">
+                        See More &rarr;
+                        <div class="line"></div>
+                     </a>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- End Service item -->
+               </div>
+               <div class="col-md-4">
+                  <!-- Service item -->
+                  <div class="service-box-sb wow fadeInUp" data-wow-delay=".2s">
+                     <div class="service-img">
+                        <img src="{% static 'vsb_app/images/sasa.jpg' %}" alt="Enfold">
+                     </div>
+                     <div class="service-info">
+                        <h5>VSB-MOTORS</h5>
+                        <div class="desc">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis sapien sit amet arcu ornare, non commodo ligula consectetur adipiscing elit.
+                           <a class="see-more" href="#">
+                        See More &rarr;
+                        <div class="line"></div>
+                     </a>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- End Service item -->
+               </div>
+               <div class="col-md-4">
+                  <!-- Service item -->
+                  <div class="service-box-sb wow fadeInUp" data-wow-delay=".4s">
+                     <div class="service-img">
+                        <img src="{% static 'vsb_app/images/sasaa.jpg' %}" alt="Enfold">
+                     </div>
+                     <div class="service-info">
+                        <h5>CLIENT</h5>
+                        <div class="desc">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis sapien sit amet arcu ornare, non commodo ligula consectetur adipiscing elit.
+                           <a class="see-more" href="#">See More &rarr;<div class="line"></div></a>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- End Service item -->
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- End About Section -->
+      <!-- Story Section -->
+      <div class="story-container">
+         <div class="story-wrapper wow fadeInUp">
+            <div class="story-info ">
+               <!--<div class="big-font-title">
+                  <h1>We do something special </h1>
+               </div>
+               <div class="story-bio">
+                  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</p>
+               </div>-->
+               <video width="1400" height="600" autoplay muted loop>
+                  <source src="{% static 'vsb_app/video/video1.mp4' %}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+            </div>
+         </div>
+      </div>
+      <!-- End Story Section -->
+
+      <!-- Footer area -->
+      <div class="footer-area-container">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="footer-widget">
+                     <a href="index.html"><h4 class="footer-widget-title">VSB-Motors</h4></a>
+                     <p>Con noi avrai accesso all'inventario di tuttI Vendors Partner presenti in Italia e potrai scegliere l'auto più adatta alle tue esigenze.</p>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="footer-widget widget_nav_menu">
+                     <h4 class="footer-widget-title">Get In Touch</h4>
+                     <p>Caecenas wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl.</p>
+                     <div> <i class="ion-ios-location-outline"></i> Moonshine St. 14/05 Light City
+                        <br>
+                        <i class="ion-ios-telephone-outline"></i> 00 (123) 456 78 90
+                        <br>
+                        <i class="ion-paper-airplane"></i> <a href="first.last@email.com"> first.last@email.com</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="footer-widget widget_nav_menu">
+                     <h4 class="footer-widget-title">LINKS</h4>
+                     <ul>
+                        <li class="menu-item"><a href="#"> Brand Creation  </a></li>
+                        <li class="menu-item"><a href="#"> Press inquiries</a></li>
+                        <li class="menu-item"><a href="#"> Corporate Identity </a></li>
+                        <li class="menu-item"><a href="#"> Company Analysis </a></li>
+                        <li class="menu-item"><a href="#"> Creative homepage </a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="footer-widget">
+                     <h4 class="footer-widget-title">Flickr stream</h4>
+                     <ul id="cbox" class="popup-gallery flickr-thumbs"></ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- End Footer area -->
+      <!-- Footer -->
+      <div class="footer-holder">
+         <div class="container">
+            <footer class="site-footer">
+               <div class="row">
+                  <div class="col-md-6">
+                     <p>© Copyright 2016 | <a href="http://templatestock.co" target="_blank">Template Stock</a></p>
+                  </div>
+                  <div class="col-md-6">
+                     <ul class="footer-nav">
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </footer>
+         </div>
+      </div>
+ {% endblock %}
+      <!-- End Footer -->
+   <!-- End inner-conterner -->
+   <!-- ================================================== -->
+   <!-- Placed js files at the end of the document so the pages load faster -->

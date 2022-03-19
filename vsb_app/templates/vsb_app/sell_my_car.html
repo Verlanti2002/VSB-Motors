@@ -1,0 +1,98 @@
+{% extends 'vsb_app/base.html' %}
+{% load static %}
+
+{% block title %}
+    HOMEPAGE
+{% endblock %}
+
+{% block add_css %}
+    <link rel="stylesheet" href="{% static 'vsb_app/css/style.css' %}">
+{% endblock %}
+{% block main %}
+
+<div class="main-block">
+
+    <form action="/">
+      <div class="title">
+        <h2>Registrazione Veicolo</h2>
+      </div>
+
+      <div class="registration">
+        <table>
+        <tr><td>
+          <span class="marca">Marca</span>
+          <select class ="select">
+            <option value="Seleziona" selected>Seleziona</option>
+            <option value="Fiat">Fiat</option>
+            <option value="Alfa-Romeo">Alfa-Romeo</option>
+            <option value="Audi">Audi</option>
+            <option value="Bmw">Bmw</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Ferrari">Ferrari</option>
+            <option value="Subaru">Subaru</option>
+          </select>
+          </td>
+
+       <td>
+           <span class="model">Modello</span>
+           <input class="fname" id="input" type="text" name="name" placeholder="">
+         </td>
+      </tr>
+
+           <tr><td>
+            <span class="Cilindrata">Cilindrata</span>
+            <input class="fname" id="input" type="text" name="name" placeholder="">
+          </td>
+
+          <td>
+            <span class="Cavalli">Cavalli</span>
+            <input class="fname" id="input" type="text" name="name" placeholder="">
+          </td>
+        </tr>
+
+          <tr><td>
+            <span class="Potenza">Potenza</span>
+            <input class="fname" id="input" type="text" name="name" placeholder="">
+          </td>
+
+          <td>
+            <span class="Stato">Stato</span>
+            <input class="fname" id="input" type="text" name="name" placeholder="">
+          </td>
+        </tr>
+
+          <tr><td>
+            <span class="KMpercorsi">KMpercorsi</span>
+            <input class="fname" id="input" type="text" name="name" placeholder="">
+          </td>
+
+          <td>
+            <span class="Anno">Anno</span>
+            <input class="fname" id="input" type="text" name="name" placeholder="">
+          </td>
+        </tr>
+
+
+
+          <tr><td>
+            <span class="Proprietari">Proprietari</span>
+            <input class="fname" id="input" type="text" name="name" placeholder="">
+          </td>
+
+          <td>
+            <span class="Prezzo">Prezzo</span>
+            <input class="fname" id="input" type="text" name="name" placeholder="">
+          </td>
+        </tr>
+
+        <tr><td>
+            <label for="files">Foto</label>
+            <input type="file" name="files" multiple><br><br>
+          </td></tr>
+        </table>
+      </div>
+      <button type="submit" href="/">Invia</button>
+    </form>
+  </div>
+
+{% endblock %}

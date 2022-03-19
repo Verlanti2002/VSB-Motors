@@ -1,0 +1,689 @@
+{% extends 'vsb_app/base.html' %}
+{% load static %}
+
+{% block title %}
+    SHOP
+{% endblock %}
+
+{% block add_css %}
+    <link rel="stylesheet" href="{% static 'vsb_app/css/shop.css' %}">
+{% endblock %}
+
+{% block main %}
+
+<div class="filters_container" style="background-image: url({% static 'vsb_app/images/538056924.jpg' %})">
+      <form action="">
+         <table class="filters">
+            <caption>SEARCH YOUR CAR</caption>
+            <tr>
+               <td>
+                  <select id="" name="stato" onchange="changePlaceholderSelect(this)">
+                     <option value="" selected disabled hidden>
+                        Stato
+                     </option>
+                     <option value="Nuovo">
+                        Nuovo
+                     </option>
+                     <option value="Usato">
+                        Usato
+                     </option>
+                  </select>
+               </td>
+               <td>
+                  <select id="" name="marca" onchange="changePlaceholderSelect(this)">
+                     <option value="" selected disabled hidden>
+                        Prezzo minimo
+                     </option>
+                     <option value="">
+                        € 500
+                     </option>
+                     <option value="">
+                        € 1000
+                     </option>
+                     <option value="">
+                        € 1500
+                     </option>
+                     <option value="">
+                        € 2000
+                     </option>
+                     <option value="">
+                        € 2500
+                     </option>
+                     <option value="">
+                        € 3000
+                     </option>
+                     <option value="">
+                        € 4000
+                     </option>
+                     <option value="">
+                        € 5000
+                     </option>
+                     <option value="">
+                        € 6000
+                     </option>
+                     <option value="">
+                        € 7000
+                     </option>
+                     <option value="">
+                        € 8000
+                     </option>
+                     <option value="">
+                        € 9000
+                     </option>
+                     <option value="">
+                        € 10000
+                     </option>
+                     <option value="">
+                        € 500
+                     </option>
+                     <option value="">
+                        € 12500
+                     </option>
+                     <option value="">
+                        € 15000
+                     </option>
+                     <option value="">
+                        € 17500
+                     </option>
+                     <option value="">
+                        € 20000
+                     </option>
+                     <option value="">
+                        € 25000
+                     </option>
+                     <option value="">
+                        € 30000
+                     </option>
+                     <option value="">
+                        € 40000
+                     </option>
+                     <option value="">
+                        € 50000
+                     </option>
+                     <option value="">
+                        € 75000
+                     </option>
+                     <option value="">
+                        € 100000
+                     </option>
+                     <option value="">
+                        € 200000
+                     </option>
+                     <option value="">
+                        € 300000
+                     </option>
+                     <option value="">
+                        € 400000
+                     </option>
+                     <option value="">
+                        € 500000
+                     </option>
+                  </select>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <select id="" name="marca" onchange="changePlaceholderSelect(this)">
+                     <option value="" selected disabled hidden>
+                        Marca
+                     </option>
+                     <option value="">
+                        Alfa Romeo
+                     </option>
+                     <option value="">
+                        Audi
+                     </option>
+                     <option value="">
+                        Fiat
+                     </option>
+                     <option value="">
+                        Ford
+                     </option>
+                     <option value="">
+                        Mercedes-Benz
+                     </option>
+                     <option value="">
+                        Volkswagen
+                     </option>
+                  </select>
+               </td>
+               <td>
+                  <input type="text" placeholder="Modello" name="modello" class="input_box">
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <input type="number" min="0" max="500000" placeholder="Kilometraggio" name="kilometraggio" class="input_box">
+               </td>
+               <td>
+                  <input type="number" min="1900" max="2022" name="anno" placeholder="Anno" class="input_box">
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <input type="text" placeholder="Città" name="città" class="input_box">
+               </td>
+               <td>
+                  <input type="text" placeholder="CAP" name="CAP" class="input_box">
+               </td>
+            </tr>
+
+            <tr>
+               <td style="width: 50px;">
+                  <input type="submit" value="Cerca" class="submit">
+               </td>
+            </tr>
+         </table>
+      </form>
+   </div>
+
+   <div class="container_card">
+      <div class="products">
+         <div class="vehicle_card_row_container">
+            <div class="vehicle_card">
+               <h4 class="title_car" id="marca_modello">Mercedes-Benz Classe A</h4>
+               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <h3 class="price">€ 1500</h3>
+               <table class="details">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <h5>Kilometraggio</h5>
+                           <hr class="line">
+                           <p name="carburante" class="desc">0 km</p>
+                        </td>
+                        <td>
+                           <h5>Anno</h5>
+                           <hr class="line">
+                           <p name="anno" class="desc">2007</p>
+                        </td>
+                        <td>
+                           <h5>Potenza</h5>
+                           <hr class="line">
+                           <p name="potenza" class="desc">70 kW</p>
+                        </td>
+                        <td>
+                           <h5>Cilindrata</h5>
+                           <hr class="line">
+                           <p name="cilindrata" class="desc">2000 CC</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Cavalli</h5>
+                           <hr class="line">
+                           <p name="cavalli" class="desc">250 CV</p>
+                        </td>
+                        <td>
+                           <h5>Cambio</h5>
+                           <hr class="line">
+                           <p name="cambio" class="desc">Manuale</p>
+                        </td>
+                        <td>
+                           <h5>Stato</h5>
+                           <hr class="line">
+                           <p name="stato" class="desc">Nuovo</p>
+                        </td>
+                        <td>
+                           <h5>Proprietario</h5>
+                           <hr class="line">
+                           <p name="n_proprietari" class="desc">2</p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+
+            <div class="vehicle_card">
+               <h4 class="title_car">Mercedes-Benz Classe A</h4>
+               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <h3 class="price">€ 1500</h3>
+               <table class="details">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <h5>Kilometraggio</h5>
+                           <hr class="line">
+                           <p name="carburante" class="desc">0 km</p>
+                        </td>
+                        <td>
+                           <h5>Anno</h5>
+                           <hr class="line">
+                           <p name="anno" class="desc">2007</p>
+                        </td>
+                        <td>
+                           <h5>Potenza</h5>
+                           <hr class="line">
+                           <p name="potenza" class="desc">70 kW</p>
+                        </td>
+                        <td>
+                           <h5>Cilindrata</h5>
+                           <hr class="line">
+                           <p name="cilindrata" class="desc">2000 CC</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Cavalli</h5>
+                           <hr class="line">
+                           <p name="cavalli" class="desc">250 CV</p>
+                        </td>
+                        <td>
+                           <h5>Cambio</h5>
+                           <hr class="line">
+                           <p name="cambio" class="desc">Manuale</p>
+                        </td>
+                        <td>
+                           <h5>Stato</h5>
+                           <hr class="line">
+                           <p name="stato" class="desc">Nuovo</p>
+                        </td>
+                        <td>
+                           <h5>Proprietario</h5>
+                           <hr class="line">
+                           <p name="n_proprietari" class="desc">2</p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+
+            <div class="vehicle_card">
+               <h4 class="title_car">Mercedes-Benz Classe A</h4>
+               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <h3 class="price">€ 1500</h3>
+               <table class="details">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <h5>Kilometraggio</h5>
+                           <hr class="line">
+                           <p name="carburante" class="desc">0 km</p>
+                        </td>
+                        <td>
+                           <h5>Anno</h5>
+                           <hr class="line">
+                           <p name="anno" class="desc">2007</p>
+                        </td>
+                        <td>
+                           <h5>Potenza</h5>
+                           <hr class="line">
+                           <p name="potenza" class="desc">70 kW</p>
+                        </td>
+                        <td>
+                           <h5>Cilindrata</h5>
+                           <hr class="line">
+                           <p name="cilindrata" class="desc">2000 CC</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Cavalli</h5>
+                           <hr class="line">
+                           <p name="cavalli" class="desc">250 CV</p>
+                        </td>
+                        <td>
+                           <h5>Cambio</h5>
+                           <hr class="line">
+                           <p name="cambio" class="desc">Manuale</p>
+                        </td>
+                        <td>
+                           <h5>Stato</h5>
+                           <hr class="line">
+                           <p name="stato" class="desc">Nuovo</p>
+                        </td>
+                        <td>
+                           <h5>Proprietario</h5>
+                           <hr class="line">
+                           <p name="n_proprietari" class="desc">2</p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <div class="products">
+         <div class="vehicle_card_row_container">
+            <div class="vehicle_card">
+               <h4 class="title_car">Mercedes-Benz Classe A</h4>
+               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <h3 class="price">€ 1500</h3>
+               <table class="details">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <h5>Kilometraggio</h5>
+                           <hr class="line">
+                           <p name="carburante" class="desc">0 km</p>
+                        </td>
+                        <td>
+                           <h5>Anno</h5>
+                           <hr class="line">
+                           <p name="anno" class="desc">2007</p>
+                        </td>
+                        <td>
+                           <h5>Potenza</h5>
+                           <hr class="line">
+                           <p name="potenza" class="desc">70 kW</p>
+                        </td>
+                        <td>
+                           <h5>Cilindrata</h5>
+                           <hr class="line">
+                           <p name="cilindrata" class="desc">2000 CC</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Cavalli</h5>
+                           <hr class="line">
+                           <p name="cavalli" class="desc">250 CV</p>
+                        </td>
+                        <td>
+                           <h5>Cambio</h5>
+                           <hr class="line">
+                           <p name="cambio" class="desc">Manuale</p>
+                        </td>
+                        <td>
+                           <h5>Stato</h5>
+                           <hr class="line">
+                           <p name="stato" class="desc">Nuovo</p>
+                        </td>
+                        <td>
+                           <h5>Proprietario</h5>
+                           <hr class="line">
+                           <p name="n_proprietari" class="desc">2</p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+
+            <div class="vehicle_card">
+               <h4 class="title_car">Mercedes-Benz Classe A</h4>
+               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <h3 class="price">€ 1500</h3>
+               <table class="details">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <h5>Kilometraggio</h5>
+                           <hr class="line">
+                           <p name="carburante" class="desc">0 km</p>
+                        </td>
+                        <td>
+                           <h5>Anno</h5>
+                           <hr class="line">
+                           <p name="anno" class="desc">2007</p>
+                        </td>
+                        <td>
+                           <h5>Potenza</h5>
+                           <hr class="line">
+                           <p name="potenza" class="desc">70 kW</p>
+                        </td>
+                        <td>
+                           <h5>Cilindrata</h5>
+                           <hr class="line">
+                           <p name="cilindrata" class="desc">2000 CC</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Cavalli</h5>
+                           <hr class="line">
+                           <p name="cavalli" class="desc">250 CV</p>
+                        </td>
+                        <td>
+                           <h5>Cambio</h5>
+                           <hr class="line">
+                           <p name="cambio" class="desc">Manuale</p>
+                        </td>
+                        <td>
+                           <h5>Stato</h5>
+                           <hr class="line">
+                           <p name="stato" class="desc">Nuovo</p>
+                        </td>
+                        <td>
+                           <h5>Proprietario</h5>
+                           <hr class="line">
+                           <p name="n_proprietari" class="desc">2</p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+
+            <div class="vehicle_card">
+               <h4 class="title_car">Mercedes-Benz Classe A</h4>
+               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <h3 class="price">€ 1500</h3>
+               <table class="details">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <h5>Kilometraggio</h5>
+                           <hr class="line">
+                           <p name="carburante" class="desc">0 km</p>
+                        </td>
+                        <td>
+                           <h5>Anno</h5>
+                           <hr class="line">
+                           <p name="anno" class="desc">2007</p>
+                        </td>
+                        <td>
+                           <h5>Potenza</h5>
+                           <hr class="line">
+                           <p name="potenza" class="desc">70 kW</p>
+                        </td>
+                        <td>
+                           <h5>Cilindrata</h5>
+                           <hr class="line">
+                           <p name="cilindrata" class="desc">2000 CC</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Cavalli</h5>
+                           <hr class="line">
+                           <p name="cavalli" class="desc">250 CV</p>
+                        </td>
+                        <td>
+                           <h5>Cambio</h5>
+                           <hr class="line">
+                           <p name="cambio" class="desc">Manuale</p>
+                        </td>
+                        <td>
+                           <h5>Stato</h5>
+                           <hr class="line">
+                           <p name="stato" class="desc">Nuovo</p>
+                        </td>
+                        <td>
+                           <h5>Proprietario</h5>
+                           <hr class="line">
+                           <p name="n_proprietari" class="desc">2</p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <div class="products">
+         <div class="vehicle_card_row_container">
+            <div class="vehicle_card">
+               <h4 class="title_car">Mercedes-Benz Classe A</h4>
+               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <h3 class="price">€ 1500</h3>
+               <table class="details">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <h5>Kilometraggio</h5>
+                           <hr class="line">
+                           <p name="carburante" class="desc">0 km</p>
+                        </td>
+                        <td>
+                           <h5>Anno</h5>
+                           <hr class="line">
+                           <p name="anno" class="desc">2007</p>
+                        </td>
+                        <td>
+                           <h5>Potenza</h5>
+                           <hr class="line">
+                           <p name="potenza" class="desc">70 kW</p>
+                        </td>
+                        <td>
+                           <h5>Cilindrata</h5>
+                           <hr class="line">
+                           <p name="cilindrata" class="desc">2000 CC</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Cavalli</h5>
+                           <hr class="line">
+                           <p name="cavalli" class="desc">250 CV</p>
+                        </td>
+                        <td>
+                           <h5>Cambio</h5>
+                           <hr class="line">
+                           <p name="cambio" class="desc">Manuale</p>
+                        </td>
+                        <td>
+                           <h5>Stato</h5>
+                           <hr class="line">
+                           <p name="stato" class="desc">Nuovo</p>
+                        </td>
+                        <td>
+                           <h5>Proprietario</h5>
+                           <hr class="line">
+                           <p name="n_proprietari" class="desc">2</p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+
+            <div class="vehicle_card">
+               <h4 class="title_car">Mercedes-Benz Classe A</h4>
+               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <h3 class="price">€ 1500</h3>
+               <table class="details">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <h5>Kilometraggio</h5>
+                           <hr class="line">
+                           <p name="carburante" class="desc">0 km</p>
+                        </td>
+                        <td>
+                           <h5>Anno</h5>
+                           <hr class="line">
+                           <p name="anno" class="desc">2007</p>
+                        </td>
+                        <td>
+                           <h5>Potenza</h5>
+                           <hr class="line">
+                           <p name="potenza" class="desc">70 kW</p>
+                        </td>
+                        <td>
+                           <h5>Cilindrata</h5>
+                           <hr class="line">
+                           <p name="cilindrata" class="desc">2000 CC</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Cavalli</h5>
+                           <hr class="line">
+                           <p name="cavalli" class="desc">250 CV</p>
+                        </td>
+                        <td>
+                           <h5>Cambio</h5>
+                           <hr class="line">
+                           <p name="cambio" class="desc">Manuale</p>
+                        </td>
+                        <td>
+                           <h5>Stato</h5>
+                           <hr class="line">
+                           <p name="stato" class="desc">Nuovo</p>
+                        </td>
+                        <td>
+                           <h5>Proprietario</h5>
+                           <hr class="line">
+                           <p name="n_proprietari" class="desc">2</p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+
+            <div class="vehicle_card">
+               <h4 class="title_car">Mercedes-Benz Classe A</h4>
+               <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
+               <h3 class="price">€ 1500</h3>
+               <table class="details">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <h5>Kilometraggio</h5>
+                           <hr class="line">
+                           <p name="carburante" class="desc">0 km</p>
+                        </td>
+                        <td>
+                           <h5>Anno</h5>
+                           <hr class="line">
+                           <p name="anno" class="desc">2007</p>
+                        </td>
+                        <td>
+                           <h5>Potenza</h5>
+                           <hr class="line">
+                           <p name="potenza" class="desc">70 kW</p>
+                        </td>
+                        <td>
+                           <h5>Cilindrata</h5>
+                           <hr class="line">
+                           <p name="cilindrata" class="desc">2000 CC</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Cavalli</h5>
+                           <hr class="line">
+                           <p name="cavalli" class="desc">250 CV</p>
+                        </td>
+                        <td>
+                           <h5>Cambio</h5>
+                           <hr class="line">
+                           <p name="cambio" class="desc">Manuale</p>
+                        </td>
+                        <td>
+                           <h5>Stato</h5>
+                           <hr class="line">
+                           <p name="stato" class="desc">Nuovo</p>
+                        </td>
+                        <td>
+                           <h5>Proprietario</h5>
+                           <hr class="line">
+                           <p name="n_proprietari" class="desc">2</p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+
+{% endblock %}
+
+{% block add_js %}
+    <script type="text/javascript">
+      function changePlaceholderSelect(sel){
+         sel.style.color = "#fff";
+      }
+   </script>
+{% endblock %}
+
+
+
