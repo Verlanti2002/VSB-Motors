@@ -14,90 +14,117 @@
     </style>
 {% endblock %}
 {% block main %}
+    {% if automobile_form.errors %}
+        {% for field, errors in automobile_form.errors.items  %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <b>{{ field }}:</b>
+                {% for error in errors %}
+                    {{ error }}
+                {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        {% endfor %}
+    {% endif %}
 
-<div class="main-block">
+    {% if message %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+                {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+    {% endif %}
+    <div class="registration">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>
+                        {{ automobile_form.targa.label_tag }}
+                        {{ automobile_form.targa }}
+                    </td>
+                    <td>
+                        {{ automobile_form.stato.label_tag }}
+                        {{ automobile_form.stato }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ automobile_form.marca.label_tag }}
+                        {{ automobile_form.marca }}
+                    </td>
+                    <td>
+                        {{ automobile_form.modello.label_tag }}
+                        {{ automobile_form.modello }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ automobile_form.cilindrata.label_tag }}
+                        {{ automobile_form.cilindrata }}
+                    </td>
+                    <td>
+                        {{ automobile_form.cavalli.label_tag }}
+                        {{ automobile_form.cavalli }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ automobile_form.anno_produzione.label_tag }}
+                        {{ automobile_form.anno_produzione }}
+                    </td>
+                    <td>
+                        {{ automobile_form.km_percorsi.label_tag }}
+                        {{ automobile_form.km_percorsi }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ automobile_form.potenza.label_tag }}
+                        {{ automobile_form.potenza }}
+                    </td>
+                    <td>
+                        {{ automobile_form.carburante.label_tag }}
+                        {{ automobile_form.carburante }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ automobile_form.prezzo.label_tag }}
+                        {{ automobile_form.prezzo }}
+                    </td>
+                    <td>
+                        {{ automobile_form.numero_proprietari.label_tag }}
+                        {{ automobile_form.numero_proprietari }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ automobile_form.cambio.label_tag }}
+                        {{ automobile_form.cambio }}
+                    </td>
+                    <td>
+                        {{ image_form.immagine.label_tag }}
+                        {{ image_form.immagine }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Registra" class="submit">
+                    </td>
+                </tr>
+            </table>
 
-    <form action="/">
-      <div class="title">
-        <h2>Registrazione Veicolo</h2>
-      </div>
-
-      <div class="registration">
-        <table>
-        <tr><td>
-          <span class="marca">Marca</span>
-          <select class ="select">
-            <option value="Seleziona" selected>Seleziona</option>
-            <option value="Fiat">Fiat</option>
-            <option value="Alfa-Romeo">Alfa-Romeo</option>
-            <option value="Audi">Audi</option>
-            <option value="Bmw">Bmw</option>
-            <option value="Mercedes">Mercedes</option>
-            <option value="Ferrari">Ferrari</option>
-            <option value="Subaru">Subaru</option>
-          </select>
-          </td>
-
-       <td>
-           <span class="model">Modello</span>
-           <input class="fname" id="input" type="text" name="name" placeholder="">
-         </td>
-      </tr>
-
-           <tr><td>
-            <span class="Cilindrata">Cilindrata</span>
-            <input class="fname" id="input" type="text" name="name" placeholder="">
-          </td>
-
-          <td>
-            <span class="Cavalli">Cavalli</span>
-            <input class="fname" id="input" type="text" name="name" placeholder="">
-          </td>
-        </tr>
-
-          <tr><td>
-            <span class="Potenza">Potenza</span>
-            <input class="fname" id="input" type="text" name="name" placeholder="">
-          </td>
-
-          <td>
-            <span class="Stato">Stato</span>
-            <input class="fname" id="input" type="text" name="name" placeholder="">
-          </td>
-        </tr>
-
-          <tr><td>
-            <span class="KMpercorsi">KMpercorsi</span>
-            <input class="fname" id="input" type="text" name="name" placeholder="">
-          </td>
-
-          <td>
-            <span class="Anno">Anno</span>
-            <input class="fname" id="input" type="text" name="name" placeholder="">
-          </td>
-        </tr>
-
-
-
-          <tr><td>
-            <span class="Proprietari">Proprietari</span>
-            <input class="fname" id="input" type="text" name="name" placeholder="">
-          </td>
-
-          <td>
-            <span class="Prezzo">Prezzo</span>
-            <input class="fname" id="input" type="text" name="name" placeholder="">
-          </td>
-        </tr>
-
-        <tr><td>
-            <label for="files">Foto</label>
-            <input type="file" name="files" multiple><br><br>
-          </td></tr>
-        </table>
-      </div>
-      <button type="submit" href="/">Invia</button>
-    </form>
-  </div>
-
+        </form>
+    </div>
 {% endblock %}
+{% block add_js %}
+    <script type="text/javascript">
+      function changePlaceholderSelect(sel){
+         sel.style.color = "#fff";
+      }
+   </script>
+{% endblock %}
+

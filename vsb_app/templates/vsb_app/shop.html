@@ -177,63 +177,73 @@
       </form>
    </div>
 
+
+
    <div class="container_card">
       <div class="products">
          <div class="vehicle_card_row_container">
+            {% for automobile in object_list %}
             <div class="vehicle_card">
-               <h4 class="title_car" id="marca_modello">Mercedes-Benz Classe A</h4>
-               <a href="{% url 'vsb_app:single_product' %}"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
-               <h3 class="price">€ 1500</h3>
+               <h4 class="title_car" id="marca_modello">{{ automobile.marca }} {{ automobile.modello }}</h4>
+               <a href="{% url 'vsb_app:single_product' %}"><img src="/media/{{automobile.immagini.all.0.immagine}}" id="img_car"></a>
+               <h3 class="price">€ {{ automobile.prezzo }}</h3>
                <table class="details">
                   <tbody>
                      <tr>
                         <td>
                            <h5>Kilometraggio</h5>
                            <hr class="line">
-                           <p name="carburante" class="desc">0 km</p>
+                           <p name="carburante" class="desc">{{ automobile.km_percorsi }} km</p>
                         </td>
                         <td>
                            <h5>Anno</h5>
                            <hr class="line">
-                           <p name="anno" class="desc">2007</p>
+                           <p name="anno" class="desc">{{ automobile.anno_produzione }}</p>
                         </td>
                         <td>
                            <h5>Potenza</h5>
                            <hr class="line">
-                           <p name="potenza" class="desc">70 kW</p>
+                           <p name="potenza" class="desc">{{ automobile.potenza }} kW</p>
                         </td>
                         <td>
                            <h5>Cilindrata</h5>
                            <hr class="line">
-                           <p name="cilindrata" class="desc">2000 CC</p>
+                           <p name="cilindrata" class="desc">{{ automobile.cilindrata }} CC</p>
                         </td>
                      </tr>
                      <tr>
                         <td>
                            <h5>Cavalli</h5>
                            <hr class="line">
-                           <p name="cavalli" class="desc">250 CV</p>
+                           <p name="cavalli" class="desc">{{ automobile.cavalli }} CV</p>
                         </td>
                         <td>
                            <h5>Cambio</h5>
                            <hr class="line">
-                           <p name="cambio" class="desc">Manuale</p>
+                           <p name="cambio" class="desc">{{ automobile.cambio }}</p>
                         </td>
                         <td>
                            <h5>Stato</h5>
                            <hr class="line">
-                           <p name="stato" class="desc">Nuovo</p>
+                           <p name="stato" class="desc">{{ automobile.stato }}</p>
                         </td>
                         <td>
                            <h5>Proprietario</h5>
                            <hr class="line">
-                           <p name="n_proprietari" class="desc">2</p>
+                           <p name="n_proprietari" class="desc">{{ automobile.numero_proprietari }}</p>
                         </td>
                      </tr>
                   </tbody>
                </table>
             </div>
 
+            {% if forloop.counter|divisibleby:3 %}
+         </div>
+      </div>
+      <div class="products">
+         <div class="vehicle_card_row_container">
+            {% endif %}
+            {% comment %}
             <div class="vehicle_card">
                <h4 class="title_car">Mercedes-Benz Classe A</h4>
                <a href="#"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
@@ -671,9 +681,12 @@
                   </tbody>
                </table>
             </div>
+            {% endcomment %}
+             {% endfor %}
          </div>
       </div>
    </div>
+
 
 {% endblock %}
 
