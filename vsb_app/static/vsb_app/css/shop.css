@@ -5,7 +5,7 @@ body{
   color: #7d7d7d;
   font-weight: 400;
   letter-spacing: 0.06em;
-  background-color: #f5f5f7;
+  background-color: #fff;
   overflow-y: scroll;
   overflow-x: hidden!important;
   -webkit-font-smoothing: antialiased;
@@ -854,7 +854,7 @@ h5{
 .line{
   border-top: 1px solid black;
   margin-top: 5px;
-}
+  }
 
 .details h5{
   margin-right: 10px;
