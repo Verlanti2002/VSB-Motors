@@ -10,11 +10,11 @@ body {
     overflow-x: hidden!important;
     -webkit-font-smoothing: antialiased;
   }
-  
+
   .inner-conterner {
     background-color: #fff;
   }
-  
+
   a,
   p a {
     color: #393939;
@@ -25,29 +25,29 @@ body {
     -o-transition: all .15s linear;
     transition: all .15s linear;
   }
-  
+
   ul {
     padding: 0;
     margin: 0;
   }
-  
+
   a:hover,
   a:focus {
     color: #5d5d5d;
   }
-  
-  
+
+
   /*=================================================
-  2 - Header 
+  2 - Header
   =================================================*/
-  
+
   .header-inner {
     width: 100%;
     position: relative;
     z-index: 999;
     background-color: #fff;
   }
-  
+
   .header-inner.header-scroll-up {
     -webkit-backface-visibility: hidden;
     -webkit-transition: -webkit-transform .4s ease-in-out;
@@ -57,7 +57,7 @@ body {
     -moz-transform: translateY(-105px) translateZ(0);
     transform: translateY(-105px) translateZ(0);
   }
-  
+
   .header-inner.header-scroll-fixed {
     position: fixed;
     top: 0;
@@ -71,7 +71,7 @@ body {
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.11);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.11);
   }
-  
+
   .header-table {
     display: table;
     width: 100%;
@@ -80,31 +80,31 @@ body {
     -moz-transition: all 500ms;
     transition: all 500ms;
   }
-  
+
   .brand,
   .header-inner .main-nav {
     display: table-cell;
     vertical-align: middle;
   }
-  
+
   .header-scroll-fixed.sticky-menu {
     padding: 5px 100px 0px 100px;
   }
-  
+
   .header-scroll-fixed .header-three {
     background: #8a8f6a;
   }
-  
+
   .header-scroll-fixed .brand img {
     height: 65px;
   }
-  
+
   .header-three {
     -webkit-transition: all 500ms;
     -moz-transition: all 500ms;
     transition: all 500ms;
   }
-  
+
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     position: fixed;
@@ -115,29 +115,29 @@ body {
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-  
+
   .header-three.navbar-fixed-top .brand {
     height: 180px;
     width: 100%;
   }
-  
+
   .header-three.navbar-fixed-top .brand img {
     height: 95px;
   }
-  
+
   .header-scroll-fixed .navbar-fixed-top .brand {
     height: 90px;
   }
-  
+
   .header-scroll-fixed .navbar-fixed-top .brand img {
     height: 70px;
   }
-  
+
   .header-scroll-fixed .navbar-fixed-inner-container {
     width: 1170px;
     margin: 0 auto;
   }
-  
+
   @media (max-width: 992px) and (min-width: 768px) {
     .brand,
     .header-inner .main-nav {
@@ -154,14 +154,14 @@ body {
       height: auto !important;
     }
   }
-  
-  
+
+
   /*** Header Two Style **/
-  
+
   .header-style-two {
     margin: 25px 0 20px 0;
   }
-  
+
   .header-style-two .brand,
   .header-inner .header-style-two .main-nav {
     display: block;
@@ -169,15 +169,15 @@ body {
     padding: 0;
     text-align: center;
   }
-  
-  
+
+
   /*** Header three menu **/
-  
+
   body.overflow-hidden-header-three {
     position: fixed;
     width: 100%;
   }
-  
+
   .overlay-content-wrap {
     opacity: 0;
     -webkit-backface-visibility: hidden;
@@ -188,7 +188,7 @@ body {
     -ms-transition: opacity .3s ease-in;
     transition: opacity .3s ease-in;
   }
-  
+
   .overlay-content-wrap.overlay-active {
     width: 100%;
     height: 100%;
@@ -200,11 +200,11 @@ body {
     z-index: 990;
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   .header-three {
     padding: 5px 90px 5px 90px;
   }
-  
+
   .header-three .sf-menu {
     width: 320px;
     height: 100%;
@@ -227,7 +227,7 @@ body {
     -moz-transform: translate(320px, 0);
     /** Firefox **/
   }
-  
+
   .header-three .sf-menu.active-menu {
     opacity: 1;
     transform: translate(0, 0);
@@ -238,7 +238,7 @@ body {
     -moz-transform: translate(0, 0);
     /** Firefox **/
   }
-  
+
   @media only screen and (max-width: 660px) {
     .header-three .sf-menu {
       width: 290px;
@@ -251,36 +251,36 @@ body {
       /** Firefox **/
     }
   }
-  
+
   .header-three .sf-menu h3 {
     font-weight: 600;
     text-align: left;
     text-transform: uppercase;
     font-size: 24px;
   }
-  
+
   .header-three .sf-menu ul {
     text-align: left;
   }
-  
+
   .header-three .sf-menu ul.sf-menu {
     padding: 0;
     margin: 44px 0 0 0;
   }
-  
+
   .header-three .main-nav .sf-menu .sf-menu > li {
     display: block;
     margin: 25px 0 0 0;
     list-style: none;
   }
-  
+
   .header-three .main-nav .sf-menu .sf-menu li a {
     font-size: 18px;
     padding: 0;
     text-transform: none;
     font-weight: 400;
   }
-  
+
   .header-three .main-nav .sf-menu .sf-menu ul.sub-menu li a {
     font-size: 12px;
     font-weight: 400;
@@ -288,7 +288,7 @@ body {
     margin: 0 13px;
     padding: 9px 4px;
   }
-  
+
   .header-three .nav-button-holder {
     position: relative;
     right: 20px;
@@ -296,11 +296,11 @@ body {
     background-color: #fff;
     padding: 20px 21px;
   }
-  
+
   .nav-button:focus {
     outline: none;
   }
-  
+
   .nav-button {
     position: absolute;
     top: 0;
@@ -327,7 +327,7 @@ body {
     transition: background 0.3s;
     z-index: 1000
   }
-  
+
   .nav-button span {
     display: block;
     position: absolute;
@@ -337,7 +337,7 @@ body {
     height: 3px;
     background: #5d5d5d;
   }
-  
+
   .nav-button span::before,
   .nav-button span::after {
     position: absolute;
@@ -348,20 +348,20 @@ body {
     background-color: #5d5d5d;
     content: "";
   }
-  
+
   .nav-button span::before {
     top: -7px;
   }
-  
+
   .nav-button span::after {
     bottom: -7px;
   }
-  
+
   .nav-button span {
     -webkit-transition: background 0 0.3s;
     transition: background 0 0.3s;
   }
-  
+
   .nav-button span::before,
   .nav-button span::after {
     -webkit-transition-duration: 0.3s, 0.3s;
@@ -369,127 +369,127 @@ body {
     -webkit-transition-delay: 0.3s, 0;
     transition-delay: 0.3s, 0;
   }
-  
+
   .nav-button span::before {
     -webkit-transition-property: top, -webkit-transform;
     transition-property: top, transform;
   }
-  
+
   .nav-button span::after {
     -webkit-transition-property: bottom, -webkit-transform;
     transition-property: bottom, transform;
   }
-  
-  
+
+
   /* active state, i.e. menu open */
-  
+
   .nav-button.active {}
-  
+
   .nav-button.active span {
     background: none;
   }
-  
+
   .nav-button.active span::before {
     top: 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-  
+
   .nav-button.active span::after {
     bottom: 0;
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
-  
+
   .nav-button.active span::before,
   .nav-button.active span::after {
     -webkit-transition-delay: 0, 0.3s;
     transition-delay: 0, 0.3s;
   }
-  
-  
+
+
   /*** Header style four ****/
-  
+
   .header-four {}
-  
-  
+
+
   /*** Brand logo ***/
-  
+
   .brand {
     width: 200px;
     height: 110px;
   }
-  
+
   .brand img {
     height: 75px;
   }
-  
+
   .header-style-two .brand {
     width: 130px;
     height: auto;
   }
-  
+
   .header-style-two .brand img {
     height: auto;
   }
-  
-  
+
+
   /*** Main Nav Menu ***/
-  
+
   .main-nav {
     text-align: right;
     white-space: nowrap;
     padding: 0 0 0 30px;
   }
-  
+
   .sf-menu,
   .sf-menu * {
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  
+
   .main-nav .sf-menu li {
     position: relative;
   }
-  
+
   .main-nav .sf-menu li:hover,
   .sf-menu li.sfHover {
     /* only transition out, not in */
     -webkit-transition: none;
     transition: none;
   }
-  
+
   .main-nav .sf-menu li a {
     padding: 28px 24px;
     display: block;
     position: relative;
     /*color: darkred;*/
-    font-family: Orbitron; 
-    font-size: 14px; 
-    font-style: normal; 
-    font-variant: normal; 
-    font-weight: bolder; 
-    line-height: 20px; 
+    font-family: Orbitron;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bolder;
+    line-height: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-  
+
   .header-style-two .main-nav ul.sf-menu li a {
     padding: 25px 24px;
   }
-  
+
   .main-nav .sf-menu li.current a {
     color: #8a8f6a;
     font-weight: 600;
   }
-  
+
   .main-nav .sf-menu li.current ul a {
     color: #111111;
   }
-  
+
   .main-nav .sf-menu ul {
     background-color: #fafafa;
     position: absolute;
@@ -508,27 +508,27 @@ body {
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
   }
-  
+
   .main-nav .sf-menu > li {
     display: inline-block;
   }
-  
+
   .main-nav .sf-menu a {
     display: block;
     position: relative;
   }
-  
+
   .main-nav .sf-menu a:hover,
   .main-nav .sf-menu .sub-menu .sfHover a {
     /*color: #8a8f6a;*/
     color: rgb(185, 182, 182);
   }
-  
+
   .main-nav .sf-menu ul li {
     min-width: 225px;
     text-align: left;
   }
-  
+
   .main-nav .sf-menu ul.sub-menu li a {
     font-size: 12px;
     font-weight: 400;
@@ -539,33 +539,33 @@ body {
     padding: 9px 4px;
     letter-spacing: 1px;
   }
-  
+
   .main-nav .sf-menu ul ul.sub-menu {
     top: -7px;
     left: 100%;
   }
-  
+
   .main-nav .sf-menu ul ul li {
     border-left: solid 1px #eee;
   }
-  
+
   .main-nav .sf-menu ul ul li a {
     color: #696969 !important;
   }
-  
+
   .main-nav .sf-menu ul ul li a:hover {
     color: #8a8f6a !important;
   }
-  
-  
+
+
   /*** arrows (for all except IE7) **/
-  
+
   .sf-arrows .sf-with-ul {
     padding-right: 2.5em;
     *padding-right: 1em;
     /* no CSS arrows for IE7 (lack pseudo-elements) */
   }
-  
+
   .sf-arrows .sub-menu .sf-with-ul:after {
     content: '';
     width: 0;
@@ -577,20 +577,20 @@ body {
     right: 8px;
     top: 14px;
   }
-  
+
   .sf-arrows > li > .sf-with-ul:focus:after,
   .sf-arrows > li:hover > .sf-with-ul:after,
   .sf-arrows > .sfHover > .sf-with-ul:after {
     border-top-color: white;
     /* IE8 fallback colour */
   }
-  
+
   .sf-arrows ul li > .sf-with-ul:focus:after,
   .sf-arrows ul li:hover > .sf-with-ul:after,
   .sf-arrows ul .sfHover > .sf-with-ul:after {
     border-left-color: #999;
   }
-  
+
   .header-inner #mobnav-btn {
     position: absolute;
     width: 25px;
@@ -601,7 +601,7 @@ body {
     border-width: 4px 0;
     cursor: pointer;
   }
-  
+
   .header-inner #mobnav-btn:before {
     content: '';
     position: absolute;
@@ -611,17 +611,17 @@ body {
     height: 4px;
     background-color: #777;
   }
-  
+
   .header-inner .mobnav-subarrow {
     display: none;
   }
-  
+
   @media (min-width: 768px) {
     .header-inner #mobnav-btn {
       display: none;
     }
   }
-  
+
   @media (max-width: 768px) {
     .navbar-brand {
       display: block;
@@ -650,13 +650,13 @@ body {
       -webkit-box-shadow: 0 0 0 0;
     }
   }
-  
+
   @media only screen and (max-width: 420px) {
     .header-three {
       padding: 15px 30px 20px 30px !important;
     }
   }
-  
+
   @media only screen and (max-width: 768px) {
     .header-table {
       display: block;
@@ -743,31 +743,31 @@ body {
       border: none;
     }
   }
-  
+
   .align-center {
     text-align: center;
   }
-  
+
   .menu-search-bar {
     position: relative;
     cursor: pointer;
   }
-  
+
   .menu-search-bar #search-label {
     padding-left: 12px;
   }
-  
+
   .menu-search-bar #search-label i {
     font-size: 16px;
   }
-  
+
   .search-bar {
     position: absolute;
     right: 8px;
     margin-top: 15px;
     display: none;
   }
-  
+
   .search-bar input {
     width: 235px;
     height: 50px;
@@ -783,4 +783,101 @@ body {
   .user_icon:hover{
     color: rgb(185, 182, 182);
   }
-  
+
+  .container_card{
+    margin-left: 40px;
+    margin-right: 20px;
+  }
+
+  h2{
+    color: black;
+  }
+
+  h3{
+    color: black;
+  }
+
+  h4{
+    color: black;
+  }
+
+  h5{
+    color: black;
+  }
+  .products{
+    /*border: 1px solid green;*/
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .products tr td{
+    /*border: 1px solid rgb(0, 255, 170);*/
+    width: 2%;
+    /*margin-right: 20px;*/
+  }
+
+  /**** --------------------------- Card singola prodotto ----------------------------****/
+  .container_card{
+    /*border: 1px solid blueviolet;*/
+  }
+  .vehicle_card_row_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .vehicle_card{
+    height: auto;
+    width: 25%;
+    /*border: 1px solid red;*/
+    border-radius: 10px;
+    background-color: white;
+    -webkit-transition: all 0.3s 0s ease-in;
+    -moz-transition: all 0.3s 0s ease-in;
+    -o-transition: all 0.3s 0s ease-in;
+    transition: all 0.3s 0s ease-in;
+    padding: 1% 1% 1% 1%;
+  }
+
+  .desc{
+    /*border: 1px solid rgb(0, 60, 255);*/
+    margin-right: 2px;
+  }
+
+  .vehicle_card:hover{
+    box-shadow: 0 12px 16px 0 rgb(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #ffffff6e;
+  }
+
+  .details{
+    /*border: 1px solid salmon;*/
+    display: block;
+  }
+
+  .line{
+    border-top: 1px solid black;
+    margin-top: 5px;
+  }
+
+  .details h5{
+    margin-right: 10px;
+  }
+
+  .details .desc{
+    margin-right: 5px;
+    font-family: sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+
+  .details tr td{
+    width: 5%;
+    margin-right: 5px;
+  }
+

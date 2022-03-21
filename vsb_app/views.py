@@ -17,8 +17,12 @@ class ShopView(ListView):
     model = Automobile
 
 
-class MyTransactionView(TemplateView):
-    template_name = "vsb_app/my_transaction.html"
+class MyTransactionRegistrationsView(TemplateView):
+    template_name = "vsb_app/my_transaction_registrations.html"
+
+
+class MyTransactionSalesView(TemplateView):
+    template_name = "vsb_app/my_transaction_sales.html"
 
 
 class SellMyCarView(TemplateView):

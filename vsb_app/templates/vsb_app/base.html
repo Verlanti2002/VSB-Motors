@@ -56,12 +56,18 @@
                      <li>
                         <a href="">Contact</a>
                      </li>
-                     <li class="has-children" style="width: 6%; height: auto;">
+                     <li class="has-children" style="width: 4%; height: auto;">
                         <h3 class="user_icon"><i class="bi bi-person-circle"></i></h3>
-                        <ul class="dropdown">
+                        <ul class="dropdown" style="border-top: 3px solid black;">
                            <li><a href="{% url 'vsb_app:sign_up' %}">SIGN UP</a></li>
                            <li><a href="{% url 'vsb_app:sign_in' %}">SIGN IN</a></li>
-                           <li><a href="{% url 'vsb_app:my_transaction' %}">MY TRANSACTION</a></li>
+                           <li class="has-children">
+                               <a href="#">MY TRANSACTION</a>
+                               <ul class="dropdown" style="border-top: 3px solid black; position: absolute; padding: 0; left: -100%; top: 30%;">
+                                   <li><a href="{% url 'vsb_app:my_transaction_sales' %}">SALES</a></li>
+                                   <li><a href="{% url 'vsb_app:my_transaction_registrations' %}">REGISTRATIONS</a></li>
+                               </ul>
+                           </li>
                            <li><a href="#">LOG OUT</a></li>
                         </ul>
                      </li>
