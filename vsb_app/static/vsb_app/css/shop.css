@@ -553,9 +553,9 @@ body.overflow-hidden-header-three {
   color: #696969 !important;
 }
 
-.main-nav .sf-menu ul ul li a:hover {
+/*.main-nav .sf-menu ul ul li a:hover {
   color: #8a8f6a !important;
-}
+}*/
 
 
 /*** arrows (for all except IE7) **/
@@ -864,7 +864,6 @@ h5{
   margin-right: 10px;
   font-family: sans-serif;
   font-size: 13px;
-  text-transform: uppercase;
 }
 
 .details tr td{
