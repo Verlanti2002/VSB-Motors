@@ -79,12 +79,16 @@
 
     sr.reveal('.row')
     sr.reveal('.col-md-12')
-    sr.reveal('.video', {interval: 100})
-    sr.reveal('.popular__container')
+    sr.reveal('.video')
+    sr.reveal('.popular__container, .section__title', {origin: 'left'})
     sr.reveal('.about__group, .offer__data', {origin: 'left'})
     sr.reveal('.about__data, .offer__img', {origin: 'right'})
+    sr.reveal('.features__title')
+    sr.reveal('.features__img')
+    sr.reveal('.features__map', {delay: 600, origin: 'bottom'})
+    sr.reveal('.features__card-1, .features__card-3', {interval: 100, origin: 'left'})
+    sr.reveal('.features__card-2', {interval: 100, origin: 'right'})
     sr.reveal('.logos__content, .footer__container', {interval: 100})
-
 
      /******** Isotope Portfolio *******/
      // Isotope Portfolio
