@@ -77,6 +77,8 @@
       // reset true
     })
 
+    sr.reveal('.row')
+    sr.reveal('.col-md-12')
     sr.reveal('.video', {interval: 100})
     sr.reveal('.popular__container')
     sr.reveal('.about__group, .offer__data', {origin: 'left'})

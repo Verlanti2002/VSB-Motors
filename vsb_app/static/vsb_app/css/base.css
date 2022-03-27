@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 13px;
   line-height: 24px;
   color: #7d7d7d;
@@ -447,7 +447,7 @@ video{
   bottom: 16px;
   opacity: 1;
   font-size: 68px;
-  font-family: serif;
+  font-family: Arial,sans-serif;
   content: " ";
 }
 
@@ -463,7 +463,7 @@ video{
   bottom: 16px;
   opacity: 1;
   font-size: 68px;
-  font-family: serif;
+  font-family: Arial, sans-serif;
   content: " ";
 }
 
