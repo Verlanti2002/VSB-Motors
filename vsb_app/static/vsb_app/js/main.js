@@ -69,6 +69,20 @@
       },
     });
 
+    const sr = ScrollReveal({
+      origin: 'top',
+      distance: '60px',
+      duration: 2500,
+      delay: 400,
+      // reset true
+    })
+
+    sr.reveal('.video', {interval: 100})
+    sr.reveal('.popular__container')
+    sr.reveal('.about__group, .offer__data', {origin: 'left'})
+    sr.reveal('.about__data, .offer__img', {origin: 'right'})
+    sr.reveal('.logos__content, .footer__container', {interval: 100})
+
 
      /******** Isotope Portfolio *******/
      // Isotope Portfolio
@@ -310,7 +324,5 @@
      mobile: false
    });
    wow.init();
-
-
 
  })(jQuery)
