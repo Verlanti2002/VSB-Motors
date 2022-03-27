@@ -1,7 +1,7 @@
 import datetime
 
 from django import forms
-from .models import Automobile, ImmaginiAutomobili, Marca, current_year
+from .models import Automobile, ImmaginiAutomobili, Marca, current_year, Concessionaria
 
 
 def year_choices():
@@ -50,4 +50,3 @@ class ImmaginiAutomobiliForm(forms.ModelForm):
     class Meta:
         model = ImmaginiAutomobili
         fields = ['immagine']
-

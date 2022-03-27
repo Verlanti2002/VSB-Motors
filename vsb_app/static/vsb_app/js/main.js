@@ -50,7 +50,26 @@
 
      });
 
-     
+     let swiperPopular = new Swiper(".popular__container", {
+      loop: true,
+      spaceBetween: 24,
+      slidesPerView: 'auto',
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        type: "progressbar",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          spaceBetween: 48,
+        },
+      },
+    });
+
+
      /******** Isotope Portfolio *******/
      // Isotope Portfolio
      var $container = jQuery('.portfolio');
@@ -81,7 +100,7 @@
 
      /******** append Portfolio item on click *******/
      $('.append-button').on('click', function() {
-       // create new item elements 
+       // create new item elements
        var $item_height = $('.gallery-portfolio .project-item').height();
        var $items = $('<div class="project-item  illustration" style="height:' + $item_height + 'px;"><div class="project-image"><img src="../images/gallery/i3.jpg" alt=""><div class="overlay"><div class="content-wrap"><div class="overlay-content"><h3><a href="../single-portfolio.html">WIDE GALLERY</a></h3> <ul class="entry-cat"> <li><a href="#">Motion </a></li> <li><a href="#">Photography</a></li></ul></div></div></div></div></div> <div class="project-item  illustration"><div class="project-image"><img src="../images/gallery/i8.jpg" alt=""><div class="overlay"><div class="content-wrap"><div class="overlay-content"><h3><a href="../single-portfolio.html">WIDE GALLERY</a></h3> <ul class="entry-cat"> <li><a href="#">Motion </a></li> <li><a href="#">Photography</a></li></ul></div></div></div></div></div> <div class="project-item  illustration"><div class="project-image"><img src="../images/gallery/i9.jpg" alt=""><div class="overlay"><div class="content-wrap"><div class="overlay-content"><h3><a href="../single-portfolio.html">WIDE GALLERY</a></h3> <ul class="entry-cat"> <li><a href="#">Motion </a></li> <li><a href="#">Photography</a></li></ul></div></div></div></div></div>');
 
@@ -140,53 +159,7 @@
 
      /******** Header on scroll *******/
 
-     // Hide Header on on scroll down
-     var didScroll;
-     var lastScrollTop = 0;
-     var delta = 5;
-     var navbarHeight = $('.header-inner').outerHeight();
 
-     $(window).scroll(function(event) {
-       didScroll = true;
-     });
-
-     setInterval(function() {
-       if (didScroll) {
-         hasScrolled();
-         didScroll = false;
-       }
-     }, 250);
-
-     function hasScrolled() {
-       var st = $(window).scrollTop();
-       
-       var conterner_width = $('.inner-conterner').width();
-       // Make sure they scroll more than delta
-       if (Math.abs(lastScrollTop - st) <= delta)
-         return;
-
-       // If they scrolled down and are past the navbar, add class .nav-up.
-       // This is necessary so you never see what is "behind" the navbar.
-       if (st > lastScrollTop && st > navbarHeight) {
-         // Scroll Down
-         $('.header-inner').removeClass('header-scroll-fixed').addClass('header-scroll-up');
-       } else {
-         // Scroll Up 
-         if (st + $(window).height() < $(document).height()) {
-
-           $('.header-inner').removeClass('nav-up').addClass('header-scroll-fixed').css({
-             "width": conterner_width,
-           });
-
-         }
-       }
-
-       if (st < 50) {
-         $('.header-inner').removeClass('header-scroll-fixed').removeClass('header-scroll-up');
-       }
-
-       lastScrollTop = st;
-     }
 
 
 
@@ -328,8 +301,6 @@
      });
 
    });
-
-
 
    /********  wow.js *******/
    var wow = new WOW({

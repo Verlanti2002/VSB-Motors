@@ -1,10 +1,11 @@
+from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import FormView
 from .forms import AutomobileForm, ImmaginiAutomobiliForm
 from django.forms import modelformset_factory
-from .models import ImmaginiAutomobili, Automobile
+from .models import ImmaginiAutomobili, Automobile, Concessionaria, CustomUser
 
 
 # Create your views here.
@@ -63,6 +64,48 @@ class SignInView(TemplateView):
 
 class SignUpView(TemplateView):
     template_name = "vsb_app/sign_up.html"
+
+    def post(self, request, *args, **kwargs):
+        context = {"error": {}}
+        ragione_sociale = self.request.POST.get('ragione_sociale')
+        partita_IVA = self.request.POST.get('partita_iva')
+        indirizzo = self.request.POST.get('indirizzo')
+        citta = self.request.POST.get('citta')
+        nome = self.request.POST.get('nome')
+        cognome = self.request.POST.get('cognome')
+        telefono = self.request.POST.get('telefono')
+        email = self.request.POST.get('email')
+        password = self.request.POST.get('password')
+        conferma_password = self.request.POST.get('password2')
+
+        if password != conferma_password:
+            context['error']['password'] = 'Le password non corrispondono!'
+            return render(request, self.template_name, context)
+
+        if nome is not None and cognome is not None:
+            user = CustomUser(first_name=nome, last_name=cognome, email=email, telefono=telefono)
+            user.set_password(password)
+            try:
+                user.save()
+            except (ValueError, ValidationError):
+                context['error']['save'] = 'Registrazione non avvenuta!'
+        else:
+            user = CustomUser(email=email, telefono=telefono)
+            user.set_password(password)
+            try:
+                user.save()
+            except (ValueError, ValidationError):
+                context['error']['save'] = 'Registrazione non avvenuta!'
+
+            concessionaria = Concessionaria(user=user, ragione_sociale=ragione_sociale, partita_IVA=partita_IVA, indirizzo=indirizzo, citta=citta)
+            try:
+                concessionaria.save()
+            except (ValueError, ValidationError):
+                context['error']['save'] = 'Registrazione non avvenuta!'
+
+        if context["error"]:
+            return render(request, self.template_name, context)
+        return render(request, 'vsb_app/sign_in.html', context)
 
 
 class SingleProductView(TemplateView):

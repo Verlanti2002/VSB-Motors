@@ -7,190 +7,407 @@
 
 {% block add_css %}
     <link rel="stylesheet" href="{% static 'vsb_app/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'vsb_app/css/swiper-bundle.min.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 {% endblock %}
 {% block main %}
-        <div class="slider-wrapper" style="height: 500vh;">
-         <div class="fr-slider" >
-            <div class="fs_loader"></div>
-            <div class="slide">
-               <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/features_bg.jpg' %}" alt="Slide">
-               <img data-position="155,554" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e1.png' %}" alt="Enfold">
-               <img data-position="185,430" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e2.png' %}" alt="Enfold">
-               <img data-position="236,449" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e3.png' %}" alt="Enfold">
-               <img data-position="322,468" data-delay="1400" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e4.png' %}" alt="Enfold">
-               <img data-position="384,446" data-delay="1800" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e5.png' %}" alt="Enfold">
-            </div>
-            <div class="slide">
-               <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/slide001.jpg' %}" alt="Slide">
-               <img data-position="108,282" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e1.png' %}" alt="Enfold">
-               <img data-position="262,131" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e2.png' %}" alt="Enfold">
-               <img data-position="322,202" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e3.png' %}" alt="Enfold">
-               <img data-position="369,60" data-delay="1400" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e4.png' %}" alt="Enfold">
-            </div>
-            <div class="slide">
-               <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/slide3.jpg' %}" alt="Slide">
-               <img data-position="93,505" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/deer.png' %}" alt="Enfold">
-               <img data-position="263,274" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s3e1.png' %}" alt="Enfold">
-               <img data-position="338,316" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e4.png' %}" alt="Enfold">
-               <a data-position="440,485" data-delay="1500" data-in="fade" data-out="fade" class="button white-color">Purchase Theme </a>
-            </div>
+     <!-- Slider -->
+   <div class="slider-wrapper" >
+      <div class="fr-slider" >
+         <div class="fs_loader"></div>
+         <div class="slide">
+            <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/features_bg.jpg' %}" alt="Slide">
+            <img data-position="155,554" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e1.png' %}" alt="">
+            <img data-position="185,430" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e2.png' %}" alt="">
+            <img data-position="236,449" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e3.png' %}" alt="">
+            <img data-position="322,468" data-delay="1400" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e4.png' %}" alt="">
+            <img data-position="384,446" data-delay="1800" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e5.png' %}" alt="">
+         </div>
+         <div class="slide">
+            <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/slide001.jpg' %}" alt="Slide">
+            <img data-position="108,282" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e1.png' %}" alt="">
+            <img data-position="262,131" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e2.png' %}" alt="">
+            <img data-position="322,202" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e3.png' %}" alt="">
+            <img data-position="369,60" data-delay="1400" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e4.png' %}" alt="">
+         </div>
+         <div class="slide">
+            <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/slide3.jpg' %}" alt="Slide">
+            <img data-position="93,505" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/deer.png' %}" alt="">
+            <img data-position="263,274" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s3e1.png' %}" alt="">
+            <img data-position="338,316" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e4.png' %}" alt="">
+            <a data-position="440,485" data-delay="1500" data-in="fade" data-out="fade" class="button white-color">Purchase Now </a>
          </div>
       </div>
-      <!-- End Slider -->
-      <!-- About Section -->
-      <div class="container-about">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <h3 class="title-un">WHO WE ARE</h3>
-                  <div class="title-un-icon"><i class="fa ion-ios-flame-outline"></i></div>
-                  <p class="title-un-des">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, </p>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-4">
-                  <!-- Service item -->
-                  <div class="service-box-sb wow fadeInUp">
-                     <div class="service-img">
-                        <img src="{% static 'vsb_app/images/sas.jpg' %}" alt="Enfold">
-                     </div>
-                     <div class="service-info">
-                        <h5>VENDORS</h5>
-                        <div class="desc">
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis sapien sit amet arcu ornare, non commodo ligula consectetur adipiscing elit.
-                           <a class="see-more" href="#">
-                        See More &rarr;
-                        <div class="line"></div>
-                     </a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- End Service item -->
-               </div>
-               <div class="col-md-4">
-                  <!-- Service item -->
-                  <div class="service-box-sb wow fadeInUp" data-wow-delay=".2s">
-                     <div class="service-img">
-                        <img src="{% static 'vsb_app/images/sasa.jpg' %}" alt="Enfold">
-                     </div>
-                     <div class="service-info">
-                        <h5>VSB-MOTORS</h5>
-                        <div class="desc">
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis sapien sit amet arcu ornare, non commodo ligula consectetur adipiscing elit.
-                           <a class="see-more" href="#">
-                        See More &rarr;
-                        <div class="line"></div>
-                     </a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- End Service item -->
-               </div>
-               <div class="col-md-4">
-                  <!-- Service item -->
-                  <div class="service-box-sb wow fadeInUp" data-wow-delay=".4s">
-                     <div class="service-img">
-                        <img src="{% static 'vsb_app/images/sasaa.jpg' %}" alt="Enfold">
-                     </div>
-                     <div class="service-info">
-                        <h5>CLIENT</h5>
-                        <div class="desc">
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis sapien sit amet arcu ornare, non commodo ligula consectetur adipiscing elit.
-                           <a class="see-more" href="#">See More &rarr;<div class="line"></div></a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- End Service item -->
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- End About Section -->
-      <!-- Story Section -->
-      <div class="story-container">
-         <div class="story-wrapper wow fadeInUp">
-            <div class="story-info ">
-               <!--<div class="big-font-title">
-                  <h1>We do something special </h1>
-               </div>
-               <div class="story-bio">
-                  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</p>
-               </div>-->
-               <video width="1400" height="600" autoplay muted loop>
-                  <source src="{% static 'vsb_app/video/video1.mp4' %}" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-            </div>
-         </div>
-      </div>
-      <!-- End Story Section -->
+   </div>
+   <!-- End Slider -->
 
-      <!-- Footer area -->
-      <div class="footer-area-container">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-3">
-                  <div class="footer-widget">
-                     <a href="index.html"><h4 class="footer-widget-title">VSB-Motors</h4></a>
-                     <p>Con noi avrai accesso all'inventario di tuttI Vendors Partner presenti in Italia e potrai scegliere l'auto più adatta alle tue esigenze.</p>
+   <!-- About Section -->
+   <a name="about"></a>
+   <div class="container-about">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <h3 class="title-un">WHO WE ARE?</h3>
+               <div class="title-un-icon"><i class="fa ion-ios-flame-outline"></i></div>
+               <p class="title-un-des">VSB-Motors è una piattaforma online in cui le concessionarie possano inserire annunci per la vendita delle loro vetture e gli
+                  acquirenti, visualizzando questi annunci, possano finalmente trovare l'auto da loro sempre desiderata! Quindi VSB-Motors agirà da intermediario tra le concessionarie e i clienti
+                  interessati all’acquisto di un’autovettura ordinabile direttamente da casa in modo semplice e veloce.
+                  e intuitivo. </p>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-4">
+               <!-- Service item -->
+               <div class="service-box-sb wow fadeInUp">
+                  <div class="service-img">
+                     <img src="{% static 'vsb_app/images/sas.jpg' %}" alt="">
                   </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="footer-widget widget_nav_menu">
-                     <h4 class="footer-widget-title">Get In Touch</h4>
-                     <p>Caecenas wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl.</p>
-                     <div> <i class="ion-ios-location-outline"></i> Moonshine St. 14/05 Light City
+                  <div class="service-info">
+                     <h5>VENDORS</h5>
+                     <div class="desc">
+                        Le migliori concessionarie d'Italia sono registrate proprio qui da noi, corri a vederle cliccando l'immagine!
                         <br>
-                        <i class="ion-ios-telephone-outline"></i> 00 (123) 456 78 90
-                        <br>
-                        <i class="ion-paper-airplane"></i> <a href="first.last@email.com"> first.last@email.com</a>
+                        <a class="see-more" href="#">
+                     See More &rarr;
+                     <div class="line"></div>
+                  </a>
                      </div>
                   </div>
                </div>
-               <div class="col-md-3">
-                  <div class="footer-widget widget_nav_menu">
-                     <h4 class="footer-widget-title">LINKS</h4>
-                     <ul>
-                        <li class="menu-item"><a href="#"> Brand Creation  </a></li>
-                        <li class="menu-item"><a href="#"> Press inquiries</a></li>
-                        <li class="menu-item"><a href="#"> Corporate Identity </a></li>
-                        <li class="menu-item"><a href="#"> Company Analysis </a></li>
-                        <li class="menu-item"><a href="#"> Creative homepage </a></li>
-                     </ul>
+               <!-- End Service item -->
+            </div>
+            <div class="col-md-4">
+               <!-- Service item -->
+               <div class="service-box-sb wow fadeInUp" data-wow-delay=".2s">
+                  <div class="service-img">
+                     <img src="{% static 'vsb_app/images/sasa.jpg' %}" alt="">
+                  </div>
+                  <div class="service-info">
+                     <h5>VSB-MOTORS</h5>
+                     <div class="desc">
+                        VSB-Motors sarà il tuo intermediario di fiducia, qui potrai finalmente trovare l'auto dei tuoi sogni!
+                        <a class="see-more" href="#">
+                     See More &rarr;
+                     <div class="line"></div>
+                  </a>
+                     </div>
                   </div>
                </div>
-               <div class="col-md-3">
-                  <div class="footer-widget">
-                     <h4 class="footer-widget-title">Flickr stream</h4>
-                     <ul id="cbox" class="popup-gallery flickr-thumbs"></ul>
+               <!-- End Service item -->
+            </div>
+            <div class="col-md-4">
+               <!-- Service item -->
+               <div class="service-box-sb wow fadeInUp" data-wow-delay=".4s">
+                  <div class="service-img">
+                     <img src="{% static  'vsb_app/images/sasaa.jpg' %}" alt="">
+                  </div>
+                  <div class="service-info">
+                     <h5>CLIENT</h5>
+                     <div class="desc">
+                        Clienti da tutto il mondo visitano la nostra piattaforma, il gioco è semplice e veloce corri nel nostro Store e divertiti!
+                        <br>
+                        <a class="see-more" href="#">See More &rarr;<div class="line"></div></a>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
       </div>
-      <!-- End Footer area -->
-      <!-- Footer -->
-      <div class="footer-holder">
-         <div class="container">
-            <footer class="site-footer">
-               <div class="row">
-                  <div class="col-md-6">
-                     <p>© Copyright 2016 | <a href="http://templatestock.co" target="_blank">Template Stock</a></p>
-                  </div>
-                  <div class="col-md-6">
-                     <ul class="footer-nav">
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Privacy</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </footer>
+   </div>
+   <!-- End About Section -->
+
+   <!-- Future Section -->
+   <a name="future"></a>
+   <section class="about section">
+      <div class="about__container container grid">
+         <div class="about__group">
+            <figure>
+               <img src="{% static 'vsb_app/images/about.jpg' %}" alt="" class="about__img">
+            </figure>
+         </div>
+
+         <div class="about__data">
+            <h2 class="section__title about__title">
+               Machines With <br> Future Technology
+            </h2>
+            <p class="about__description">
+               See the future with high-performance electric cars produced by renowed brands. They feature futuristic builds and designs with new and innovative platforms that last a long time.
+            </p>
+            <a href="shop.html" class="button__about" >KNOW MORE</a>
          </div>
       </div>
+   </section>
+   <!-- End Future Section -->
+
+   <!-- Slider Shop Section -->
+   <section class="popular section" style="margin-bottom: 3%; margin-top: 3%;">
+      <h2 class="section__title" style="text-align: center; color: black; margin-bottom: 2%;">
+         Choose Your Favourite Car
+      </h2>
+      <div class="popular__container container swiper">
+         <div class="swiper-wrapper">
+            <article class="popular__card swiper-slide">
+               <div class="shape shape__smaller">
+                  <h1 class="popular__title">Porsche</h1>
+                  <h3 class="popular__subtitle">Turbo S</h3>
+                  <img src="{% static 'vsb_app/images/popular1.png' %}" class="popular__img">
+                  <div class="popular__data">
+                     <div class="popular__data-group">
+                        <i class="ri-dashboard-3-line"></i>3.7 Sec
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-funds-box-line"></i> 356 Km/h
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-charging-pile-2-line"></i> Electric
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-flashlight-fill"></i> 580 Cv
+                     </div>
+                  </div>
+               </div>
+               <h3 class="popular__price">€ 175.900</h3>
+               <button class="popular__button">
+                  <i class="ri-shopping-bag-line"></i>
+               </button>
+            </article>
+
+            <article class="popular__card swiper-slide">
+               <div class="shape shape__smaller">
+                  <h1 class="popular__title">Porsche</h1>
+                  <h3 class="popular__subtitle">Taycan</h3>
+                  <img src="{% static 'vsb_app/images/popular2.png' %}" class="popular__img">
+                  <div class="popular__data">
+                     <div class="popular__data-group">
+                        <i class="ri-dashboard-3-line"></i>3.7 Sec
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-funds-box-line"></i> 356 Km/h
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-charging-pile-2-line"></i> Electric
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-flashlight-fill"></i> 580 Cv
+                     </div>
+                  </div>
+               </div>
+               <h3 class="popular__price">€ 114.900</h3>
+               <button class="popular__button">
+                  <i class="ri-shopping-bag-line"></i>
+               </button>
+            </article>
+
+            <article class="popular__card swiper-slide">
+               <div class="shape shape__smaller">
+                  <h1 class="popular__title">Porsche</h1>
+                  <h3 class="popular__subtitle">Turbo S Cross</h3>
+                  <img src="{% static 'vsb_app/images/popular3.png' %}" class="popular__img">
+                  <div class="popular__data">
+                     <div class="popular__data-group">
+                        <i class="ri-dashboard-3-line"></i>3.7 Sec
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-funds-box-line"></i> 356 Km/h
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-charging-pile-2-line"></i> Electric
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-flashlight-fill"></i> 580 Cv
+                     </div>
+                  </div>
+               </div>
+               <h3 class="popular__price">€ 150.900</h3>
+               <button class="popular__button">
+                  <i class="ri-shopping-bag-line"></i>
+               </button>
+            </article>
+
+            <article class="popular__card swiper-slide">
+               <div class="shape shape__smaller">
+                  <h1 class="popular__title">Porsche</h1>
+                  <h3 class="popular__subtitle">Boxster 718</h3>
+                  <img src="{% static 'vsb_app/images/popular4.png' %}" class="popular__img">
+                  <div class="popular__data">
+                     <div class="popular__data-group">
+                        <i class="ri-dashboard-3-line"></i>3.7 Sec
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-funds-box-line"></i> 356 Km/h
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-charging-pile-2-line"></i> Electric
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-flashlight-fill"></i> 580 Cv
+                     </div>
+                  </div>
+               </div>
+               <h3 class="popular__price">€ 125.900</h3>
+               <button class="popular__button">
+                  <i class="ri-shopping-bag-line"></i>
+               </button>
+            </article>
+
+            <article class="popular__card swiper-slide">
+               <div class="shape shape__smaller">
+                  <h1 class="popular__title">Porsche</h1>
+                  <h3 class="popular__subtitle">Cayman</h3>
+                  <img src="{% static 'vsb_app/images/popular5.png' %}" class="popular__img">
+                  <div class="popular__data">
+                     <div class="popular__data-group">
+                        <i class="ri-dashboard-3-line"></i>3.7 Sec
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-funds-box-line"></i> 356 Km/h
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-charging-pile-2-line"></i> Electric
+                     </div>
+                     <div class="popular__data-group">
+                        <i class="ri-flashlight-fill"></i> 580 Cv
+                     </div>
+                  </div>
+               </div>
+               <h3 class="popular__price">€ 128.900</h3>
+               <button class="popular__button">
+                  <i class="ri-shopping-bag-line"></i>
+               </button>
+            </article>
+         </div>
+         <div class="swiper-pagination"></div>
+      </div>
+   </section>
+
+   <!-- End Slider Shop Section -->
+
+   <!-- Offer Section -->
+   <section class="offer section">
+      <div class="offer__container container grid">
+         <img src="{% static 'vsb_app/images/offer-bg.png' %}" alt="" class="offer__bg">
+
+         <div class="offer__data">
+            <h2 class="section__title offer__title">
+               Do you Want to Receive <br> Special Offers?
+            </h2>
+
+            <p class="offer__description">
+               Be the first to receive all the information about our products and new cars by email by subscribing to our mailing list
+            </p>
+
+            <a href="" class="offer__button">
+               SUBSCRIBE NOW
+            </a>
+         </div>
+         <img src="{% static 'vsb_app/images/offer.png' %}" alt="" class="offer__img">
+      </div>
+   </section>
+   <!-- End Offer Section -->
+
+   <!-- Video -->
+   <center>
+      <video autoplay muted loop width="70%" height="auto" style="margin-top: 3%;">
+         <source src="{% static 'vsb_app/video/video1.mp4' %}" type="video/mp4">
+         <source src="{% static 'vsb_app/movie.ogg' %}" type="video/ogg">
+         Your browser does not support the video tag.
+      </video>
+   </center>
+   <!--End Video -->
+
+   <!--Logos Section -->
+   <section class="logos section">
+      <div class="logos__container container grid">
+         <div class="logos__content">
+            <img src="{% static 'vsb_app/images/logos1.png' %}" alt="" class="logos__img">
+         </div>
+         <div class="logos__content">
+            <img src="{% static 'vsb_app/images/logos2.png' %}" alt="" class="logos__img">
+         </div>
+         <div class="logos__content">
+            <img src="{% static 'vsb_app/images/logos3.png' %}" alt="" class="logos__img">
+         </div>
+         <div class="logos__content">
+            <img src="{% static 'vsb_app/images/logos4.png' %}" alt="" class="logos__img">
+         </div>
+         <div class="logos__content">
+            <img src="{% static 'vsb_app/images/logos5.png' %}" alt="" class="logos__img">
+         </div>
+         <div class="logos__content">
+            <img src="{% static 'vsb_app/images/logos6.png' %}" alt="" class="logos__img">
+         </div>
+      </div>
+   </section>
+   <!-- End Logos Section -->
+
+   <!--Footer Section-->
+   <section class="footer section">
+      <div class="shape shape__big"></div>
+      <div class="shape shape__small"></div>
+      <div class="footer__container container grid">
+         <div class="footer_content">
+            <a href="" class="footer__logo">
+               <i class="ri-steering-fill"></i>VSB-MOTORS
+            </a>
+            <p class="footer__description">
+               We offer the best car of <br> the most recognized brands in <br> the world
+            </p>
+         </div>
+         <div class="footer_content">
+            <h3 class="footer__title">Company</h3>
+            <ul class="footer__links">
+               <li>
+                  <a href="" class="footer__link">About</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Cars</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">History</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Store</a>
+               </li>
+            </ul>
+         </div>
+
+         <div class="footer_content">
+            <h3 class="footer__title">Information</h3>
+            <ul class="footer__links">
+               <li>
+                  <a href="" class="footer__link">Request a quote</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Find a dealer</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Contact Us</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Services</a>
+               </li>
+            </ul>
+         </div>
+
+         <div class="footer_content">
+            <h3 class="footer__title">Follow Us</h3>
+            <ul class="footer__social">
+               <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                  <i class="ri-facebook-fill"></i>
+               </a>
+               <a href="https://www.instagram.com" target="_blank" class="footer__social-link">
+                  <i class="ri-instagram-line"></i>
+               </a>
+               <a href="https://www.twitter.com" target="_blank" class="footer__social-link">
+                  <i class="ri-twitter-line"></i>
+               </a>
+            </ul>
+         </div>
+      </div>
+   </section>
+   <!-- End Footer Section -->
  {% endblock %}
-      <!-- End Footer -->
-   <!-- End inner-conterner -->
-   <!-- ================================================== -->
-   <!-- Placed js files at the end of the document so the pages load faster -->
+
+{% block add_js %}
+       <script src="{% static 'vsb_app/js/swiper-bundle.min.js' %}"></script>
+{% endblock %}
