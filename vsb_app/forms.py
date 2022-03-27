@@ -1,7 +1,9 @@
 import datetime
 
 from django import forms
-from .models import Automobile, ImmaginiAutomobili, Marca, current_year, Concessionaria
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
+from .models import Automobile, ImmaginiAutomobili, Marca, current_year
+
 
 
 def year_choices():
@@ -50,3 +52,12 @@ class ImmaginiAutomobiliForm(forms.ModelForm):
     class Meta:
         model = ImmaginiAutomobili
         fields = ['immagine']
+
+
+class LoginForm(AuthenticationForm):
+    username = UsernameField(widget=forms.TextInput(attrs={'placeholder': 'Email'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+
+    def __init__(self, *args, **kwargs):
+
+        super(LoginForm, self).__init__(*args, **kwargs)

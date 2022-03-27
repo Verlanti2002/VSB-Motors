@@ -1,9 +1,13 @@
+from django.contrib.auth import logout
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import FormView
-from .forms import AutomobileForm, ImmaginiAutomobiliForm
+from .forms import AutomobileForm, ImmaginiAutomobiliForm, LoginForm
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.forms import modelformset_factory
 from .models import ImmaginiAutomobili, Automobile, Concessionaria, CustomUser
 
@@ -18,15 +22,15 @@ class ShopView(ListView):
     model = Automobile
 
 
-class MyTransactionRegistrationsView(TemplateView):
+class MyTransactionRegistrationsView(LoginRequiredMixin, TemplateView):
     template_name = "vsb_app/my_transaction_registrations.html"
 
 
-class MyTransactionSalesView(TemplateView):
+class MyTransactionSalesView(LoginRequiredMixin, TemplateView):
     template_name = "vsb_app/my_transaction_sales.html"
 
 
-class SellMyCarView(TemplateView):
+class SellMyCarView(LoginRequiredMixin, TemplateView):
     template_name = "vsb_app/sell_my_car.html"
     success_url = "/sell_my_car/"
 
@@ -58,8 +62,15 @@ class SellMyCarView(TemplateView):
         return render(request, self.template_name, {'automobile_form': automobile_form, 'image_form': immagine_form})
 
 
-class SignInView(TemplateView):
+class SignInView(LoginView):
     template_name = "vsb_app/sign_in.html"
+    authentication_form = LoginForm
+
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('vsb_app:sign_in')
 
 
 class SignUpView(TemplateView):

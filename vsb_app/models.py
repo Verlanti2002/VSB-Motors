@@ -65,6 +65,7 @@ class Automobile(models.Model):
     numero_proprietari = models.IntegerField()
     prezzo = models.DecimalField(max_digits=10, decimal_places=2)
     cambio = models.CharField(max_length=100, choices=CHANGE_CHOICES, null=True, blank=True)
+    data_registrazione = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return "Automobile: {}".format(self.targa)

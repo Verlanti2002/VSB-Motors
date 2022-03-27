@@ -13,6 +13,7 @@
   </head>
   <body>
     <div class="container">
+        {% comment %}
         {% if error %}
         {% for e in error.values %}
             <div class="alert alert-danger alert-dismissible" role="alert">
@@ -22,6 +23,7 @@
             </div>
         {% endfor %}
         {% endif %}
+        {% endcomment %}
         <div class="forms-container">
             <div class="signin-signup">
               <form class="sign-in-form" method="post">

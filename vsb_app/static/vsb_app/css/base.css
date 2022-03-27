@@ -504,7 +504,6 @@ video{
 =================================================*/
 
 .button {
-  color: #8a8f6a;
   font-size: 11px;
   font-weight: 600;
   padding: 0 40px;
@@ -520,7 +519,6 @@ video{
   text-transform: uppercase;
   text-align: center;
   display: inline-block;
-  border-radius: 2px;
   -webkit-transition: all .15s linear;
   -moz-transition: all .15s linear;
   -o-transition: all .15s linear;

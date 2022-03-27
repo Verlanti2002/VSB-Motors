@@ -102,6 +102,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'vsb_app.CustomUser'
 
+LOGIN_URL = '/sign_in/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/sign_in/'
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
