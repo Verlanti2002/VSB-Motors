@@ -116,7 +116,7 @@ class SignUpView(TemplateView):
 
         if context["error"]:
             return render(request, self.template_name, context)
-        return render(request, 'vsb_app/sign_in.html', context)
+        return redirect('vsb_app:sign_in')
 
 
 class SingleProductView(TemplateView):
