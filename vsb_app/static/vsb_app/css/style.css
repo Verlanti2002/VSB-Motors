@@ -767,9 +767,9 @@
 .features__map{
   max-width: initial;
   display: block;
-  width: 450px;
+  width: 500px;
   position: absolute;
-  right: 37%;
+  right: 25%;
   top: 8rem;
   margin: auto;
   transform: rotate(-22deg);
