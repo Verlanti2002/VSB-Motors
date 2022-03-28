@@ -38,81 +38,116 @@
             </button>
             </div>
     {% endif %}
-    <div class="registration">
+    <div class="container">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <table>
-                <tr>
-                    <td>
+            <h2 class="sell__title">Registrazione Veicolo</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.targa.label_tag }}
                         {{ automobile_form.targa }}
-                    </td>
-                    <td>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.stato.label_tag }}
                         {{ automobile_form.stato }}
-                    </td>
-                    <td>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.marca.label_tag }}
                         {{ automobile_form.marca }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.modello.label_tag }}
                         {{ automobile_form.modello }}
-                    </td>
-                    <td>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.cilindrata.label_tag }}
                         {{ automobile_form.cilindrata }}
-                    </td>
-                    <td>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.cavalli.label_tag }}
                         {{ automobile_form.cavalli }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.anno_produzione.label_tag }}
                         {{ automobile_form.anno_produzione }}
-                    </td>
-                    <td>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.km_percorsi.label_tag }}
                         {{ automobile_form.km_percorsi }}
-                    </td>
-                    <td>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.potenza.label_tag }}
                         {{ automobile_form.potenza }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.carburante.label_tag }}
                         {{ automobile_form.carburante }}
-                    </td>
-                    <td>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.prezzo.label_tag }}
                         {{ automobile_form.prezzo }}
-                    </td>
-                    <td>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.numero_proprietari.label_tag }}
                         {{ automobile_form.numero_proprietari }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ automobile_form.cambio.label_tag }}
                         {{ automobile_form.cambio }}
-                    </td>
-                    <td>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ image_form.immagine.label_tag }}
                         {{ image_form.immagine }}
-                    </td>
-                    <td>
-                        <input type="submit" value="Registra" class="submit">
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </div>
+            </div>
         </form>
+        <input type="submit" value="Registra" class="submit">
     </div>
 {% endblock %}
 {% block add_js %}

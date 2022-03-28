@@ -1,0 +1,130 @@
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+  }
+
+  .vendor__details{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .py-4{
+    color: black;
+  }
+
+  .buy__button{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    width: 10rem;
+    height: 4rem;
+  }
+
+  .buy__button:hover{
+    background-color: black; /* Green */
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+  }
+
+  .sproduct__details{
+    overflow-x: auto;
+    margin-top: 5%;
+  }
+
+  .sproduct__details table{
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .sproduct__details table caption{
+    font-size: 2em;
+    margin: .5em 0 .75em;
+    color: black;
+  }
+
+  .sproduct__details table tr{
+    background-color: #f8f8f8;
+    padding: .35em;
+  }
+
+  .sproduct__details table th,
+  .sproduct__details table td{
+    padding: .625em;
+  }
+
+  .sproduct__details table th{
+    font-size: 1.2em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: black;
+  }
+
+  .sproduct__details .title__details{
+    font-size: 1em;
+    color: black;
+  }
+
+  .sproduct__details .value__details{
+    font-size: 1em;
+    color: gray;
+  }
+
+  @media screen and (max-width: 600px) {
+    .sproduct__details table {
+      border: 0;
+    }
+
+    .sproduct__details table caption {
+      font-size: 1.3em;
+      text-align: center;
+    }
+
+    .sproduct__details table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    .sproduct__details table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+
+    .sproduct__details table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+    }
+
+    .sproduct__details table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .sproduct__details table td:last-child {
+      border-bottom: 0;
+    }
+  }
