@@ -33,6 +33,10 @@ def max_value_current_year(value):
 class Automobile(models.Model):
     FUEL_CHOICES = (
         (None, "Seleziona"),
+        ('Benzina', "Benzina"),
+        ('Gasolio', "Gasolio"),
+        ('GPL', "GPL"),
+        ('Metano', "Metano"),
         ('Hybrid', "Hybrid"),
         ('Elettrico', "Elettrico")
     )
