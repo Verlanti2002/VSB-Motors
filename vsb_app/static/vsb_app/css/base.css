@@ -182,7 +182,7 @@ ul {
 .main-nav .sf-menu li span{
   color: #000;
   padding-left: 10px;
-  font-family: Orbitron;
+  font-family: Orbitron, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-variant: normal;
@@ -196,7 +196,7 @@ ul {
   display: inline-block;
   position: relative;
   color: black;
-  font-family: Orbitron;
+  font-family: Orbitron, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-variant: normal;
@@ -447,7 +447,7 @@ video{
   bottom: 16px;
   opacity: 1;
   font-size: 68px;
-  font-family: Orbitron,sans-serif;
+  font-family: Orbitron, sans-serif;
   content: " ";
 }
 
