@@ -39,30 +39,22 @@
                    <nav id="nav-wrap" class="main-nav">
                       <div id="mobnav-btn"> </div>
                       <ul class="sf-menu">
-                         {% comment %}
                          {% if user.is_authenticated and user.ragione_sociale %}
-                         {% endcomment %}
                              <li>
                                 <a href="{% url 'vsb_app:sell_my_car' %}" class="effect">Sell your car</a>
                              </li>
-                         {% comment %}
                          {% elif user.is_authenticated and not user.ragione_sociale %}
-                         {% endcomment %}
                              <li>
                                 <a href="{% url 'vsb_app:shop' %}" class="effect">Store</a>
                              </li>
-                         {% comment %}
                          {% else %}
-                         {% endcomment %}
                              <li>
                                 <a href="{% url 'vsb_app:sell_my_car' %}" class="effect">Sell your car</a>
                              </li>
                              <li>
                                 <a href="{% url 'vsb_app:shop' %}" class="effect">Store</a>
                              </li>
-                         {% comment %}
                          {% endif %}
-                         {% endcomment %}
                          {% if request.path == '/' %}
                              <li>
                                 <a href="#about" class="effect">About</a>

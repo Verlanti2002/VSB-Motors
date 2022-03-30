@@ -23,11 +23,11 @@ class ShopView(ListView):
 
 
 class MyTransactionRegistrationsView(LoginRequiredMixin, TemplateView):
-    template_name = "vsb_app/my_transaction_registrations.html"
+    template_name = "vsb_app/my_transaction_client.html"
 
 
 class MyTransactionSalesView(LoginRequiredMixin, TemplateView):
-    template_name = "vsb_app/my_transaction_sales.html"
+    template_name = "vsb_app/my_transaction_vendor.html"
 
 
 class SellMyCarView(LoginRequiredMixin, TemplateView):

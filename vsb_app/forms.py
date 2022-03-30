@@ -17,7 +17,7 @@ class AutomobileForm(forms.ModelForm):
     modello = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Inserire il modello'}))
     cavalli = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire i cavalli'}))
     potenza = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire la potenza'}))
-    alimentazione = forms.CharField(widget=forms.TextInput(attrs={'value': 'Elettrico'}))
+    alimentazione = forms.CharField(widget=forms.TextInput(attrs={'value': 'Elettrica'}))
     km_percorsi = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire i kilometri percorsi'}))
     anno_immatricolazione = forms.TypedChoiceField(coerce=int, choices=year_choices, initial=current_year, widget=forms.Select)
     numero_proprietari = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire il numero di proprietari'}))
@@ -28,8 +28,8 @@ class AutomobileForm(forms.ModelForm):
     neopatentato = forms.ChoiceField(choices=Automobile.NEW_DRIVER_CHOICES, widget=forms.Select)
     consumo = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Inserire il consumo'}))
     classe_emissioni = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire la classe di emissione'}))
-    emissioni_CO2 = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire la quantità di emissioni di CO2'}))
     colore = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Inserire il colore'}))
+    trazione = forms.ChoiceField(choices=Automobile.TRACTION_CHOICES, widget=forms.Select)
     carrozzeria = forms.ChoiceField(choices=Automobile.CAR_BODY_CHOICES, widget=forms.Select)
     peso_a_vuoto = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire il peso a vuoto'}))
     porte = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire il numero di porte'}))
@@ -55,8 +55,8 @@ class AutomobileForm(forms.ModelForm):
             "neopatentato",
             "consumo",
             "classe_emissioni",
-            "emissioni_CO2",
             "colore",
+            "trazione",
             "carrozzeria",
             "peso_a_vuoto",
             "porte",

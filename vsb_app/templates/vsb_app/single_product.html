@@ -15,20 +15,20 @@
       <h3 class="py-4">Mercedes-Benz Classe A</h3>
       <div class="row mt-5">
          <div class="col-lg-5 col-md-12 col-12">
-            <img class="img-fluid w-100 pb-1" src="/images/car1.jpg" id="MainImg" alt="">
+            <img class="img-fluid w-100 pb-1" src="{% static 'vsb_app/images/car1.jpg' %}" id="MainImg" alt="">
          </div>
          <div class="small-img-group">
             <div class="small-img-col">
-               <img src="/images/car1.jpg" width="100%" class="small-img" alt="">
+               <img src="{% static 'vsb_app/images/car1.jpg' %}" width="100%" class="small-img" alt="">
             </div>
             <div class="small-img-col">
-               <img src="/images/car1.jpg" width="100%" class="small-img" alt="">
+               <img src="{% static 'vsb_app/images/car1.jpg' %}" width="100%" class="small-img" alt="">
             </div>
             <div class="small-img-col">
-               <img src="/images/car1.jpg" width="100%" class="small-img" alt="">
+               <img src="{% static 'vsb_app/images/car1.jpg' %}" width="100%" class="small-img" alt="">
             </div>
             <div class="small-img-col">
-               <img src="/images/car1.jpg" width="100%" class="small-img" alt="">
+               <img src="{% static 'vsb_app/images/car1.jpg' %}" width="100%" class="small-img" alt="">
             </div>
          </div>
 
@@ -62,28 +62,30 @@
                 <td data-label="Stato"><span class="title__details">Tipo di veicolo:</span> <span class="value__details">Nuovo</span></td>
                 <td data-label="Marca"><span class="title__details">Marca:</span> <span class="value__details">Mercedes-Benz</span></td>
                 <td data-label="Cambio"><span class="title__details">Cambio:</span> <span class="value__details">Automatico</span></td>
-                <td data-label="Alimentazione"><span class="title__details">Alimentazione:</span> <span class="value__details">Diesel</span></td>
+                <td data-label="Alimentazione"><span class="title__details">Alimentazione:</span> <span class="value__details">Elettrica</span></td>
+              </tr>
+              <tr>
+                <td data-label="Tipo di usato"><span class="title__details">Proprietari:</span> <span class="value__details">2</span></td>
+                <td data-label="Modello"><span class="title__details">Modello:</span> <span class="value__details">Classe A</span></td>
+                <td data-label="Marce"><span class="title__details">Marce:</span> <span class="value__details">6</span></td>
+                <td data-label="Consumo"><span class="title__details">Consumo:</span> <span class="value__details">8 km/kwH</span></td>
               </tr>
               <tr>
                 <td data-label="Tipo di usato"><span class="title__details">Tipo di usato:</span> <span class="value__details">Auto aziendale</span></td>
-                <td data-label="Modello"><span class="title__details">Modello:</span> <span class="value__details">Classe A</span></td>
-                <td data-label="Marce"><span class="title__details">Marce:</span> <span class="value__details">6</span></td>
-                <td data-label="Consumo"><span class="title__details">Consumo:</span> <span class="value__details">5.1l/100km</span></td>
-              </tr>
-              <tr>
-                <td></td>
                 <td data-label="Immatricolazione"><span class="title__details">Immatricolazione:</span> <span class="value__details">2020</span></td>
-                <td data-label="Classe emissioni"><span class="title__details">Classe emissioni:</span> <span class="value__details">Euro 4</span></td>
+                <td data-label="Peso a vuoto"><span class="title__details">Peso a vuoto:</span> <span class="value__details">1500 kg</span></td>
+                <td data-label="Classe emissioni"><span class="title__details">Classe emissioni:</span> <span class="value__details">6</span></td>
               </tr>
               <tr>
-                <td></td>
+                <td data-label="Neopatentato"><span class="title__details">Neopatentato:</span> <span class="value__details">No</span></td>
                 <td data-label="Colore"><span class="title__details">Colore:</span> <span class="value__details">Argento</span></td>
+                <td data-label="Trazione"><span class="title__details">Trazione:</span> <span class="value__details">Posteriore</span></td>
                 <td></td>
               </tr>
               <tr>
                <td></td>
                <td data-label="Carrozzeria"><span class="title__details">Carrozzeria:</span> <span class="value__details">Berlina</span></td>
-               <td data-label="Peso a vuoto"><span class="title__details">Peso a vuoto:</span> <span class="value__details">1500 kg</span></td>
+               <td></td>
                <td></td>
              </tr>
              <tr>
@@ -135,9 +137,9 @@
                                  <p class="desc">70 kW</p>
                               </td>
                               <td>
-                                 <h5>Cilindrata</h5>
+                                 <h5>Alimentazione</h5>
                                  <hr class="line">
-                                 <p class="desc">2000 CC</p>
+                                 <p class="desc">Elettrica</p>
                               </td>
                            </tr>
                            <tr>
@@ -193,9 +195,9 @@
                                  <p class="desc">70 kW</p>
                               </td>
                               <td>
-                                 <h5>Cilindrata</h5>
+                                 <h5>Alimentazione</h5>
                                  <hr class="line">
-                                 <p class="desc">2000 CC</p>
+                                 <p class="desc">Elettrica</p>
                               </td>
                            </tr>
                            <tr>
@@ -251,9 +253,9 @@
                                  <p class="desc">70 kW</p>
                               </td>
                               <td>
-                                 <h5>Cilindrata</h5>
+                                 <h5>Alimentazione</h5>
                                  <hr class="line">
-                                 <p class="desc">2000 CC</p>
+                                 <p class="desc">Elettrica</p>
                               </td>
                            </tr>
                            <tr>
@@ -312,9 +314,9 @@
                                  <p class="desc">70 kW</p>
                               </td>
                               <td>
-                                 <h5>Cilindrata</h5>
+                                 <h5>Alimentazione</h5>
                                  <hr class="line">
-                                 <p class="desc">2000 CC</p>
+                                 <p class="desc">Elettrica</p>
                               </td>
                            </tr>
                            <tr>
@@ -370,9 +372,9 @@
                                  <p class="desc">70 kW</p>
                               </td>
                               <td>
-                                 <h5>Cilindrata</h5>
+                                 <h5>Alimentazione</h5>
                                  <hr class="line">
-                                 <p class="desc">2000 CC</p>
+                                 <p class="desc">Elettrica</p>
                               </td>
                            </tr>
                            <tr>
@@ -428,9 +430,9 @@
                                  <p class="desc">70 kW</p>
                               </td>
                               <td>
-                                 <h5>Cilindrata</h5>
+                                 <h5>Alimentazione</h5>
                                  <hr class="line">
-                                 <p class="desc">2000 CC</p>
+                                 <p class="desc">Elettrica</p>
                               </td>
                            </tr>
                            <tr>

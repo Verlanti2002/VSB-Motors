@@ -177,6 +177,91 @@
       </form>
    </div>
 
+    {% comment %}
+    <div class="vehicle_card_row_container">
+      {% for automobile in object_list %}  
+      <div class="vehicle_card">
+        <div class="row">
+           <div class="col">
+           <h3 class="title_car"> {{ automobile.marca }} {{ automobile.modello }} </h3>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col">
+              <a href="{% url 'vsb_app:single_product' %}"><img src="/media/{{automobile.immagini.all.0.immagine}}" alt=""></a>
+           </div>
+        </div>
+        <div class="row">
+            <h3 class="price">€ {{ automobile.prezzo }}</h3>
+        </div>
+        <div class="row row-cols-4 align-items-center">
+           <div class="col-3">
+              <p class="details">Kilometri</p>
+           </div>
+           <div class="col-3">
+              <p class="details">Anno</p>
+           </div>
+           <div class="col-3">
+              <p class="details">Potenza</p>
+           </div>
+           <div class="col-3">
+              <p class="details">Alimentazione</p>
+           </div>
+        </div>
+        <hr>
+        <div class="row row-cols-4 align-items-center">
+           <div class="col-3">
+              <p class="desc">{{ automobile.km_percorsi }} km</p>
+           </div>
+           <div class="col-3 ">
+              <p class="desc">{{ automobile.anno_immatricolazione }} </p>
+           </div>
+           <div class="col-3 ">
+              <p  class="desc">{{ automobile.potenza }} km</p>
+           </div>
+           <div class="col-3 ">
+              <p class="desc">Elettrica</p>
+           </div>
+        </div>
+        <div class="row row-cols-4 align-items-center">
+           <div class="col-3">
+              <p class="details">Cavalli</p>
+           </div>
+           <div class="col-3">
+              <p class="details">Cambio</p>
+           </div>
+           <div class="col-3">
+              <p class="details">Stato</p>
+           </div>
+           <div class="col-3">
+              <p class="details">Proprietari</p>
+           </div>
+        </div>
+        <hr>
+        <div class="row row-cols-4 align-items-center">
+           <div class="col-3">
+              <p class="desc">{{ automobile.prezzo }}</p>
+           </div>
+           <div class="col-3 ">
+              <p class="desc">{{ automobile.cambio }}</p>
+           </div>
+           <div class="col-3 ">
+              <p class="desc">{{ automobile.stato }}</p>
+           </div>
+           <div class="col-3 ">
+              <p class="desc">{{ automobile.numero_proprietari }}</p>
+           </div>
+        </div>
+      </div>
+      {% if forloop.counter|divisibleby:3 %}
+    </div>
+
+    <div class="vehicle_card_row_container">
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    {% endcomment %}
 
 
    <div class="container_card">
@@ -185,7 +270,7 @@
             {% for automobile in object_list %}
             <div class="vehicle_card">
                <h4 class="title_car" id="marca_modello">{{ automobile.marca }} {{ automobile.modello }}</h4>
-               <a href="{% url 'vsb_app:single_product' %}"><img src="/media/{{automobile.immagini.all.0.immagine}}" id="img_car"></a>
+               <a href="{% url 'vsb_app:single_product' %}"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
                <h3 class="price">€ {{ automobile.prezzo }}</h3>
                <table class="details">
                   <tbody>
@@ -193,44 +278,44 @@
                         <td>
                            <h5>Kilometraggio</h5>
                            <hr class="line">
-                           <p name="carburante" class="desc">{{ automobile.km_percorsi }} km</p>
+                           <p class="desc">{{ automobile.km_percorsi }} km</p>
                         </td>
                         <td>
                            <h5>Anno</h5>
                            <hr class="line">
-                           <p name="anno" class="desc">{{ automobile.anno_produzione }}</p>
+                           <p class="desc">{{ automobile.anno_immatricolazione }}</p>
                         </td>
                         <td>
                            <h5>Potenza</h5>
                            <hr class="line">
-                           <p name="potenza" class="desc">{{ automobile.potenza }} kW</p>
+                           <p class="desc">{{ automobile.potenza }} kW</p>
                         </td>
                         <td>
-                           <h5>Cilindrata</h5>
+                           <h5>Alimentazione</h5>
                            <hr class="line">
-                           <p name="cilindrata" class="desc">{{ automobile.cilindrata }} CC</p>
+                           <p class="desc">{{ automobile.alimentazione }}</p>
                         </td>
                      </tr>
                      <tr>
                         <td>
                            <h5>Cavalli</h5>
                            <hr class="line">
-                           <p name="cavalli" class="desc">{{ automobile.cavalli }} CV</p>
+                           <p class="desc">{{ automobile.cavalli }} CV</p>
                         </td>
                         <td>
                            <h5>Cambio</h5>
                            <hr class="line">
-                           <p name="cambio" class="desc">{{ automobile.cambio }}</p>
+                           <p class="desc">{{ automobile.cambio }}</p>
                         </td>
                         <td>
                            <h5>Stato</h5>
                            <hr class="line">
-                           <p name="stato" class="desc">{{ automobile.stato }}</p>
+                           <p class="desc">{{ automobile.stato }}</p>
                         </td>
                         <td>
                            <h5>Proprietario</h5>
                            <hr class="line">
-                           <p name="n_proprietari" class="desc">{{ automobile.numero_proprietari }}</p>
+                           <p class="desc">{{ automobile.numero_proprietari }}</p>
                         </td>
                      </tr>
                   </tbody>

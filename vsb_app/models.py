@@ -57,6 +57,13 @@ class Automobile(models.Model):
         ('No', "No")
     )
 
+    TRACTION_CHOICES = (
+        (None, "Seleziona la trazione"),
+        ('Anteriore', "Anteriore"),
+        ('Posteriore', "Posteriore"),
+        ('Integrale', "Integrale")
+    )
+
     CAR_BODY_CHOICES = (
         (None, "Seleziona la carrozzeria"),
         ('Berlina', "Berlina"),
@@ -83,8 +90,8 @@ class Automobile(models.Model):
     neopatentato = models.CharField(max_length=100, choices=NEW_DRIVER_CHOICES, null=True, blank=True)
     consumo = models.CharField(max_length=100, null=True, blank=True)
     classe_emissioni = models.IntegerField(null=True, blank=True)
-    emissioni_CO2 = models.IntegerField(null=True, blank=True)
     colore = models.CharField(max_length=100, null=True, blank=True)
+    trazione = models.CharField(max_length=100, choices=TRACTION_CHOICES, null=True, blank=True)
     carrozzeria = models.CharField(max_length=100, choices=CAR_BODY_CHOICES, null=True, blank=True)
     peso_a_vuoto = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(1000), MaxValueValidator(2000)])
     porte = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(3), MaxValueValidator(5)])
