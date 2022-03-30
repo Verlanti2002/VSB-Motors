@@ -31,41 +31,64 @@ def max_value_current_year(value):
 
 
 class Automobile(models.Model):
-    FUEL_CHOICES = (
-        (None, "Seleziona"),
-        ('Benzina', "Benzina"),
-        ('Gasolio', "Gasolio"),
-        ('GPL', "GPL"),
-        ('Metano', "Metano"),
-        ('Hybrid', "Hybrid"),
-        ('Elettrico', "Elettrico")
-    )
 
     STATE_CHOICES = (
-        (None, "Seleziona"),
+        (None, "Seleziona lo stato"),
         ('Nuovo', "Nuovo"),
         ('Usato', "Usato")
     )
 
     CHANGE_CHOICES = (
-        (None, "Seleziona"),
+        (None, "Seleziona il cambio"),
         ('Manuale', "Manuale"),
         ('Automatico', "Automatico")
     )
 
+    USED_CHOICES = (
+        (None, "Seleziona la tipologia d'uso"),
+        ('Privato', "Privato"),
+        ('Aziendale', "Aziendale"),
+        ('Iva esposta', "Iva esposta")
+    )
+
+    NEW_DRIVER_CHOICES = (
+        (None, "Seleziona"),
+        ('Si', "Si"),
+        ('No', "No")
+    )
+
+    CAR_BODY_CHOICES = (
+        (None, "Seleziona la carrozzeria"),
+        ('Berlina', "Berlina"),
+        ('Station Wagon', "Station Wagon"),
+        ('SUV', "SUV"),
+        ('Coupè', "Coupè"),
+        ('Cabrio', "Cabrio")
+    )
+
     targa = models.CharField(max_length=7, unique=True)
+    stato = models.CharField(max_length=100, choices=STATE_CHOICES, null=True, blank=True)
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     modello = models.CharField(max_length=100, null=True, blank=True)
-    carburante = models.CharField(max_length=100, choices=FUEL_CHOICES, null=True, blank=True)
-    cilindrata = models.IntegerField()
     cavalli = models.IntegerField()
     potenza = models.IntegerField()
-    stato = models.CharField(max_length=100, choices=STATE_CHOICES, null=True, blank=True)
+    alimentazione = models.CharField(max_length=100, null=True, blank=True)
     km_percorsi = models.IntegerField()
-    anno_produzione = models.IntegerField(validators=[MinValueValidator(1900), max_value_current_year])
+    anno_immatricolazione = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(1950), max_value_current_year])
     numero_proprietari = models.IntegerField()
     prezzo = models.DecimalField(max_digits=10, decimal_places=2)
     cambio = models.CharField(max_length=100, choices=CHANGE_CHOICES, null=True, blank=True)
+    tipologie_di_uso = models.CharField(max_length=100, choices=USED_CHOICES, null=True, blank=True)
+    numero_marce = models.IntegerField(default=5, blank=True, validators=[MinValueValidator(1), MaxValueValidator(6)])
+    neopatentato = models.CharField(max_length=100, choices=NEW_DRIVER_CHOICES, null=True, blank=True)
+    consumo = models.CharField(max_length=100, null=True, blank=True)
+    classe_emissioni = models.IntegerField(null=True, blank=True)
+    emissioni_CO2 = models.IntegerField(null=True, blank=True)
+    colore = models.CharField(max_length=100, null=True, blank=True)
+    carrozzeria = models.CharField(max_length=100, choices=CAR_BODY_CHOICES, null=True, blank=True)
+    peso_a_vuoto = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(1000), MaxValueValidator(2000)])
+    porte = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(3), MaxValueValidator(5)])
+    posti = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(2), MaxValueValidator(5)])
     data_registrazione = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
