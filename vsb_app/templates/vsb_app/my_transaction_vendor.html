@@ -2,259 +2,638 @@
 {% load static %}
 
 {% block title %}
-    MY-TRANSACTION-SALES
+    MY-TRANSACTION-VENDOR
 {% endblock %}
 
 {% block add_css %}
     <link rel="stylesheet" href="{% static 'vsb_app/css/my_transaction_vendor.css' %}">
+    <link rel="stylesheet" href="{% static 'vsb_app/css/style.css' %}">
 {% endblock %}
 {% block main %}
-    <div class="container_card">
-      <div class="products">
-         <div class="vehicle_card_row_container">
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
-               <table class="details">
-                  <tbody>
-                     <tr>
-                        <td>
-                           <h5>Prezzo</h5>
-                           <hr class="line">
-                           <p class="desc">€ 1500</p>
-                        </td>
-                        <td>
-                           <h5>Data di vendita</h5>
-                           <hr class="line">
-                           <p class="desc">16/07/2021</p>
-                        </td>
-                        <td>
-                           <h5>Acquirente</h5>
-                           <hr class="line">
-                           <p class="desc">Verlanti Alessandro</p>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
-               <table class="details">
-                  <tbody>
-                     <tr>
-                        <td>
-                           <h5>Prezzo</h5>
-                           <hr class="line">
-                           <p class="desc">€ 1500</p>
-                        </td>
-                        <td>
-                           <h5>Data di vendita</h5>
-                           <hr class="line">
-                           <p name="anno" class="desc">16/07/2021</p>
-                        </td>
-                        <td>
-                           <h5>Acquirente</h5>
-                           <hr class="line">
-                           <p name="potenza" class="desc">Verlanti Alessandro</p>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-
-            <div class="vehicle_card">
-               <h4 class="title_car" name="marca_modello">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
-               <table class="details">
-                  <tbody>
-                     <tr>
-                        <td>
-                           <h5>Prezzo</h5>
-                           <hr class="line">
-                           <p name="carburante" class="desc">€ 1500</p>
-                        </td>
-                        <td>
-                           <h5>Data di vendita</h5>
-                           <hr class="line">
-                           <p name="anno" class="desc">16/07/2021</p>
-                        </td>
-                        <td>
-                           <h5>Acquirente</h5>
-                           <hr class="line">
-                           <p name="potenza" class="desc">Verlanti Alessandro</p>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
+    <!-- commento : Ho modificato gli attributi di entrambi gli slider con le card, e ho dovuto cambiare anche le larghezze di ogni colonna
+        quindi qui devi copiare entrambi i Slideshow Container -->
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+         <div class="row">
+            <div class="col">
+               <div class="h1" style="margin-bottom:3%;">Auto registrate
+               </div>
             </div>
          </div>
-      </div>
-      <div class="products">
-         <div class="vehicle_card_row_container">
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
-               <table class="details">
-                  <tbody>
-                     <tr>
-                        <td>
-                           <h5>Prezzo</h5>
-                           <hr class="line">
-                           <p class="desc">€ 1500</p>
-                        </td>
-                        <td>
-                           <h5>Data di vendita</h5>
-                           <hr class="line">
-                           <p class="desc">16/07/2021</p>
-                        </td>
-                        <td>
-                           <h5>Acquirente</h5>
-                           <hr class="line">
-                           <p class="desc">Verlanti Alessandro</p>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
 
-            <div class="vehicle_card">
-               <h4 class="title_car" >Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
-               <table class="details">
-                  <tbody>
-                     <tr>
-                        <td>
-                           <h5>Prezzo</h5>
-                           <hr class="line">
-                           <p class="desc">€ 1500</p>
-                        </td>
-                        <td>
-                           <h5>Data di vendita</h5>
-                           <hr class="line">
-                           <p class="desc">16/07/2021</p>
-                        </td>
-                        <td>
-                           <h5>Acquirente</h5>
-                           <hr class="line">
-                           <p class="desc">Verlanti Alessandro</p>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
+         <!-- Full-width images with number and caption text -->
+         <div class="mySlides2">
+            <div class="vehicle_card_row_container">
+               <div class="vehicle_card">
+               <div class="row">
+                  <div class="col-md-12">
+                  <p class="title_car"> Mercedes-Benz Classe A</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-6">
+                     <p class="details">Prezzo</p>
+                  </div>
+                  <div class="col-md-6">
+                     <p class="details">Registrata:</p>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-6">
+                     <p class="desc">€ 1500</p>
+                  </div>
+                  <div class="col-md-6 ">
+                     <p class="desc">16/07/2021</p>
+                  </div>
+               </div>
+               </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car"> Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-6">
+                        <p class="details">Registrata:</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-6 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                  </div>
+                  </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car" > Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-6">
+                        <p class="details">Registrata:</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-6 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                  </div>
+                  </div>
 
-            <div class="vehicle_card">
-               <h4 class="title_car" >Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
-               <table class="details">
-                  <tbody>
-                     <tr>
-                        <td>
-                           <h5>Prezzo</h5>
-                           <hr class="line">
-                           <p class="desc">€ 1500</p>
-                        </td>
-                        <td>
-                           <h5>Data di vendita</h5>
-                           <hr class="line">
-                           <p class="desc">16/07/2021</p>
-                        </td>
-                        <td>
-                           <h5>Acquirente</h5>
-                           <hr class="line">
-                           <p class="desc">Verlanti Alessandro</p>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
             </div>
          </div>
-      </div>
-      <div class="products">
-         <div class="vehicle_card_row_container">
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
-               <table class="details">
-                  <tbody>
-                     <tr>
-                        <td>
-                           <h5>Prezzo</h5>
-                           <hr class="line">
-                           <p class="desc">€ 1500</p>
-                        </td>
-                        <td>
-                           <h5>Data di vendita</h5>
-                           <hr class="line">
-                           <p class="desc">16/07/2021</p>
-                        </td>
-                        <td>
-                           <h5>Acquirente</h5>
-                           <hr class="line">
-                           <p class="desc">Verlanti Alessandro</p>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
+         <div class="mySlides2">
+            <div class="vehicle_card_row_container">
+               <div class="vehicle_card">
+               <div class="row">
+                  <div class="col-md-12">
+                  <p class="title_car" > Mercedes-Benz Classe A</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-6">
+                     <p class="details">Prezzo</p>
+                  </div>
+                  <div class="col-md-6">
+                     <p class="details">Registrata:</p>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-6">
+                     <p class="desc">€ 1500</p>
+                  </div>
+                  <div class="col-md-6 ">
+                     <p class="desc">16/07/2021</p>
+                  </div>
+               </div>
+               </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car" > Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-6">
+                        <p class="details">Registrata:</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-6 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                  </div>
+                  </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car"> Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-6">
+                        <p class="details">Registrata:</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-6 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                  </div>
+                  </div>
 
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
-               <table class="details">
-                  <tbody>
-                     <tr>
-                        <td>
-                           <h5>Prezzo</h5>
-                           <hr class="line">
-                           <p class="desc">€ 1500</p>
-                        </td>
-                        <td>
-                           <h5>Data di vendita</h5>
-                           <hr class="line">
-                           <p class="desc">16/07/2021</p>
-                        </td>
-                        <td>
-                           <h5>Acquirente</h5>
-                           <hr class="line">
-                           <p class="desc">Verlanti Alessandro</p>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-
-            <div class="vehicle_card">
-               <h4 class="title_car" >Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"></a>
-               <table class="details">
-                  <tbody>
-                     <tr>
-                        <td>
-                           <h5>Prezzo</h5>
-                           <hr class="line">
-                           <p class="desc">€ 1500</p>
-                        </td>
-                        <td>
-                           <h5>Data di vendita</h5>
-                           <hr class="line">
-                           <p class="desc">16/07/2021</p>
-                        </td>
-                        <td>
-                           <h5>Acquirente</h5>
-                           <hr class="line">
-                           <p class="desc">Verlanti Alessandro</p>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
             </div>
          </div>
+         <div class="mySlides2">
+            <div class="vehicle_card_row_container">
+               <div class="vehicle_card">
+               <div class="row">
+                  <div class="col-md-12">
+                  <p class="title_car"> Mercedes-Benz Classe A</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"  alt=""></a>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-6">
+                     <p class="details">Prezzo</p>
+                  </div>
+                  <div class="col-md-6">
+                     <p class="details">Registrata:</p>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-6">
+                     <p class="desc">€ 1500</p>
+                  </div>
+                  <div class="col-md-6 ">
+                     <p class="desc">16/07/2021</p>
+                  </div>
+               </div>
+               </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car" > Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-6">
+                        <p class="details">Registrata:</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-6 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                  </div>
+                  </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car" > Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"  alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-6">
+                        <p class="details">Registrata:</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-6">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-6 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                  </div>
+                  </div>
+
+            </div>
+         </div>
+
+         <!-- Next and previous buttons -->
+         <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+         <a class="next" onclick="plusSlides2(1)">&#10095;</a>
       </div>
-   </div>
+
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+         <div class="row">
+            <div class="col">
+               <div class="h1" style=margin-bottom:3%;">Auto vendute
+               </div>
+            </div>
+         </div>
+   <!-- Full-width images with number and caption text -->
+         <div class="mySlides">
+            <div class="vehicle_card_row_container">
+               <div class="vehicle_card">
+               <div class="row">
+                  <div class="col-md-12">
+                  <p class="title_car" > Mercedes-Benz Classe A</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-4">
+                     <p class="details">Prezzo</p>
+                  </div>
+                  <div class="col-md-4">
+                     <p class="details">Venduta:</p>
+                  </div>
+                  <div class="col-md-4">
+                     <p class="details">Acquirente</p>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-4">
+                     <p class="desc">€ 1500</p>
+                  </div>
+                  <div class="col-md-4 ">
+                     <p class="desc">16/07/2021</p>
+                  </div>
+                  <div class="col-md-4 ">
+                     <p class="desc">Verlanti Alessandro</p>
+                  </div>
+               </div>
+               </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car"> Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Venduta:</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Acquirente</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">Verlanti Alessandro</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car" > Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Venduta:</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Acquirente</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">Verlanti Alessandro</p>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+         <div class="mySlides">
+            <div class="vehicle_card_row_container">
+               <div class="vehicle_card">
+               <div class="row">
+                  <div class="col-md-12">
+                  <p class="title_car" > Mercedes-Benz Classe A</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"  alt=""></a>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-4">
+                     <p class="details">Prezzo</p>
+                  </div>
+                  <div class="col-md-4">
+                     <p class="details">Venduta:</p>
+                  </div>
+                  <div class="col-md-4">
+                     <p class="details">Acquirente</p>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-4">
+                     <p class="desc">€ 1500</p>
+                  </div>
+                  <div class="col-md-4 ">
+                     <p class="desc">16/07/2021</p>
+                  </div>
+                  <div class="col-md-4 ">
+                     <p class="desc">Verlanti Alessandro</p>
+                  </div>
+               </div>
+               </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car" > Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"  alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Venduta:</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Acquirente</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">Verlanti Alessandro</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car" > Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Venduta:</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Acquirente</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">Verlanti Alessandro</p>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+         <div class="mySlides">
+            <div class="vehicle_card_row_container">
+               <div class="vehicle_card">
+               <div class="row">
+                  <div class="col-md-12">
+                  <p class="title_car" > Mercedes-Benz Classe A</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"  alt=""></a>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-4">
+                     <p class="details">Prezzo</p>
+                  </div>
+                  <div class="col-md-4">
+                     <p class="details">Venduta:</p>
+                  </div>
+                  <div class="col-md-4">
+                     <p class="details">Acquirente</p>
+                  </div>
+               </div>
+               <div class="row   align-items-center">
+                  <div class="col-md-4">
+                     <p class="desc">€ 1500</p>
+                  </div>
+                  <div class="col-md-4 ">
+                     <p class="desc">16/07/2021</p>
+                  </div>
+                  <div class="col-md-4 ">
+                     <p class="desc">Verlanti Alessandro</p>
+                  </div>
+               </div>
+               </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car"> Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}"  alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Venduta:</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Acquirente</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">Verlanti Alessandro</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="vehicle_card">
+                  <div class="row">
+                     <div class="col-md-12">
+                     <p class="title_car"> Mercedes-Benz Classe A</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" alt=""></a>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="details">Prezzo</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Venduta:</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="details">Acquirente</p>
+                     </div>
+                  </div>
+                  <div class="row   align-items-center">
+                     <div class="col-md-4">
+                        <p class="desc">€ 1500</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">16/07/2021</p>
+                     </div>
+                     <div class="col-md-4 ">
+                        <p class="desc">Verlanti Alessandro</p>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+         <!-- Next and previous buttons -->
+         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
 {% endblock %}
 {% block add_js %}
-
+    <script src="{% static 'vsb_app/js/slider-carousel.js' %}"></script>
+    <script src="{% static 'vsb_app/js/slider-carousel2.js' %}"></script>
 {% endblock %}

@@ -427,7 +427,8 @@ video{
 }
 
 .title-un-icon {
-  color: #8a8f6a;
+  /*color: #8a8f6a;*/
+  color: black;
   text-align: center;
   display: block;
   font-size: 30px;

@@ -1,0 +1,29 @@
+{% extends 'vsb_app/base.html' %}
+{% load static %}
+
+{% block title %}
+    STORE
+{% endblock %}
+
+{% block add_css %}
+    <link rel="stylesheet" href="{% static 'vsb_app/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'vsb_app/css/style.css' %}">
+{% endblock %}
+
+{% block main %}
+
+    {% if user.concessionaria.ragione_sociale %}
+    {% comment %}
+    container profilo concessionaria
+    {% endcomment %}
+    {% else %}
+    {% comment %}
+    container profilo acquirente
+    {% endcomment %}
+    {% endif %}
+
+{% endblock %}
+
+{% block add_js %}
+
+{% endblock %}

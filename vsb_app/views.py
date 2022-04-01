@@ -22,11 +22,11 @@ class ShopView(ListView):
     model = Automobile
 
 
-class MyTransactionRegistrationsView(LoginRequiredMixin, TemplateView):
+class MyTransactionClientView(LoginRequiredMixin, TemplateView):
     template_name = "vsb_app/my_transaction_client.html"
 
 
-class MyTransactionSalesView(LoginRequiredMixin, TemplateView):
+class MyTransactionVendorView(LoginRequiredMixin, TemplateView):
     template_name = "vsb_app/my_transaction_vendor.html"
 
 
@@ -65,6 +65,10 @@ class SellMyCarView(LoginRequiredMixin, TemplateView):
 class SignInView(LoginView):
     template_name = "vsb_app/sign_in.html"
     authentication_form = LoginForm
+
+
+class ProfileView(TemplateView):
+    template_name = "vsb_app/profile.html"
 
 
 @login_required

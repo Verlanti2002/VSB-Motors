@@ -176,10 +176,14 @@ select{
   margin-right: 30px;
   padding-left: 10px;
   margin-top: 20px;
-  font-family: sans-serif;
   border: none;
   background: transparent;
   border-bottom: 1px solid white;
+  font-family: Orbitron, sans-serif;
+}
+
+select option{
+  font-family: Orbitron, sans-serif;
 }
 
 input::placeholder {

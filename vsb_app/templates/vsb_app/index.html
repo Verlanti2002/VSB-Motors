@@ -47,7 +47,7 @@
          <div class="row">
             <div class="col-md-12">
                <h3 class="title-un">CHI SIAMO?</h3>
-               <div class="title-un-icon"><i class="fa ion-ios-flame-outline"></i></div>
+               <div class="title-un-icon"><i class="ri-leaf-fill"></i></div>
                <p class="title-un-des">VSB-Motors è una piattaforma online che salvaguardia l'ambiente, permette alle concessionarie di inserire annunci per la vendita delle loro automobili elettriche e gli
                   acquirenti, visualizzando questi annunci, possano finalmente trovare l'auto da loro sempre desiderata, sostentendo allo stesso tempo l'ambiente!
                </p>
@@ -63,12 +63,7 @@
                   <div class="service-info">
                      <h5>VENDORS</h5>
                      <div class="desc">
-                        Le migliori concessionarie d'Italia sono registrate proprio qui da noi, corri a vederle cliccando l'immagine!
-                        <br>
-                        <a class="see-more" href="#">
-                     See More &rarr;
-                     <div class="line"></div>
-                  </a>
+                        Le migliori concessionarie d'Italia sono registrate proprio qui da noi, corri nella sezione Negozio per vedere le loro auto!
                      </div>
                   </div>
                </div>
@@ -84,10 +79,6 @@
                      <h5>VSB-MOTORS</h5>
                      <div class="desc">
                         Il tuo intermediario di fiducia, ti permetterà finalmente di trovare l'auto dei tuoi sogni!
-                        <a class="see-more" href="#">
-                     See More &rarr;
-                     <div class="line"></div>
-                  </a>
                      </div>
                   </div>
                </div>
@@ -103,8 +94,6 @@
                      <h5>CLIENT</h5>
                      <div class="desc">
                         Clienti da tutto il mondo visitano la nostra piattaforma, il gioco è semplice e veloce corri nel nostro Store e divertiti!
-                        <br>
-                        <a class="see-more" href="#">See More &rarr;<div class="line"></div></a>
                      </div>
                   </div>
                </div>
@@ -126,12 +115,12 @@
 
          <div class="about__data">
             <h2 class="section__title about__title">
-               Machines With <br> Future Technology
+               Le automobili con la <br> Tecnologia del Futuro
             </h2>
             <p class="about__description">
-               See the future with high-performance electric cars produced by renowed brands. They feature futuristic builds and designs with new and innovative platforms that last a long time.
+                Guarda il futuro con le auto elettriche ad alte prestazioni prodotte da marchi rinomati. Presentano build e design futuristici con piattaforme nuove e innovative che durano a lungo.
             </p>
-            <a href="shop.html" class="button__about" >KNOW MORE</a>
+            <a href="shop.html" class="button__about" >SCOPRI DI PIU</a>
          </div>
       </div>
    </section>
@@ -387,7 +376,7 @@
     <!--Features Section-->
    <section class="features section">
       <h2 class="features__title">
-         More Features
+         Le Nuove Funzionalità
       </h2>
       <div class="features__container container">
          <div class="features__group">
@@ -417,15 +406,14 @@
 
          <div class="offer__data">
             <h2 class="section__title offer__title">
-               Do you Want to Receive <br> Special Offers?
+               Vuoi ricevere <br> Offerte Speciali?
             </h2>
 
             <p class="offer__description">
-               Be the first to receive all the information about our products and new cars by email by subscribing to our mailing list
-            </p>
+                Così da essere il primo a ricevere tutte le informazioni sui nostri prodotti e le auto nuove via e-mail</p>
 
-            <a href="" class="offer__button">
-               SUBSCRIBE NOW
+            <a href="{% url 'vsb_app:sign_up' %}" class="offer__button">
+               ISCRIVITI ORA
             </a>
          </div>
          <img src="{% static 'vsb_app/images/offer.png' %}" alt="" class="offer__img">
@@ -444,98 +432,6 @@
       </video>
    </center>
    <!--End Video -->
-
-   <!--Logos Section -->
-   <section class="logos section">
-      <div class="logos__container container grid">
-         <div class="logos__content">
-             <a href="https://www.porsche.com/italy/" target="_blank"><img src="{% static 'vsb_app/images/logos1.png' %}" alt="" class="logos__img"></a>
-         </div>
-         <div class="logos__content">
-             <a href="https://www.audi.it/it/web/it.html" target="_blank"><img src="{% static 'vsb_app/images/logos2.png' %}" alt="" class="logos__img"></a>
-         </div>
-         <div class="logos__content">
-             <a href="https://www.tesla.com/it_it" target="_blank"><img src="{% static 'vsb_app/images/logos3.png' %}" alt="" class="logos__img"></a>
-         </div>
-         <div class="logos__content">
-             <a href="https://www.lamborghini.com/it-en" target="_blank"><img src="{% static 'vsb_app/images/logos4.png' %}" alt="" class="logos__img"></a>
-         </div>
-         <div class="logos__content">
-             <a href="https://www.bmw.it/it/home.html" target="_blank"><img src="{% static 'vsb_app/images/logos5.png' %}" alt="" class="logos__img"></a>
-         </div>
-         <div class="logos__content">
-             <a href="https://www.mitsubishi-motors.it/" target="_blank"><img src="{% static 'vsb_app/images/logos6.png' %}" alt="" class="logos__img"></a>
-         </div>
-      </div>
-   </section>
-   <!-- End Logos Section -->
-
-   <!--Footer Section-->
-   <section class="footer section">
-      <div class="shape shape__big"></div>
-      <div class="shape shape__small"></div>
-      <div class="footer__container container grid">
-         <div class="footer_content">
-            <a href="" class="footer__logo">
-               <i class="ri-steering-fill"></i>VSB-MOTORS
-            </a>
-            <p class="footer__description">
-               We offer the best car of <br> the most recognized brands in <br> the world
-            </p>
-         </div>
-         <div class="footer_content">
-            <h3 class="footer__title">Company</h3>
-            <ul class="footer__links">
-               <li>
-                  <a href="" class="footer__link">About</a>
-               </li>
-               <li>
-                  <a href="" class="footer__link">Cars</a>
-               </li>
-               <li>
-                  <a href="" class="footer__link">History</a>
-               </li>
-               <li>
-                  <a href="" class="footer__link">Store</a>
-               </li>
-            </ul>
-         </div>
-
-         <div class="footer_content">
-            <h3 class="footer__title">Information</h3>
-            <ul class="footer__links">
-               <li>
-                  <a href="" class="footer__link">Request a quote</a>
-               </li>
-               <li>
-                  <a href="" class="footer__link">Find a dealer</a>
-               </li>
-               <li>
-                  <a href="" class="footer__link">Contact Us</a>
-               </li>
-               <li>
-                  <a href="" class="footer__link">Services</a>
-               </li>
-            </ul>
-         </div>
-
-         <div class="footer_content">
-            <h3 class="footer__title">Follow Us</h3>
-            <ul class="footer__social">
-               <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
-                  <i class="ri-facebook-fill"></i>
-               </a>
-               <a href="https://www.instagram.com" target="_blank" class="footer__social-link">
-                  <i class="ri-instagram-line"></i>
-               </a>
-               <a href="https://www.twitter.com" target="_blank" class="footer__social-link">
-                  <i class="ri-twitter-line"></i>
-               </a>
-            </ul>
-         </div>
-      </div>
-   </section>
-   <!-- End Footer Section -->
 
  {% endblock %}
 
