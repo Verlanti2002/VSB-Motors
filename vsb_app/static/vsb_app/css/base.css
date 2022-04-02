@@ -10,12 +10,10 @@ html {
 ::-webkit-scrollbar{
   width: 1rem;
   background-color: hsl(219, 4%, 16%);
-  border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb{
   background-color: hsl(230, 3%, 36%);
-  border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb:hover{

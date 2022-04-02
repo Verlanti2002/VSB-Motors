@@ -316,7 +316,7 @@
 .button__about{
   display: inline-block;
   background-color: hsl(219, 69%, 56%);
-  color: black;
+  color: white;
   padding: 1rem 2rem;
   border-radius: .25rem;
   transition: .3s;
@@ -549,7 +549,7 @@
 
 .offer__button{
   background-color: hsl(219, 69%, 56%);
-  color: black;
+  color: white;
   padding: 1rem 2rem;
   border-radius: .25rem;
   font-size: 14px;

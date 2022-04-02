@@ -8,22 +8,92 @@
 {% block add_css %}
     <link rel="stylesheet" href="{% static 'vsb_app/css/profile.css' %}">
     <link rel="stylesheet" href="{% static 'vsb_app/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Orbitron" />
 {% endblock %}
 
 {% block main %}
 
     {% if user.concessionaria.ragione_sociale %}
-    {% comment %}
-    container profilo concessionaria
-    {% endcomment %}
+        <div class="profile__container">
+          <table>
+              <tr>
+                  <td>
+                      <section>
+                          <label for="fileToUpload">
+                          <i class="fa fa-camera"></i>
+                          <input type="file" id="fileToUpload" style="visibility:hidden;" accept=".png,.jpg,jpeg,.PNG,.JPEG" name="fileToUpload" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                          </label>
+                          <img src="https://i.ibb.co/yNGW4gg/avatar.png" id="blah" alt="Avatar">
+                      </section>
+                      <h1>Schiatti Class</h1>
+                      <h3>Concessionaria</h3>
+                  </td>
+                  <td>
+                      <ul class="profile__list">
+                          <li class="link__profile"><b>Ragione sociale</b> <input type="text" name="ragione_sociale" id="ragione_sociale" maxlength="100" value="Schiatti Class" required /> <i class="fa fa-edit" id="edit1" onclick="document.getElementById('ragione_sociale').style.pointerEvents='auto';document.getElementById('ragione_sociale').focus();this.style.display='none'; document.getElementById('check1').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check1" onclick="document.getElementById('edit1').style.display='inline-block';this.style.display='none';document.getElementById('ragione_sociale').style.pointerEvents='none';"></i></li>
+                          <li class="link__profile"><b>Partita IVA</b> <input type="text" name="partita_iva" id="partita_iva" maxlength="11" value="15789632549" required /> <i class="fa fa-edit" id="edit2" onclick="document.getElementById('partita_iva').style.pointerEvents='auto';document.getElementById('partita_iva').focus();this.style.display='none'; document.getElementById('check2').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check2" onclick="document.getElementById('edit2').style.display='inline-block';this.style.display='none';document.getElementById('partita_iva').style.pointerEvents='none';"></i></li>
+                          <li class="link__profile"><b>Indirizzo</b> <input type="text" name="indirizzo" id="indirizzo" maxlength="100" value="Viale dell'industria" required /> <i class="fa fa-edit" id="edit3" onclick="document.getElementById('indirizzo').style.pointerEvents='auto';document.getElementById('indirizzo').focus();this.style.display='none'; document.getElementById('check3').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check3" onclick="document.getElementById('edit3').style.display='inline-block';document.getElementById('indirizzo').style.pointerEvents='none';this.style.display='none';"></i></li>
+                          <li class="link__profile"><b>Città</b> <input type="text" name="citta" id="citta" maxlength="150" value="Carpi" required /><i class="fa fa-edit" id="edit4" onclick="document.getElementById('citta').style.pointerEvents='auto';document.getElementById('citta').focus();this.style.display='none'; document.getElementById('check4').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check4" onclick="document.getElementById('edit4').style.display='inline-block';document.getElementById('citta').style.pointerEvents='none';this.style.display='none';"></i></li>
+                          <li class="link__profile"><b>Telefono</b> <input type="tel" name="telefono" id="telefono" maxlength="10" value="0522694155" required /> <i class="fa fa-edit" id="edit5" onclick="document.getElementById('telefono').style.pointerEvents='auto';document.getElementById('telefono').focus();this.style.display='none'; document.getElementById('check5').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check5" onclick="document.getElementById('edit5').style.display='inline-block';document.getElementById('telefono').style.pointerEvents='none';this.style.display='none';"></i></li>
+                          <li class="link__profile"><b>Email</b> <input type="email" name="email" id="email" maxlength="150" value="schiatti.class@gmail.com" required /><i class="fa fa-edit" id="edit6" onclick="document.getElementById('email').style.pointerEvents='auto';document.getElementById('email').focus();this.style.display='none'; document.getElementById('check6').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check6" onclick="document.getElementById('edit6').style.display='inline-block';document.getElementById('email').style.pointerEvents='none';this.style.display='none';"></i></li>
+                          <li class="link__profile"><b>Password</b> <input type="password" name="password" id="password" maxlength="150" value="" required /><i class="fa fa-edit" id="edit7" onclick="document.getElementById('password').style.pointerEvents='auto';document.getElementById('password').focus();this.style.display='none'; document.getElementById('check7').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check7" onclick="document.getElementById('edit7').style.display='inline-block';document.getElementById('password').style.pointerEvents='none';this.style.display='none';"></i></li>
+                          <button class="btn" style="width:100px;">AGGIORNA</button>
+                          <button class="btn" style="width:100px;">RIPRISTINA</button>
+                      </ul>
+                  </td>
+              </tr>
+          </table>
+        </div>
     {% else %}
-    {% comment %}
-    container profilo acquirente
-    {% endcomment %}
+        <div class="profile__container">
+            <table>
+                <tr>
+                    <td>
+                        <section>
+                            <label for="fileToUpload">
+                            <i class="fa fa-camera"></i>
+                            <input type="file" id="fileToUpload" style="visibility:hidden;" accept=".png,.jpg,jpeg,.PNG,.JPEG" name="fileToUpload" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                            </label>
+                            <img src="https://i.ibb.co/yNGW4gg/avatar.png" id="blah" alt="Avatar">
+                        </section>
+                        <h1>Alessandro Verlanti</h1>
+                        <h3>Cliente</h3>
+                    </td>
+                    <td>
+                        <ul class="profile__list">
+                            <li class="link__profile"><b>Nome</b> <input type="text" name="nome" id="nome" maxlength="100" value="Alessandro" required /> <i class="fa fa-edit" id="edit1" onclick="document.getElementById('nome').style.pointerEvents='auto';document.getElementById('nome').focus();this.style.display='none'; document.getElementById('check1').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check1" onclick="document.getElementById('edit1').style.display='inline-block';this.style.display='none';document.getElementById('nome').style.pointerEvents='none';"></i></li>
+                            <li class="link__profile"><b>Cognome</b> <input type="text" name="cognome" id="cognome" maxlength="100" value="Verlanti" required /> <i class="fa fa-edit" id="edit2" onclick="document.getElementById('cognome').style.pointerEvents='auto';document.getElementById('cognome').focus();this.style.display='none'; document.getElementById('check2').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check2" onclick="document.getElementById('edit2').style.display='inline-block';this.style.display='none';document.getElementById('cognome').style.pointerEvents='none';"></i></li>
+                            <li class="link__profile"><b>Telefono</b> <input type="tel" name="telefono" id="telefono" maxlength="10" value="3468906478" required /> <i class="fa fa-edit" id="edit3" onclick="document.getElementById('telefono').style.pointerEvents='auto';document.getElementById('telefono').focus();this.style.display='none'; document.getElementById('check3').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check3" onclick="document.getElementById('edit3').style.display='inline-block';document.getElementById('telefono').style.pointerEvents='none';this.style.display='none';"></i></li>
+                            <li class="link__profile"><b>Email</b> <input type="email" name="email" id="email" maxlength="150" value="verlanti2002@gmail.com" required /><i class="fa fa-edit" id="edit4" onclick="document.getElementById('email').style.pointerEvents='auto';document.getElementById('email').focus();this.style.display='none'; document.getElementById('check4').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check4" onclick="document.getElementById('edit4').style.display='inline-block';document.getElementById('email').style.pointerEvents='none';this.style.display='none';"></i></li>
+                            <li class="link__profile"><b>Password</b> <input type="password" name="password" id="password" maxlength="150" value="" required /><i class="fa fa-edit" id="edit5" onclick="document.getElementById('password').style.pointerEvents='auto';document.getElementById('password').focus();this.style.display='none'; document.getElementById('check5').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check5" onclick="document.getElementById('edit5').style.display='inline-block';document.getElementById('password').style.pointerEvents='none';this.style.display='none';"></i></li>
+                            <li><button class="btn" style="width:100px;">AGGIORNA</button></li>
+                            <li><button class="btn" style="width:100px;">RIPRISTINA</button></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
     {% endif %}
 
 {% endblock %}
 
 {% block add_js %}
+    <!--JAVASCRIPT-->
+    <script>
+        function editdetails2(){
+        }
+
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+    </script>
 
 {% endblock %}
