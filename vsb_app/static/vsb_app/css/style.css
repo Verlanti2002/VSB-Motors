@@ -32,7 +32,7 @@
 	filter: grayscale(100%);
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .service-img img:hover {
@@ -773,4 +773,28 @@
   top: 8rem;
   margin: auto;
   transform: rotate(-22deg);
+}
+
+.clip__container{
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.clip__img{
+  width: 50%;
+  height:auto;
+  clip-path: polygon(24% 0, 100% 0%, 71% 100%, 0% 100%);
+}
+
+.description__container{
+  text-align: center;
+  color: grey;
+  padding: 50px;
+  border-radius: 10px;
+  width: 30%;
+  height: 10%;
+  margin-top: 7%;
+  font-size: 20px;
 }

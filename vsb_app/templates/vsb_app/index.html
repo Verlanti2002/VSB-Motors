@@ -16,25 +16,31 @@
          <div class="fs_loader"></div>
          <div class="slide">
             <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/background1.jpg' %}" alt="Slide">
+            {% comment %}
             <img data-position="155,554" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e1.png' %}" alt="">
             <img data-position="185,430" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e2.png' %}" alt="">
             <img data-position="236,449" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e3.png' %}" alt="">
             <img data-position="322,468" data-delay="1400" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e4.png' %}" alt="">
             <img data-position="384,446" data-delay="1800" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/e5.png' %}" alt="">
+            {% endcomment %}
          </div>
          <div class="slide">
             <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/background2.jpg' %}" alt="Slide">
+            {% comment %}
             <img data-position="108,282" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e1.png' %}" alt="">
             <img data-position="262,131" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e2.png' %}" alt="">
             <img data-position="322,202" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e3.png' %}" alt="">
             <img data-position="369,60" data-delay="1400" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e4.png' %}" alt="">
+            {% endcomment %}
          </div>
          <div class="slide">
             <img data-fixed class="slide-bg" src="{% static 'vsb_app/images/background3.jpg' %}" alt="Slide">
-             <img data-position="93,505" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/deer.png' %}" alt="">
+            {% comment %}
+            <img data-position="93,505" data-delay="300" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/deer.png' %}" alt="">
             <img data-position="263,274" data-delay="600" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s3e1.png' %}" alt="">
             <img data-position="338,316" data-delay="1000" data-in="fade" data-out="fade" src="{% static 'vsb_app/images/slider/s2e4.png' %}" alt="">
             <a data-position="440,485" data-delay="1500" data-in="fade" data-out="fade" class="button white-color">Purchase Now </a>
+            {% endcomment %}
          </div>
       </div>
    </div>
@@ -61,7 +67,7 @@
                      <img src="{% static 'vsb_app/images/sas.jpg' %}" alt="">
                   </div>
                   <div class="service-info">
-                     <h5>VENDORS</h5>
+                     <h5>CONCESSIONARIA</h5>
                      <div class="desc">
                         Le migliori concessionarie d'Italia sono registrate proprio qui da noi, corri nella sezione Negozio per vedere le loro auto!
                      </div>
@@ -73,7 +79,7 @@
                <!-- Service item -->
                <div class="service-box-sb wow fadeInUp" data-wow-delay=".2s">
                   <div class="service-img">
-                     <img src="{% static 'vsb_app/images/sasa.jpg' %}" alt="">
+                     <img src="{% static 'vsb_app/images/intermediario2.jpg' %}" alt="">
                   </div>
                   <div class="service-info">
                      <h5>VSB-MOTORS</h5>
@@ -91,7 +97,7 @@
                      <img src="{% static  'vsb_app/images/sasaa.jpg' %}" alt="">
                   </div>
                   <div class="service-info">
-                     <h5>CLIENT</h5>
+                     <h5>CLIENTE</h5>
                      <div class="desc">
                         Clienti da tutto il mondo visitano la nostra piattaforma, il gioco è semplice e veloce corri nel nostro Store e divertiti!
                      </div>
@@ -421,7 +427,19 @@
    </section>
    <!-- End Offer Section -->
 
+    <!-- Clip Image Section -->
+   <section class="clip section">
+      <div class="clip__container">
+         <img src="{% static 'vsb_app/images/tesla_internal.jpg' %}" alt="" class="clip__img">
+         <div class="description__container" style="text-align: center;">
+            <h1 style="color: black;">Gli Interni del Futuro</h1>
+            <br>
+            <p>Ecco i nuovi interni futuristici della meravigliosa Tesla Model S, <br> acquistabile ora direttamente dal nostro negozio!</p>
+         </div>
+      </div>
+   </section>
 
+    <!-- End Clip Image Section -->
 
    <!-- Video -->
    <center>
