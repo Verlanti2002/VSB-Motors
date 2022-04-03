@@ -783,7 +783,7 @@
 }
 
 .clip__img{
-  width: 50%;
+  width: 100%;
   height:auto;
   clip-path: polygon(24% 0, 100% 0%, 71% 100%, 0% 100%);
 }
