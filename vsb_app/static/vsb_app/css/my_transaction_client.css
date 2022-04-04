@@ -27,7 +27,8 @@
   /*border: 1px solid rgb(0, 60, 255);*/
   margin: 0px;
   margin-right: 2px;
-  font-size: .8em;
+  font-size: 1em;
+  color: grey;
 }
 
 .vehicle_card:hover{
@@ -38,7 +39,7 @@
 .details{
   /*border: 1px solid salmon;*/
   display: block;
-  font-size: .8em;
+  font-size: 1em;
   font-weight: bold;
 }
 

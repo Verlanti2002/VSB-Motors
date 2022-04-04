@@ -185,49 +185,49 @@
             <div class="vehicle_card">
                <h4 class="title_car" id="marca_modello">{{ automobile.marca }} {{ automobile.modello }}</h4>
                <a href="{% url 'vsb_app:single_product' %}"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
-               <h4>€ {{ automobile.prezzo }}</h4>
+               <h3>€ {{ automobile.prezzo }}</h3>
                <table class="details">
                   <tbody>
                      <tr>
                         <td>
-                           <h5>Kilometraggio</h5>
+                           <h6>Kilometraggio</h6>
                            <hr class="line">
                            <p class="desc">{{ automobile.km_percorsi }} KM</p>
                         </td>
                         <td>
-                           <h5>Anno</h5>
+                           <h6>Anno</h6>
                            <hr class="line">
                            <p class="desc">{{ automobile.anno_immatricolazione }}</p>
                         </td>
                         <td>
-                           <h5>Potenza</h5>
+                           <h6>Potenza</h6>
                            <hr class="line">
                            <p class="desc">{{ automobile.potenza }} KW</p>
                         </td>
                         <td>
-                           <h5>Alimentazione</h5>
+                           <h6>Alimentazione</h6>
                            <hr class="line">
                            <p class="desc">{{ automobile.alimentazione }}</p>
                         </td>
                      </tr>
                      <tr>
                         <td>
-                           <h5>Cavalli</h5>
+                           <h6>Cavalli</h6>
                            <hr class="line">
                            <p class="desc">{{ automobile.cavalli }} CV</p>
                         </td>
                         <td>
-                           <h5>Cambio</h5>
+                           <h6>Cambio</h6>
                            <hr class="line">
                            <p class="desc">{{ automobile.cambio }}</p>
                         </td>
                         <td>
-                           <h5>Stato</h5>
+                           <h6>Stato</h6>
                            <hr class="line">
                            <p class="desc">{{ automobile.stato }}</p>
                         </td>
                         <td>
-                           <h5>Proprietario</h5>
+                           <h6>Proprietario</h6>
                            <hr class="line">
                            <p class="desc">{{ automobile.numero_proprietari }}</p>
                         </td>
