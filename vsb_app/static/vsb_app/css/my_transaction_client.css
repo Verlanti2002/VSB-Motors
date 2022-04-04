@@ -18,7 +18,7 @@
   -o-transition: all 0.3s 0s ease-in;
   transition: all 0.3s 0s ease-in;
   padding: 1% 1% 1% 1%;
-  box-shadow: 0 20px 30px rgba(0,0,0,.1);
+  box-shadow: 0 20px 30px rgba(0,0,0,.2);
   margin-bottom: 3%;
 
 }
