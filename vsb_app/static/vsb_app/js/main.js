@@ -83,7 +83,7 @@
     sr.reveal('.title__clip')
     sr.reveal('.popular__container, .section__title', {origin: 'left'})
     sr.reveal('.about__group, .offer__data, .clip__img', {origin: 'left'})
-    sr.reveal('.about__data, .offer__img', {origin: 'right'})
+    sr.reveal('.about__data, .offer__img, .description__container', {origin: 'right'})
     sr.reveal('.features__title')
     sr.reveal('.features__img')
     sr.reveal('.features__map, .paragraph__clip', {delay: 600, origin: 'bottom'})

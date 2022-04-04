@@ -9,7 +9,7 @@
 }
 .vehicle_card{
   height: auto;
-  width: 25%;
+  width: 24%;
   /*border: 1px solid red;*/
   border-radius: 10px;
   background-color: white;
@@ -27,6 +27,7 @@
   /*border: 1px solid rgb(0, 60, 255);*/
   margin: 0px;
   margin-right: 2px;
+  font-size: .7em;
 }
 
 .vehicle_card:hover{
@@ -37,6 +38,8 @@
 .details{
   /*border: 1px solid salmon;*/
   display: block;
+  font-size: .7em;
+  font-weight: bold;
 }
 
 .col{
@@ -51,4 +54,8 @@
 
 .h1{
   text-align: center;
+}
+
+.title_car{
+  font-weight: bold;
 }

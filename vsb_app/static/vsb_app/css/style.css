@@ -783,18 +783,19 @@
 }
 
 .clip__img{
-  width: 100%;
+  width: 50%;
   height:auto;
   clip-path: polygon(24% 0, 100% 0%, 71% 100%, 0% 100%);
 }
 
 .description__container{
   text-align: center;
-  color: grey;
+  color: lightgrey;
   padding: 50px;
-  border-radius: 10px;
   width: 30%;
   height: 10%;
   margin-top: 7%;
-  font-size: 20px;
+  font-size: 14px;
+  background-color: black;
+  border-radius: 10px;
 }
