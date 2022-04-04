@@ -74,6 +74,8 @@ h5{
   -o-transition: all 0.3s 0s ease-in;
   transition: all 0.3s 0s ease-in;
   padding: 1% 1% 1% 1%;
+  box-shadow: 0 20px 30px rgba(0,0,0,.1);
+
 }
 
 .desc{
@@ -94,7 +96,7 @@ h5{
 .line{
   border-top: 1px solid black;
   margin-top: 5px;
-  }
+}
 
 .details h5{
   margin-right: 10px;

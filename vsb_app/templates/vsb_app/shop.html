@@ -185,14 +185,14 @@
             <div class="vehicle_card">
                <h4 class="title_car" id="marca_modello">{{ automobile.marca }} {{ automobile.modello }}</h4>
                <a href="{% url 'vsb_app:single_product' %}"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" id="img_car"></a>
-               <h3 class="price">€ {{ automobile.prezzo }}</h3>
+               <h4>€ {{ automobile.prezzo }}</h4>
                <table class="details">
                   <tbody>
                      <tr>
                         <td>
                            <h5>Kilometraggio</h5>
                            <hr class="line">
-                           <p class="desc">{{ automobile.km_percorsi }} km</p>
+                           <p class="desc">{{ automobile.km_percorsi }} KM</p>
                         </td>
                         <td>
                            <h5>Anno</h5>
@@ -202,7 +202,7 @@
                         <td>
                            <h5>Potenza</h5>
                            <hr class="line">
-                           <p class="desc">{{ automobile.potenza }} kW</p>
+                           <p class="desc">{{ automobile.potenza }} KW</p>
                         </td>
                         <td>
                            <h5>Alimentazione</h5>
