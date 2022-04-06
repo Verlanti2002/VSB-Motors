@@ -3,4 +3,3 @@ venv/
 __pycache__/
 static_cdn/
 media_cdn/
-db.sqlite3/
