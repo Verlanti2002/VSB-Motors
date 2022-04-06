@@ -103,11 +103,13 @@ form.sign-in-form {
 }
 
 #sign-up-btn:hover{
-  background-color: red;
+  background-color: white;
+  color: black;
 }
 
 #sign-in-btn:hover{
-  background-color: red;
+  background-color: white;
+  color: black;
 }
 
 .btn {
@@ -126,7 +128,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: red;
+  background-color: #4CAF50;
 }
 
 .panels-container {

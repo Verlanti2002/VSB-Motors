@@ -73,22 +73,21 @@
                          <li class="has-children" style="width: 10%; height: auto;">
                             <h2 class="user_icon"><i class="bi bi-person-circle" style="cursor: pointer;"></i></h2>
                             <ul class="dropdown" style="border-top: 3px solid black;">
-                                <li>
-                                    <a href="{% url 'vsb_app:profile' %}">IL MIO PROFILO</a>
-                                </li>
-                               <li class="has-children">
-                                      {% if user.is_authenticated and user.concessionaria.ragione_sociale %}
-                                        <a href="{% url 'vsb_app:my_transaction_vendor' %}">LE MIE TRANSAZIONI</a>
-                                      {% else %}
-                                        <a href="{% url 'vsb_app:my_transaction_client' %}">LE MIE TRANSAZIONI</a>
-                                      {% endif %}
-                                </li>
-                               {% if not user.is_authenticated %}
-                                <li><a href="{% url 'vsb_app:sign_in' %}">REGISTRAZIONE</a></li>
-                                <li><a href="{% url 'vsb_app:sign_up' %}">LOGIN</a></li>
-                               {% else %}
-                                   <li><a href="{% url 'vsb_app:logout' %}">LOG OUT</a></li>
+                                {% if not user.is_authenticated %}
+                                    <li><a href="{% url 'vsb_app:sign_in' %}">REGISTRAZIONE</a></li>
+                                    <li><a href="{% url 'vsb_app:sign_up' %}">LOGIN</a></li>
                                {% endif %}
+                               <li class="has-children">
+                                  {% if user.is_authenticated %}
+                                      <li><a href="{% url 'vsb_app:profile' %}">IL MIO PROFILO</a></li>
+                                      {% if user.concessionaria.ragione_sociale %}
+                                          <li><a href="{% url 'vsb_app:my_transaction_vendor' %}">LE MIE TRANSAZIONI</a></li>
+                                      {% else %}
+                                          <li><a href="{% url 'vsb_app:my_transaction_client' %}">LE MIE TRANSAZIONI</a></li>
+                                      {% endif %}
+                                      <li><a href="{% url 'vsb_app:logout' %}">LOG OUT</a></li>
+                                  {% endif %}
+                               </li>
                             </ul>
                          </li>
                       </ul>

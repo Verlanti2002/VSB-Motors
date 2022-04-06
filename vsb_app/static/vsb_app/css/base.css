@@ -7,7 +7,7 @@ html {
   width: 100%;
 }
 
-::-webkit-scrollbar{
+/*::-webkit-scrollbar{
   width: 1rem;
   background-color: hsl(219, 4%, 16%);
 }
@@ -18,7 +18,7 @@ html {
 
 ::-webkit-scrollbar-thumb:hover{
   background-color: hsl(219, 4%, 32%);
-}
+}*/
 
 body {
   font-family: Orbitron, sans-serif;

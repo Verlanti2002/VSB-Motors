@@ -48,6 +48,10 @@ b{
 
 .btn-reset {
     background-color: red;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 .fa{
@@ -73,7 +77,6 @@ b{
     padding:40px;
     /*background-color:#000;*/
     color:#fff;
-    vertical-align:top;
 }
 
 .profile__container table td:nth-child(1){
@@ -111,6 +114,7 @@ b{
     width:200px;
     height:200px;
     border-radius:50%;
+    border: 3px solid white;
 }
 
 .profile__container table td h3{
