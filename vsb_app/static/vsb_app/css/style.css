@@ -768,7 +768,7 @@
   display: block;
   width: 500px;
   position: absolute;
-  right: 35%;
+  right: 30%;
   top: 8rem;
   margin: auto;
   transform: rotate(-22deg);
@@ -797,4 +797,7 @@
   font-size: 14px;
   background-color: black;
   border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.60), 0 6px 20px 0 rgba(0, 0, 0, 0.60);
 }
+
+
