@@ -79,10 +79,12 @@
                                {% endif %}
                                <li class="has-children">
                                   {% if user.is_authenticated %}
-                                      <li><a href="{% url 'vsb_app:profile' %}">IL MIO PROFILO</a></li>
-                                      {% if user.concessionaria.ragione_sociale %}
+                                      {% if not request.path == 'profile/' %}
+                                          <li><a href="{% url 'vsb_app:profile' %}">IL MIO PROFILO</a></li>
+                                      {% endif %}
+                                      {% if user.concessionaria.ragione_sociale and not request.path == 'my_transaction_vendor/'  %}
                                           <li><a href="{% url 'vsb_app:my_transaction_vendor' %}">LE MIE TRANSAZIONI</a></li>
-                                      {% else %}
+                                      {% elif not user.concessionaria.ragione_sociale and not request.path == 'my_transaction_client/' %}
                                           <li><a href="{% url 'vsb_app:my_transaction_client' %}">LE MIE TRANSAZIONI</a></li>
                                       {% endif %}
                                       <li><a href="{% url 'vsb_app:logout' %}">LOG OUT</a></li>
