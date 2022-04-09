@@ -918,12 +918,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #428bca;
+  color: white;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #2a6496; 
+  color: black;
 }
 a:focus {
   outline: thin dotted;

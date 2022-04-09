@@ -81,6 +81,7 @@
     sr.reveal('.col-md-12')
     sr.reveal('.video')
     sr.reveal('.title__clip')
+    sr.reveal('.content')
     sr.reveal('.popular__container, .section__title', {origin: 'left'})
     sr.reveal('.about__group, .offer__data, .clip__img', {origin: 'left'})
     sr.reveal('.about__data, .offer__img, .description__container', {origin: 'right'})

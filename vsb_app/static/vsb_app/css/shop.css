@@ -81,12 +81,6 @@ h6{
   box-shadow: 0 20px 30px rgba(0,0,0,0.2);
 }
 
-.desc{
-  /*border: 1px solid rgb(0, 60, 255);*/
-  margin-right: 2px;
-  color: grey;
-}
-
 .vehicle_card:hover{
   box-shadow: 0 12px 16px 0 rgb(0,0,0,0.30), 0 17px 50px 0 rgba(0,0,0,0.30);
   background-color: #ffffff6e;
@@ -108,8 +102,9 @@ h6{
 
 .details .desc{
   margin-right: 10px;
-  font-family: sans-serif;
-  font-size: 13px;
+  font-family: Orbitron, sans-serif;
+  font-size: 12px;
+  color: grey;
 }
 
 .details tr td{

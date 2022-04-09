@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path, include
 from .views import HomepageView, ShopView, SellMyCarView, SignInView, SignUpView, SingleProductView, \
-    MyTransactionClientView, MyTransactionVendorView, logout_view, ProfileView
+    logout_view, ProfileView, MyTransactionsView
 
 app_name = "vsb_app"
 
@@ -23,11 +23,10 @@ urlpatterns = [
     path('', HomepageView.as_view(), name="homepage"),
     path('shop/', ShopView.as_view(), name="shop"),
     path('sell_my_car/', SellMyCarView.as_view(), name="sell_my_car"),
-    path('my_transaction_client/', MyTransactionClientView.as_view(), name="my_transaction_client"),
-    path('my_transaction_vendor', MyTransactionVendorView.as_view(), name="my_transaction_vendor"),
+    path('my_transactions/', MyTransactionsView.as_view(), name="my_transactions"),
     path('sign_in/', SignInView.as_view(), name="sign_in"),
     path('logout/', logout_view, name='logout'),
     path('sign_up/', SignUpView.as_view(), name="sign_up"),
-    path('single_product/', SingleProductView.as_view(), name="single_product"),
+    path('single_product/<int:pk>/', SingleProductView.as_view(), name="single_product"),
     path('profile/', ProfileView.as_view(), name="profile")
 ]

@@ -12,36 +12,32 @@
 {% endblock %}
 {% block main %}
     <section class="container sproduct my-5 pt-5">
-      <h3 class="py-4">Mercedes-Benz Classe A</h3>
+      <h3 class="py-4">{{ object.marca }} {{ object.modello }}</h3>
       <div class="row mt-5">
          <div class="col-lg-5 col-md-12 col-12">
-            <img class="img-fluid w-100 pb-1" src="{% static 'vsb_app/images/car1.jpg' %}" id="MainImg" alt="">
+            <img class="img-fluid w-100 pb-1" src="{{ automobile.immagini.all.0.immagine.url }}" id="MainImg" alt="">
          </div>
          <div class="small-img-group">
-            <div class="small-img-col">
-               <img src="{% static 'vsb_app/images/car1.jpg' %}" width="100%" class="small-img" alt="">
-            </div>
-            <div class="small-img-col">
-               <img src="{% static 'vsb_app/images/car1.jpg' %}" width="100%" class="small-img" alt="">
-            </div>
-            <div class="small-img-col">
-               <img src="{% static 'vsb_app/images/car1.jpg' %}" width="100%" class="small-img" alt="">
-            </div>
-            <div class="small-img-col">
-               <img src="{% static 'vsb_app/images/car1.jpg' %}" width="100%" class="small-img" alt="">
-            </div>
+            {% for image in automobile.immagini.all %}
+                <div class="small-img-col">
+                   <img src="{{ image.immagine.url }}" width="100%" class="small-img" alt="">
+                </div>
+            {% endfor %}
          </div>
 
          <div class="col-lg-6 col-md-12 col-12">
-            <h2 class="sproduct_price">€ 1500</h2>
+            <h2 class="sproduct_price">€ {{ object.prezzo|floatformat }}</h2>
             <h4 class="mt-5" style="font-family: Orbitron, sans-serif;">IN VENDITA DA:</h4>
             <div class="vendor__details">
-               <span class="vendor_name">Schiatti Class</span>
-               <span class="vendor_number">0521459617</span>
-               <span class="vendor_email">schiatti.class@gmail.com</span>
+               <span class="vendor_name">{{ object.concessionaria.ragione_sociale }}</span>
+               <span class="vendor_number">{{object.concessionaria.user.telefono }}</span>
+               <span class="vendor_email">{{ object.concessionaria.user.email }}</span>
             </div>
             <div style="margin-top: 2.8%;">
-               <button class="buy__button">ORDINA</button>
+               <form method="post">
+                   {% csrf_token %}
+                    <input type="submit" class="buy__button" value="ORDINA">
+               </form>
             </div>
          </div>
       </div>
@@ -59,44 +55,44 @@
             </thead>
             <tbody>
               <tr>
-                <td data-label="Stato"><span class="title__details">Tipo di veicolo:</span> <span class="value__details">Nuovo</span></td>
-                <td data-label="Marca"><span class="title__details">Marca:</span> <span class="value__details">Mercedes-Benz</span></td>
-                <td data-label="Cambio"><span class="title__details">Cambio:</span> <span class="value__details">Automatico</span></td>
-                <td data-label="Alimentazione"><span class="title__details">Alimentazione:</span> <span class="value__details">Elettrica</span></td>
+                <td data-label="Stato"><span class="title__details">Tipo di veicolo:</span> <span class="value__details">{{ object.stato }}</span></td>
+                <td data-label="Marca"><span class="title__details">Marca:</span> <span class="value__details">{{ object.marca }}</span></td>
+                <td data-label="Cambio"><span class="title__details">Cambio:</span> <span class="value__details">{{ object.cambio }}</span></td>
+                <td data-label="Alimentazione"><span class="title__details">Alimentazione:</span> <span class="value__details">{{ object.alimentazione }}</span></td>
               </tr>
               <tr>
-                <td data-label="Tipo di usato"><span class="title__details">Proprietari:</span> <span class="value__details">2</span></td>
-                <td data-label="Modello"><span class="title__details">Modello:</span> <span class="value__details">Classe A</span></td>
-                <td data-label="Marce"><span class="title__details">Marce:</span> <span class="value__details">6</span></td>
-                <td data-label="Consumo"><span class="title__details">Consumo:</span> <span class="value__details">8 km/kwH</span></td>
+                <td data-label="Tipo di usato"><span class="title__details">Proprietari:</span> <span class="value__details">{{ object.numero_proprietari }}</span></td>
+                <td data-label="Modello"><span class="title__details">Modello:</span> <span class="value__details">{{ object.modello}}</span></td>
+                <td data-label="Marce"><span class="title__details">Marce:</span> <span class="value__details">{{ object.numero_marce }}</span></td>
+                <td data-label="Consumo"><span class="title__details">Consumo:</span> <span class="value__details">{{ object.consumo }} km/kwH</span></td>
               </tr>
               <tr>
-                <td data-label="Tipo di usato"><span class="title__details">Tipo di usato:</span> <span class="value__details">Auto aziendale</span></td>
-                <td data-label="Immatricolazione"><span class="title__details">Immatricolazione:</span> <span class="value__details">2020</span></td>
-                <td data-label="Peso a vuoto"><span class="title__details">Peso a vuoto:</span> <span class="value__details">1500 kg</span></td>
-                <td data-label="Classe emissioni"><span class="title__details">Classe emissioni:</span> <span class="value__details">6</span></td>
+                <td data-label="Tipo di usato"><span class="title__details">Tipo di usato:</span> <span class="value__details">{{ object.tipologie_di_uso }}</span></td>
+                <td data-label="Immatricolazione"><span class="title__details">Immatricolazione:</span> <span class="value__details">{{ object.anno_immatricolazione }}</span></td>
+                <td data-label="Peso a vuoto"><span class="title__details">Peso a vuoto:</span> <span class="value__details">{{ object.peso_a_vuoto }} kg</span></td>
+                <td data-label="Classe emissioni"><span class="title__details">Classe emissioni:</span> <span class="value__details">Euro {{ object.classe_emissioni }}</span></td>
               </tr>
               <tr>
-                <td data-label="Neopatentato"><span class="title__details">Neopatentato:</span> <span class="value__details">No</span></td>
-                <td data-label="Colore"><span class="title__details">Colore:</span> <span class="value__details">Argento</span></td>
-                <td data-label="Trazione"><span class="title__details">Trazione:</span> <span class="value__details">Posteriore</span></td>
+                <td data-label="Neopatentato"><span class="title__details">Neopatentato:</span> <span class="value__details">{{ object.neopatentato }}</span></td>
+                <td data-label="Colore"><span class="title__details">Colore:</span> <span class="value__details">{{ object.colore }}</span></td>
+                <td data-label="Trazione"><span class="title__details">Trazione:</span> <span class="value__details">{{ object.trazione }}</span></td>
                 <td></td>
               </tr>
               <tr>
                <td></td>
-               <td data-label="Carrozzeria"><span class="title__details">Carrozzeria:</span> <span class="value__details">Berlina</span></td>
+               <td data-label="Carrozzeria"><span class="title__details">Carrozzeria:</span> <span class="value__details">{{ object.carrozzeria }}</span></td>
                <td></td>
                <td></td>
              </tr>
              <tr>
                <td></td>
-               <td data-label="Porte"><span class="title__details">Porte:</span> <span class="value__details">5</span></td>
+               <td data-label="Porte"><span class="title__details">Porte:</span> <span class="value__details">{{ object.porte }}</span></td>
                <td></td>
                <td></td>
              </tr>
              <tr>
                <td></td>
-               <td data-label="Posti"><span class="title__details">Posti:</span> <span class="value__details">5</span></td>
+               <td data-label="Posti"><span class="title__details">Posti:</span> <span class="value__details">{{ object.posti }}</span></td>
                <td></td>
                <td></td>
              </tr>
@@ -105,365 +101,94 @@
       </div>
    </section>
 
-   <div class="container text-center mt-5 py-5" style="margin-top: 5%;">
-      <h3 style="color: black;">Prodotti Correlati</h3>
-      <hr class="mx-auto" style="border-top: 1px solid black;">
-   </div>
-   <div class="container_card">
-      <div class="products">
-         <div class="vehicle_card_row_container">
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" class="image"></a>
-               <div class="overlay">
-                  <div class="text">
-                     <h3 class="price">€ 1500</h3>
-                     <table class="details">
-                        <tbody>
-                           <tr>
-                              <td>
-                                 <h5>Kilometraggio</h5>
-                                 <hr class="line">
-                                 <p class="desc">0 KM</p>
-                              </td>
-                              <td>
-                                 <h5>Anno</h5>
-                                 <hr class="line">
-                                 <p class="desc">2007</p>
-                              </td>
-                              <td>
-                                 <h5>Potenza</h5>
-                                 <hr class="line">
-                                 <p class="desc">70 KW</p>
-                              </td>
-                              <td>
-                                 <h5>Alimentazione</h5>
-                                 <hr class="line">
-                                 <p class="desc">Elettrica</p>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>
-                                 <h5>Cavalli</h5>
-                                 <hr class="line">
-                                 <p class="desc">250 CV</p>
-                              </td>
-                              <td>
-                                 <h5>Cambio</h5>
-                                 <hr class="line">
-                                 <p class="desc">Manuale</p>
-                              </td>
-                              <td>
-                                 <h5>Stato</h5>
-                                 <hr class="line">
-                                 <p class="desc">Nuovo</p>
-                              </td>
-                              <td>
-                                 <h5>Proprietario</h5>
-                                 <hr class="line">
-                                 <p class="desc">2</p>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-            </div>
+   {% if automobili_correlate %}
+       <div class="container text-center mt-5 py-5" style="margin-top: 5%;">
+          <h3 style="color: black;">Prodotti Correlati</h3>
+          <hr class="mx-auto" style="border-top: 1px solid black;">
+       </div>
+        <div class="container_card">
+          <div class="products">
+             <div class="vehicle_card_row_container">
+                {% for automobile in object_list %}
+                <div class="vehicle_card">
+                   <h4 class="title_car" id="marca_modello">{{ automobile.marca }} {{ automobile.modello }}</h4>
+                   <a href="{% url 'vsb_app:single_product' automobile.pk %}"><img src="{{ automobile.immagini.all.0.immagine.url }}" id="img_car"></a>
+                   <h3>€ {{ automobile.prezzo }}</h3>
+                   <table class="details">
+                      <tbody>
+                         <tr>
+                            <td>
+                               <h6>Kilometraggio</h6>
+                               <hr class="line">
+                               <p class="desc">{{ automobile.km_percorsi }} KM</p>
+                            </td>
+                            <td>
+                               <h6>Anno</h6>
+                               <hr class="line">
+                               <p class="desc">{{ automobile.anno_immatricolazione }}</p>
+                            </td>
+                            <td>
+                               <h6>Potenza</h6>
+                               <hr class="line">
+                               <p class="desc">{{ automobile.potenza }} KW</p>
+                            </td>
+                            <td>
+                               <h6>Alimentazione</h6>
+                               <hr class="line">
+                               <p class="desc">{{ automobile.alimentazione }}</p>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td>
+                               <h6>Cavalli</h6>
+                               <hr class="line">
+                               <p class="desc">{{ automobile.cavalli }} CV</p>
+                            </td>
+                            <td>
+                               <h6>Cambio</h6>
+                               <hr class="line">
+                               <p class="desc">{{ automobile.cambio }}</p>
+                            </td>
+                            <td>
+                               <h6>Stato</h6>
+                               <hr class="line">
+                               <p class="desc">{{ automobile.stato }}</p>
+                            </td>
+                            <td>
+                               <h6>Proprietario</h6>
+                               <hr class="line">
+                               <p class="desc">{{ automobile.numero_proprietari }}</p>
+                            </td>
+                         </tr>
+                      </tbody>
+                   </table>
+                </div>
 
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" class="image"></a>
-               <div class="overlay">
-                  <div class="text">
-                     <h3 class="price">€ 1500</h3>
-                     <table class="details">
-                        <tbody>
-                           <tr>
-                              <td>
-                                 <h5>Kilometraggio</h5>
-                                 <hr class="line">
-                                 <p class="desc">0 KM</p>
-                              </td>
-                              <td>
-                                 <h5>Anno</h5>
-                                 <hr class="line">
-                                 <p class="desc">2007</p>
-                              </td>
-                              <td>
-                                 <h5>Potenza</h5>
-                                 <hr class="line">
-                                 <p class="desc">70 KW</p>
-                              </td>
-                              <td>
-                                 <h5>Alimentazione</h5>
-                                 <hr class="line">
-                                 <p class="desc">Elettrica</p>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>
-                                 <h5>Cavalli</h5>
-                                 <hr class="line">
-                                 <p class="desc">250 CV</p>
-                              </td>
-                              <td>
-                                 <h5>Cambio</h5>
-                                 <hr class="line">
-                                 <p class="desc">Manuale</p>
-                              </td>
-                              <td>
-                                 <h5>Stato</h5>
-                                 <hr class="line">
-                                 <p class="desc">Nuovo</p>
-                              </td>
-                              <td>
-                                 <h5>Proprietario</h5>
-                                 <hr class="line">
-                                 <p class="desc">2</p>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-            </div>
+                {% if forloop.counter|divisibleby:3 %}
+             </div>
+          </div>
+          <div class="products">
+             <div class="vehicle_card_row_container">
+                {% endif %}
+                {% endfor %}
+             </div>
+          </div>
+       </div>
+   {% endif %}
 
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" class="image"></a>
-               <div class="overlay">
-                  <div class="text">
-                     <h3 class="price">€ 1500</h3>
-                     <table class="details">
-                        <tbody>
-                           <tr>
-                              <td>
-                                 <h5>Kilometraggio</h5>
-                                 <hr class="line">
-                                 <p class="desc">0 KM</p>
-                              </td>
-                              <td>
-                                 <h5>Anno</h5>
-                                 <hr class="line">
-                                 <p class="desc">2007</p>
-                              </td>
-                              <td>
-                                 <h5>Potenza</h5>
-                                 <hr class="line">
-                                 <p class="desc">70 KW</p>
-                              </td>
-                              <td>
-                                 <h5>Alimentazione</h5>
-                                 <hr class="line">
-                                 <p class="desc">Elettrica</p>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>
-                                 <h5>Cavalli</h5>
-                                 <hr class="line">
-                                 <p class="desc">250 CV</p>
-                              </td>
-                              <td>
-                                 <h5>Cambio</h5>
-                                 <hr class="line">
-                                 <p class="desc">Manuale</p>
-                              </td>
-                              <td>
-                                 <h5>Stato</h5>
-                                 <hr class="line">
-                                 <p class="desc">Nuovo</p>
-                              </td>
-                              <td>
-                                 <h5>Proprietario</h5>
-                                 <hr class="line">
-                                 <p class="desc">2</p>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="products">
-         <div class="vehicle_card_row_container">
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" class="image"></a>
-               <div class="overlay">
-                  <div class="text">
-                     <h3 class="price">€ 1500</h3>
-                     <table class="details">
-                        <tbody>
-                           <tr>
-                              <td>
-                                 <h5>Kilometraggio</h5>
-                                 <hr class="line">
-                                 <p class="desc">0 KM</p>
-                              </td>
-                              <td>
-                                 <h5>Anno</h5>
-                                 <hr class="line">
-                                 <p class="desc">2007</p>
-                              </td>
-                              <td>
-                                 <h5>Potenza</h5>
-                                 <hr class="line">
-                                 <p class="desc">70 KW</p>
-                              </td>
-                              <td>
-                                 <h5>Alimentazione</h5>
-                                 <hr class="line">
-                                 <p class="desc">Elettrica</p>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>
-                                 <h5>Cavalli</h5>
-                                 <hr class="line">
-                                 <p class="desc">250 CV</p>
-                              </td>
-                              <td>
-                                 <h5>Cambio</h5>
-                                 <hr class="line">
-                                 <p class="desc">Manuale</p>
-                              </td>
-                              <td>
-                                 <h5>Stato</h5>
-                                 <hr class="line">
-                                 <p class="desc">Nuovo</p>
-                              </td>
-                              <td>
-                                 <h5>Proprietario</h5>
-                                 <hr class="line">
-                                 <p class="desc">2</p>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-            </div>
+{% endblock %}
+{% block add_js %}
+    <script>
+      var MainImg = document.getElementById('MainImg');
+      var smallimg = document.getElementsByClassName('small-img');
 
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" class="image"></a>
-               <div class="overlay">
-                  <div class="text">
-                     <h3 class="price">€ 1500</h3>
-                     <table class="details">
-                        <tbody>
-                           <tr>
-                              <td>
-                                 <h5>Kilometraggio</h5>
-                                 <hr class="line">
-                                 <p class="desc">0 KM</p>
-                              </td>
-                              <td>
-                                 <h5>Anno</h5>
-                                 <hr class="line">
-                                 <p class="desc">2007</p>
-                              </td>
-                              <td>
-                                 <h5>Potenza</h5>
-                                 <hr class="line">
-                                 <p class="desc">70 KW</p>
-                              </td>
-                              <td>
-                                 <h5>Alimentazione</h5>
-                                 <hr class="line">
-                                 <p class="desc">Elettrica</p>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>
-                                 <h5>Cavalli</h5>
-                                 <hr class="line">
-                                 <p class="desc">250 CV</p>
-                              </td>
-                              <td>
-                                 <h5>Cambio</h5>
-                                 <hr class="line">
-                                 <p class="desc">Manuale</p>
-                              </td>
-                              <td>
-                                 <h5>Stato</h5>
-                                 <hr class="line">
-                                 <p class="desc">Nuovo</p>
-                              </td>
-                              <td>
-                                 <h5>Proprietario</h5>
-                                 <hr class="line">
-                                 <p class="desc">2</p>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-            </div>
+      var image_auto_len = parseInt("{{ automobile.immagini.all|length }}");
 
-            <div class="vehicle_card">
-               <h4 class="title_car">Mercedes-Benz Classe A</h4>
-               <a href="single_product.html"><img src="{% static 'vsb_app/images/sfondo_sell.jpg' %}" class="image"></a>
-               <div class="overlay">
-                  <div class="text">
-                     <h3 class="price">€ 1500</h3>
-                     <table class="details">
-                        <tbody>
-                           <tr>
-                              <td>
-                                 <h5>Kilometraggio</h5>
-                                 <hr class="line">
-                                 <p class="desc">0 KM</p>
-                              </td>
-                              <td>
-                                 <h5>Anno</h5>
-                                 <hr class="line">
-                                 <p class="desc">2007</p>
-                              </td>
-                              <td>
-                                 <h5>Potenza</h5>
-                                 <hr class="line">
-                                 <p class="desc">70 KW</p>
-                              </td>
-                              <td>
-                                 <h5>Alimentazione</h5>
-                                 <hr class="line">
-                                 <p class="desc">Elettrica</p>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>
-                                 <h5>Cavalli</h5>
-                                 <hr class="line">
-                                 <p class="desc">250 CV</p>
-                              </td>
-                              <td>
-                                 <h5>Cambio</h5>
-                                 <hr class="line">
-                                 <p class="desc">Manuale</p>
-                              </td>
-                              <td>
-                                 <h5>Stato</h5>
-                                 <hr class="line">
-                                 <p class="desc">Nuovo</p>
-                              </td>
-                              <td>
-                                 <h5>Proprietario</h5>
-                                 <hr class="line">
-                                 <p class="desc">2</p>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
+      for(let i=0; i< image_auto_len; i++) {
+          smallimg[i].onclick = function () {
+              MainImg.src = smallimg[i].src;
+          }
+      }
 
+   </script>
 {% endblock %}

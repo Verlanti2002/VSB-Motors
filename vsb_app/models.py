@@ -10,6 +10,19 @@ from django.utils import timezone
 from .managers import CustomUserManager
 
 
+class CustomUser(AbstractUser):
+    username = None
+    email = models.EmailField(unique=True)
+    telefono = models.CharField(max_length=100, null=True, blank=True)
+    is_client = models.BooleanField(default=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+    objects = CustomUserManager()
+
+    def __str__(self):
+        return self.email
+
+
 # Create your models here.
 class Marca(models.Model):
     nome = models.CharField(max_length=100, null=False, unique=True)
@@ -20,6 +33,21 @@ class Marca(models.Model):
     class Meta:
         db_table = "vsb_app_marca"
         verbose_name_plural = "marche"
+
+
+class Concessionaria(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    ragione_sociale = models.CharField(max_length=100, unique=True)
+    partita_IVA = models.CharField(max_length=11, unique=True)
+    indirizzo = models.CharField(max_length=100, null=True, blank=True)
+    citta = models.CharField(max_length=100, null=True, blank=True)
+
+    def __str__(self):
+        return "Concessionaria: {}".format(self.ragione_sociale)
+
+    class Meta:
+        db_table = "vsb_app_concessionaria"
+        verbose_name_plural = "concessionarie"
 
 
 def current_year():
@@ -52,7 +80,7 @@ class Automobile(models.Model):
     )
 
     NEW_DRIVER_CHOICES = (
-        (None, "Seleziona"),
+        (None, "Neopatentato"),
         ('Si', "Si"),
         ('No', "No")
     )
@@ -81,7 +109,9 @@ class Automobile(models.Model):
     potenza = models.IntegerField()
     alimentazione = models.CharField(max_length=100, null=True, blank=True)
     km_percorsi = models.IntegerField()
-    anno_immatricolazione = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(1950), max_value_current_year])
+    anno_immatricolazione = models.IntegerField(null=True, blank=True, validators=[
+        MinValueValidator(1950), max_value_current_year
+    ])
     numero_proprietari = models.IntegerField()
     prezzo = models.DecimalField(max_digits=10, decimal_places=2)
     cambio = models.CharField(max_length=100, choices=CHANGE_CHOICES, null=True, blank=True)
@@ -93,10 +123,14 @@ class Automobile(models.Model):
     colore = models.CharField(max_length=100, null=True, blank=True)
     trazione = models.CharField(max_length=100, choices=TRACTION_CHOICES, null=True, blank=True)
     carrozzeria = models.CharField(max_length=100, choices=CAR_BODY_CHOICES, null=True, blank=True)
-    peso_a_vuoto = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(1000), MaxValueValidator(2000)])
+    peso_a_vuoto = models.IntegerField(null=True, blank=True, validators=[
+        MinValueValidator(1000), MaxValueValidator(2000)
+    ])
     porte = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(3), MaxValueValidator(5)])
     posti = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(2), MaxValueValidator(5)])
     data_registrazione = models.DateTimeField(default=timezone.now)
+    concessionaria = models.ForeignKey(Concessionaria, on_delete=models.CASCADE, related_name='automobile')
+    is_purchased = models.BooleanField(default=False)
 
     def __str__(self):
         return "Automobile: {}".format(self.targa)
@@ -122,38 +156,10 @@ class ImmaginiAutomobili(models.Model):
         verbose_name_plural = "immagini"
 
 
-class CustomUser(AbstractUser):
-    username = None
-    email = models.EmailField(unique=True)
-    telefono = models.CharField(max_length=100, null=True, blank=True)
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
-    objects = CustomUserManager()
-
-    def __str__(self):
-        return self.email
-
-
-class Concessionaria(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    ragione_sociale = models.CharField(max_length=100, unique=True)
-    partita_IVA = models.CharField(max_length=11, unique=True)
-    indirizzo = models.CharField(max_length=100, null=True, blank=True)
-    citta = models.CharField(max_length=100, null=True, blank=True)
-    telefono = models.CharField(max_length=10, null=True, blank=True)
-
-    def __str__(self):
-        return "Concessionaria: {}".format(self.ragione_sociale)
-
-    class Meta:
-        db_table = "vsb_app_concessionaria"
-        verbose_name_plural = "concessionarie"
-
-
 class Ordine(models.Model):
     data = models.DateTimeField(default=timezone.now)
-    automobile = models.ForeignKey(Automobile, on_delete=models.CASCADE)
-    acquirente = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    automobile = models.ForeignKey(Automobile, on_delete=models.CASCADE, related_name='ordine')
+    acquirente = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='ordine')
 
     def __str__(self):
         return "Ordine: Acq({}) Aut({})".format(self.acquirente.pk, self.automobile.pk)
