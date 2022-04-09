@@ -80,16 +80,10 @@
                             <h2 class="user_icon"><i class="bi bi-person-circle" style="cursor: pointer;"></i></h2>
                             <!-- si apre un dropdown nella quale si visualizzano info riguardo il profilo -->
                             <ul class="dropdown" style="border-top: 3px solid black;">
-<<<<<<< HEAD
-                                {% if not user.is_authenticated %}
-                                    <li><a href="{% url 'vsb_app:sign_up' %}">REGISTRAZIONE</a></li>
-                                    <li><a href="{% url 'vsb_app:sign_in' %}">LOGIN</a></li>
-=======
                                 {% if not user.is_authenticated %} <!-- Se non c'è alcun accesso da parte dell'utente allora di dà la possibilità di fare login e registrazione -->
                                     <li><a href="{% url 'vsb_app:sign_in' %}">REGISTRAZIONE</a></li>
                                     <li><a href="{% url 'vsb_app:sign_up' %}">LOGIN</a></li>
->>>>>>> d6eb09e535e5b3fd3c34d186927230944c7eac3b
-                               {% endif %}
+                                {% endif %}
                                <li class="has-children">
                                   {% if user.is_authenticated %}  <!-- Se è stato fatto l'accesso, si ha la possibilità di accedere alla propria pagina profilo -->
                                       {% if not request.path == 'profile/' %}
