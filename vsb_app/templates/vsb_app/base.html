@@ -74,8 +74,8 @@
                             <h2 class="user_icon"><i class="bi bi-person-circle" style="cursor: pointer;"></i></h2>
                             <ul class="dropdown" style="border-top: 3px solid black;">
                                 {% if not user.is_authenticated %}
-                                    <li><a href="{% url 'vsb_app:sign_in' %}">REGISTRAZIONE</a></li>
-                                    <li><a href="{% url 'vsb_app:sign_up' %}">LOGIN</a></li>
+                                    <li><a href="{% url 'vsb_app:sign_up' %}">REGISTRAZIONE</a></li>
+                                    <li><a href="{% url 'vsb_app:sign_in' %}">LOGIN</a></li>
                                {% endif %}
                                <li class="has-children">
                                   {% if user.is_authenticated %}
