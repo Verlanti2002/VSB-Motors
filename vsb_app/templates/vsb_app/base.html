@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Questa pagina html contiene tutti gli elementi in comune (codice) tra tutte le pagine-->
 {% load static %}
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
    <title>VSB-MOTORS | {% block title %} {% endblock %}</title>
    <!--From fontawesome.com-->
    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+   <!-- Caricamento css comune con base.css-->
    <link rel="stylesheet" href="{% static 'vsb_app/css/base.css' %}">
 
    <!-- Google Fonts -->
@@ -21,7 +23,9 @@
    <link href="{% static 'vsb_app/css/bootstrap.css' %}" rel="stylesheet">
    <!-- Animate CSS-->
    <link href="{% static 'vsb_app/css/animate.css' %}" rel="stylesheet">
+   <!-- Import delle icone bootstrap -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+   <!-- Import delle remix icon per footer -->
    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
    {% block add_css %}
@@ -29,19 +33,19 @@
    {% endblock %}
 </head>
     <body class="box-layout">
-        <div class="header-inner">
-          <div class="container">
+      <div class="header-inner">
+          <div class="container">   <!-- Container per Header -->
              <div class="row">
                 <div class="header-table col-md-12">
                    <div class="brand">
-                      <a href="{% url 'vsb_app:homepage' %}">
-                         <img src="{% static 'vsb_app/images/logo.png' %}">
+                      <a href="{% url 'vsb_app:homepage' %}">  <!-- per reindirizzare nella homepage -->
+                         <img src="{% static 'vsb_app/images/logo.png' %}"> <!-- clicco il logo -->
                       </a>
                    </div>
-                   <nav id="nav-wrap" class="main-nav">
+                   <nav id="nav-wrap" class="main-nav">  <!-- container per nav-bar -->
                       <div id="mobnav-btn"> </div>
-                      <ul class="sf-menu">
-                         {% if request.path == '/' %}
+                      <ul class="sf-menu">   <!-- Voci del menu -->
+                         {% if request.path == '/' %} <!-- Inizio if per determinare la presenza di determinate voci -->
                              <li>
                                 <a href="#about" class="effect">Chi siamo</a>
                              </li>
@@ -52,16 +56,18 @@
                              <li>
                                 <a href="{% url 'vsb_app:homepage' %}" class="effect">Home</a>
                             </li>
-                         {% endif %}
+                         {% endif %}   <!-- Se è una concessionaria ad accedere allora vede "sell_my_car" -->
                          {% if user.is_authenticated and user.concessionaria.ragione_sociale %}
                              <li>
                                 <a href="{% url 'vsb_app:sell_my_car' %}" class="effect">Vendi la tua auto</a>
                              </li>
+                                       <!-- Altrimenti se è un utente normale ad accedere allora vede shop -->
                          {% elif user.is_authenticated and not user.concessionaria.ragione_sociale %}
                              <li>
                                 <a href="{% url 'vsb_app:shop' %}" class="effect">Negozio</a>
                              </li>
                          {% else %}
+                                       <!-- Nel caso non si ha fatto l'accesso si vede sia sell_my_car e shop  -->
                              <li>
                                 <a href="{% url 'vsb_app:sell_my_car' %}" class="effect">Vendi la tua auto</a>
                              </li>
@@ -72,21 +78,24 @@
                          <button class="button" style="margin-left: 5%;">Test Drive</button>
                          <li class="has-children" style="width: 10%; height: auto;">
                             <h2 class="user_icon"><i class="bi bi-person-circle" style="cursor: pointer;"></i></h2>
+                            <!-- si apre un dropdown nella quale si visualizzano info riguardo il profilo -->
                             <ul class="dropdown" style="border-top: 3px solid black;">
-                                {% if not user.is_authenticated %}
+                                {% if not user.is_authenticated %} <!-- Se non c'è alcun accesso da parte dell'utente allora di dà la possibilità di fare login e registrazione -->
                                     <li><a href="{% url 'vsb_app:sign_in' %}">REGISTRAZIONE</a></li>
                                     <li><a href="{% url 'vsb_app:sign_up' %}">LOGIN</a></li>
                                {% endif %}
                                <li class="has-children">
-                                  {% if user.is_authenticated %}
+                                  {% if user.is_authenticated %}  <!-- Se è stato fatto l'accesso, si ha la possibilità di accedere alla propria pagina profilo -->
                                       {% if not request.path == 'profile/' %}
                                           <li><a href="{% url 'vsb_app:profile' %}">IL MIO PROFILO</a></li>
                                       {% endif %}
+                               <!-- Inoltre posso vedere le transazioni eseguite dalla concessionaria o dal cliente (in base all'accesso) -->
                                       {% if user.concessionaria.ragione_sociale and not request.path == 'my_transaction_vendor/'  %}
                                           <li><a href="{% url 'vsb_app:my_transaction_vendor' %}">LE MIE TRANSAZIONI</a></li>
                                       {% elif not user.concessionaria.ragione_sociale and not request.path == 'my_transaction_client/' %}
                                           <li><a href="{% url 'vsb_app:my_transaction_client' %}">LE MIE TRANSAZIONI</a></li>
                                       {% endif %}
+                               <!-- Voce per logout -->
                                       <li><a href="{% url 'vsb_app:logout' %}">LOG OUT</a></li>
                                   {% endif %}
                                </li>
