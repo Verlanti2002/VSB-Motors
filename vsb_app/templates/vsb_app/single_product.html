@@ -57,25 +57,25 @@
               <tr>
                 <td data-label="Stato"><span class="title__details">Tipo di veicolo:</span> <span class="value__details">{{ object.stato }}</span></td>
                 <td data-label="Marca"><span class="title__details">Marca:</span> <span class="value__details">{{ object.marca }}</span></td>
-                <td data-label="Cambio"><span class="title__details">Cambio:</span> <span class="value__details">{{ object.cambio }}</span></td>
+                <td data-label="Peso a vuoto"><span class="title__details">Peso a vuoto:</span> <span class="value__details">{{ object.peso_a_vuoto }} kg</span></td>
                 <td data-label="Alimentazione"><span class="title__details">Alimentazione:</span> <span class="value__details">{{ object.alimentazione }}</span></td>
               </tr>
               <tr>
                 <td data-label="Tipo di usato"><span class="title__details">Proprietari:</span> <span class="value__details">{{ object.numero_proprietari }}</span></td>
                 <td data-label="Modello"><span class="title__details">Modello:</span> <span class="value__details">{{ object.modello}}</span></td>
-                <td data-label="Marce"><span class="title__details">Marce:</span> <span class="value__details">{{ object.numero_marce }}</span></td>
-                <td data-label="Consumo"><span class="title__details">Consumo:</span> <span class="value__details">{{ object.consumo }} km/kwH</span></td>
+                <td data-label="Trazione"><span class="title__details">Trazione:</span> <span class="value__details">{{ object.trazione }}</span></td>
+                <td data-label="Consumo"><span class="title__details">Consumo:</span> <span class="value__details">{{ object.consumo }} km/kWh</span></td>
               </tr>
               <tr>
                 <td data-label="Tipo di usato"><span class="title__details">Tipo di usato:</span> <span class="value__details">{{ object.tipologie_di_uso }}</span></td>
                 <td data-label="Immatricolazione"><span class="title__details">Immatricolazione:</span> <span class="value__details">{{ object.anno_immatricolazione }}</span></td>
-                <td data-label="Peso a vuoto"><span class="title__details">Peso a vuoto:</span> <span class="value__details">{{ object.peso_a_vuoto }} kg</span></td>
-                <td data-label="Classe emissioni"><span class="title__details">Classe emissioni:</span> <span class="value__details">Euro {{ object.classe_emissioni }}</span></td>
+                <td data-label="Batteria"><span class="title__details">Batteria:</span> <span class="value__details">{{ object.batteria }} kWh</span></td>
+                <td></td>
               </tr>
               <tr>
                 <td data-label="Neopatentato"><span class="title__details">Neopatentato:</span> <span class="value__details">{{ object.neopatentato }}</span></td>
                 <td data-label="Colore"><span class="title__details">Colore:</span> <span class="value__details">{{ object.colore }}</span></td>
-                <td data-label="Trazione"><span class="title__details">Trazione:</span> <span class="value__details">{{ object.trazione }}</span></td>
+                <td></td>
                 <td></td>
               </tr>
               <tr>
@@ -101,7 +101,7 @@
       </div>
    </section>
 
-   {% if automobili_correlate %}
+   {% if automobili_correlate and user.is_client %}
        <div class="container text-center mt-5 py-5" style="margin-top: 5%;">
           <h3 style="color: black;">Prodotti Correlati</h3>
           <hr class="mx-auto" style="border-top: 1px solid black;">

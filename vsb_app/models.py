@@ -66,12 +66,6 @@ class Automobile(models.Model):
         ('Usato', "Usato")
     )
 
-    CHANGE_CHOICES = (
-        (None, "Seleziona il cambio"),
-        ('Manuale', "Manuale"),
-        ('Automatico', "Automatico")
-    )
-
     USED_CHOICES = (
         (None, "Seleziona la tipologia d'uso"),
         ('Privato', "Privato"),
@@ -114,17 +108,15 @@ class Automobile(models.Model):
     ])
     numero_proprietari = models.IntegerField()
     prezzo = models.DecimalField(max_digits=10, decimal_places=2)
-    cambio = models.CharField(max_length=100, choices=CHANGE_CHOICES, null=True, blank=True)
     tipologie_di_uso = models.CharField(max_length=100, choices=USED_CHOICES, null=True, blank=True)
-    numero_marce = models.IntegerField(default=5, blank=True, validators=[MinValueValidator(1), MaxValueValidator(6)])
     neopatentato = models.CharField(max_length=100, choices=NEW_DRIVER_CHOICES, null=True, blank=True)
     consumo = models.CharField(max_length=100, null=True, blank=True)
-    classe_emissioni = models.IntegerField(null=True, blank=True)
+    batteria = models.CharField(max_length=100, null=True, blank=True)
     colore = models.CharField(max_length=100, null=True, blank=True)
     trazione = models.CharField(max_length=100, choices=TRACTION_CHOICES, null=True, blank=True)
     carrozzeria = models.CharField(max_length=100, choices=CAR_BODY_CHOICES, null=True, blank=True)
     peso_a_vuoto = models.IntegerField(null=True, blank=True, validators=[
-        MinValueValidator(1000), MaxValueValidator(2000)
+        MinValueValidator(500), MaxValueValidator(3000)
     ])
     porte = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(3), MaxValueValidator(5)])
     posti = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(2), MaxValueValidator(5)])

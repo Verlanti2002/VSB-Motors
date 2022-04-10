@@ -103,7 +103,7 @@ h6{
 .details .desc{
   margin-right: 10px;
   font-family: Orbitron, sans-serif;
-  font-size: 12px;
+  font-size: .8em;
   color: grey;
 }
 
@@ -210,11 +210,12 @@ option:first-child{
   border: 1px solid white;
   color: white;
   font-size: small;
+  transition: 0.5s;
 }
 
 .filters_container .filters .submit:hover{
-  box-shadow: 0 12px 16px 0 rgb(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  background-color: #bebbbb6e;
+  background-color: white;
+  color: black;
 }
 
 

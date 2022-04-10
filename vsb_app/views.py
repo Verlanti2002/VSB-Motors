@@ -224,4 +224,4 @@ class SingleProductView(LoginRequiredMixin, DetailView):
         automobile_selezionata.save()
         ordine = Ordine(data=datetime.now(), automobile=automobile_selezionata, acquirente=request.user)
         ordine.save()
-        return redirect('vsb_app:my_transaction_client')
+        return redirect('vsb_app:my_transactions')

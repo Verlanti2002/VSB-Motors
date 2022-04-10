@@ -22,12 +22,10 @@ class AutomobileForm(forms.ModelForm):
     anno_immatricolazione = forms.TypedChoiceField(coerce=int, choices=year_choices, initial=current_year, widget=forms.Select)
     numero_proprietari = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire il numero di proprietari'}))
     prezzo = forms.DecimalField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire il prezzo'}))
-    cambio = forms.ChoiceField(choices=Automobile.CHANGE_CHOICES, widget=forms.Select)
     tipologie_di_uso = forms.ChoiceField(choices=Automobile.USED_CHOICES, widget=forms.Select)
-    numero_marce = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire il numero di marce'}))
     neopatentato = forms.ChoiceField(choices=Automobile.NEW_DRIVER_CHOICES, widget=forms.Select)
     consumo = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Inserire il consumo'}))
-    classe_emissioni = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire la classe di emissione'}))
+    batteria = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Inserire la capacità della batteria'}))
     colore = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Inserire il colore'}))
     trazione = forms.ChoiceField(choices=Automobile.TRACTION_CHOICES, widget=forms.Select)
     carrozzeria = forms.ChoiceField(choices=Automobile.CAR_BODY_CHOICES, widget=forms.Select)
@@ -49,12 +47,10 @@ class AutomobileForm(forms.ModelForm):
             "anno_immatricolazione",
             "numero_proprietari",
             "prezzo",
-            "cambio",
             "tipologie_di_uso",
-            "numero_marce",
             "neopatentato",
             "consumo",
-            "classe_emissioni",
+            "batteria",
             "colore",
             "trazione",
             "carrozzeria",
@@ -66,7 +62,7 @@ class AutomobileForm(forms.ModelForm):
 
 class ImmaginiAutomobiliForm(forms.ModelForm):
 
-    immagine = forms.ImageField(label='Immagine', widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
+    immagine = forms.ImageField(label='Immagini', widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
 
     class Meta:
         model = ImmaginiAutomobili
