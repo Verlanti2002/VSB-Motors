@@ -49,7 +49,7 @@
                  </div>
                  <div class="row align-items-center">
                     <div class="col-lg-4">
-                       <p class="desc"> {{ automobile.prezzo|floatformat }} </p>
+                       <p class="desc"> {{ automobile.prezzo|floatformat }} €</p>
                     </div>
                     <div class="col-lg-4">
                        <p class="desc"> {{ automobile.ordine.data|date:"d/m/Y" }} </p>
@@ -101,7 +101,7 @@
                    </div>
                    <div class="row   align-items-center">
                       <div class="col-md-6">
-                         <p class="desc">{{ automobile.prezzo|floatformat }}</p>
+                         <p class="desc">{{ automobile.prezzo|floatformat }} €</p>
                       </div>
                       <div class="col-md-6 ">
                          <p class="desc">{{ automobile.data_registrazione|date:"d/m/Y" }}</p>
@@ -160,7 +160,7 @@
                    </div>
                    <div class="row   align-items-center">
                       <div class="col-md-4">
-                        <p class="desc">{{ automobile.prezzo|floatformat }}</p>
+                        <p class="desc">{{ automobile.prezzo|floatformat }} €</p>
                       </div>
                       <div class="col-md-4 ">
                         <p class="desc">{{ automobile.ordine.data|date:"d/m/Y" }}</p>
