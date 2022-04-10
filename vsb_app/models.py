@@ -102,7 +102,7 @@ class Automobile(models.Model):
     cavalli = models.IntegerField()
     potenza = models.IntegerField()
     alimentazione = models.CharField(max_length=100, null=True, blank=True)
-    km_percorsi = models.IntegerField()
+    km_percorsi = models.CharField(max_length=100, null=True, blank=True)
     anno_immatricolazione = models.IntegerField(null=True, blank=True, validators=[
         MinValueValidator(1950), max_value_current_year
     ])

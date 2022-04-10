@@ -18,7 +18,7 @@ class AutomobileForm(forms.ModelForm):
     cavalli = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire i cavalli'}))
     potenza = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire la potenza'}))
     alimentazione = forms.CharField(widget=forms.TextInput(attrs={'value': 'Elettrica'}))
-    km_percorsi = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire i kilometri percorsi'}))
+    km_percorsi = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Inserire i kilometri percorsi'}))
     anno_immatricolazione = forms.TypedChoiceField(coerce=int, choices=year_choices, initial=current_year, widget=forms.Select)
     numero_proprietari = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire il numero di proprietari'}))
     prezzo = forms.DecimalField(widget=forms.NumberInput(attrs={'placeholder': 'Inserire il prezzo'}))
