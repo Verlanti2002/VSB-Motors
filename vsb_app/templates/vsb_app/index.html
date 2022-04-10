@@ -19,16 +19,19 @@
       <div class="overlay">
          <div class="content">
             {% if user.is_authenticated and user.is_client %}
-            <h1>Benvenuto su VSB-Motors</h1>
-            <h2>{{ user.last_name }} {{ user.first_name }}</h2>
+                <h1>Benvenuto su VSB-Motors</h1>
+                <h2>{{ user.last_name }} {{ user.first_name }}</h2>
             {% else %}
-             <h1>Benvenuto su VSB-Motors</h1>
-             <h2>{{ user.concessionaria.ragione_sociale }}</h2>
+                 <h1>Benvenuto su VSB-Motors</h1>
+                 <h2>{{ user.concessionaria.ragione_sociale }}</h2>
              {% endif %}
-            <div style="margin-top: 50px">
-                <button class="banner__button" type="button">WATCH MORE</button>
-               <button class="banner__button" type="button">SUBSCRIBE</button>
-            </div>
+             {% if not user.is_authenticated %}
+                 <div style="margin-top: 50px">
+                    <h3 style="margin-top: 30px">Registrati per scoprire i nostri fantastici contenuti!</h3>
+                    <button class="banner__button" type="button"><a href="{% url 'vsb_app:sign_in' %}">ACCEDI</a></button>
+                   <button class="banner__button" type="button"><a href="{% url 'vsb_app:sign_up' %}">ISCRIVITI</a></button>
+                 </div>
+             {% endif %}
          </div>
       </div>
    </div>
@@ -524,7 +527,7 @@
        <script>
           var slideImg = document.getElementById("slideImg");
           var images = ["{% static 'vsb_app/images/background2.jpg' %}",
-             "{% static 'vsb_app/images/background3.jpg' %}", "{% static 'vsb_app/images/background1.jpg' %}", "{% static 'vsb_app/images/background4.jpg' %}"];
+             "{% static 'vsb_app/images/background3.jpg' %}", "{% static 'vsb_app/images/background1.jpg' %}", "{% static 'vsb_app/images/background4.jpg' %}", "{% static 'vsb_app/images/background5.jpg' %}"];
 
           var len = images.length;
           var i = 0;

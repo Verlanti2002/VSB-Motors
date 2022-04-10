@@ -172,14 +172,22 @@
 
 .content h1{
   font-size: 50px;
+
 }
 
 .content h2{
   width: 80%;
-  margin: 20px auto 50px;
+  margin: auto 50px;
   font-weight: 100;
   line-height: 25px;
   font-size: 40px;
+}
+
+.content h3{
+  width: 80%;
+  margin: 20px auto 50px;
+  font-weight: 100;
+  line-height: 25px;
 }
 
 .banner__button{
