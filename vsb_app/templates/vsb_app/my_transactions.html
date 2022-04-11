@@ -82,8 +82,13 @@
               {% for automobile in automobile_registrate %}
                <div class="vehicle_card">
                    <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-10">
                       <p class="title_car"> {{ automobile.marca }} {{ automobile.modello }}</p>
+                      </div>
+                      <div class="col-md-1">
+                        <button type="submit" name="delete" style="background-color: white; border: none; ">
+                            <i class="ri-delete-bin-line ri-2x"></i>
+                        </button>
                       </div>
                    </div>
                    <div class="row">
