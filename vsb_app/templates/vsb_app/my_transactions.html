@@ -86,9 +86,12 @@
                       <p class="title_car"> {{ automobile.marca }} {{ automobile.modello }}</p>
                       </div>
                       <div class="col-md-1">
-                        <button type="submit" name="delete" style="background-color: white; border: none; ">
-                            <i class="ri-delete-bin-line ri-2x"></i>
-                        </button>
+                        {% csrf_token %}
+                        <form method="post">
+                            <button type="submit" name="delete" style="background-color: white; border: none; ">
+                                <i class="ri-delete-bin-line ri-2x"></i>
+                            </button>
+                        </form>
                       </div>
                    </div>
                    <div class="row">
