@@ -109,7 +109,7 @@
         <div class="container_card">
           <div class="products">
              <div class="vehicle_card_row_container">
-                {% for automobile in object_list %}
+                {% for automobile in automobili_correlate %}
                 <div class="vehicle_card">
                    <h4 class="title_car" id="marca_modello">{{ automobile.marca }} {{ automobile.modello }}</h4>
                    <a href="{% url 'vsb_app:single_product' automobile.pk %}"><img src="{{ automobile.immagini.all.0.immagine.url }}" id="img_car"></a>

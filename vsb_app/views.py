@@ -80,6 +80,12 @@ class MyTransactionsView(LoginRequiredMixin, TemplateView):
 
         return render(request, self.template_name, context)
 
+    def post(self, request, *args, **kwargs):
+        automobile_pk = self.request.POST["delete_car"]
+        automobile_selezionata = Automobile.objects.get(pk=automobile_pk)
+        automobile_selezionata.delete()
+        return redirect('vsb_app:my_transactions')
+
 
 class SellMyCarView(LoginRequiredMixin, TemplateView):
     template_name = "vsb_app/sell_my_car.html"
