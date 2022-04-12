@@ -71,6 +71,7 @@ h6{
 }
 .vehicle_card{
   /*border: 1px solid red;*/
+  width: 30%;
   border-radius: 10px;
   background-color: white;
   -webkit-transition: all 0.3s 0s ease-in;
