@@ -33,12 +33,14 @@
                <span class="vendor_number">{{object.concessionaria.user.telefono }}</span>
                <span class="vendor_email">{{ object.concessionaria.user.email }}</span>
             </div>
-            <div style="margin-top: 2.8%;">
+            {% if user.is_client %}
+             <div style="margin-top: 2.8%;">
                <form method="post">
                    {% csrf_token %}
                     <input type="submit" class="buy__button" value="ORDINA">
                </form>
-            </div>
+             </div>
+             {% endif %}
          </div>
       </div>
 

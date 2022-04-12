@@ -11,12 +11,18 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.forms import modelformset_factory
+from django.db.models import Q
 from .models import ImmaginiAutomobili, Automobile, Concessionaria, CustomUser, Ordine, Marca
 
 
 # Create your views here.
 class HomepageView(TemplateView):
     template_name = "vsb_app/index.html"
+
+    def get(self, request, *args, **kwargs):
+        context = {}
+        context["shop_cars_list"] = Automobile.objects.filter(is_purchased=False)
+        return render(request, self.template_name, context)
 
 
 class ShopView(TemplateView):
@@ -25,7 +31,7 @@ class ShopView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = {}
-        context["object_list"] = Automobile.objects.all()
+        context["object_list"] = Automobile.objects.filter(is_purchased=False)
         context["marche"] = Marca.objects.all()
         context["stati"] = Automobile.STATE_CHOICES
         context["neopatentato"] = Automobile.NEW_DRIVER_CHOICES
@@ -41,18 +47,27 @@ class ShopView(TemplateView):
             "stato": self.request.POST.get('stato'),
             "prezzo__lte": self.request.POST.get('prezzo_max'),
             "marca": marca_value,
-            "modello": self.request.POST.get('modello'),
+            "modello__icontains": self.request.POST.get('modello'),
             "km_percorsi": self.request.POST.get('kilometraggio'),
             "neopatentato": self.request.POST.get('neopatentato'),
-            "citta": self.request.POST.get('citta'),
+            "concessionaria__citta": self.request.POST.get('citta'),
             "anno_immatricolazione": self.request.POST.get('anno')
         }
         filter_dict = {key: value for key, value in filter_dict.items() if value}
-        context["object_list"] = Automobile.objects.all()
+        # context["object_list"] = Automobile.objects.all()
         context["marche"] = Marca.objects.all()
         context["stati"] = Automobile.STATE_CHOICES
         context["neopatentato"] = Automobile.NEW_DRIVER_CHOICES
-        context["automobili"] = Automobile.objects.filter(**filter_dict)
+        context["object_list"] = Automobile.objects.filter(**filter_dict)
+        # context["object_list"] = Automobile.objects.filter(
+        #     Q(stato=filter_dict.get("stato")) |
+        #     Q(prezzo__lte=filter_dict.get("prezzo")) |
+        #     Q(modello=filter_dict.get("modello")) |
+        #     Q(km_percorsi=filter_dict.get("km_percorsi")) |
+        #     Q(neopatentato=filter_dict.get("neopatentato")) |
+        #     Q(citta__concessionaria=filter_dict.get("citta")) |
+        #     Q(anno_immatricolazione=filter_dict.get("anno_immatricolazione"))
+        # )
         return render(request, self.template_name, context)
 
 
@@ -62,17 +77,13 @@ class MyTransactionsView(LoginRequiredMixin, TemplateView):
     def get(self, request, *args, **kwargs):
         context = {}
         if request.user.is_client:
-            automobili_acquistate = []
-            ordini = Ordine.objects.filter(acquirente=request.user).all()
-            for ordine in ordini:
-                automobili_acquistate.append(ordine.automobile)
-            context["automobili_acquistate"] = automobili_acquistate
+            context["ordini_cliente"] = Ordine.objects.filter(acquirente=request.user).all()
             return render(request, self.template_name, context)
 
-        context["automobile_vendute"] = Automobile.objects.filter(
-            concessionaria=request.user.concessionaria,
-            is_purchased=True
+        context["ordini_concessionaria"] = Ordine.objects.filter(
+            automobile__concessionaria=request.user.concessionaria
         ).all()
+
         context["automobile_registrate"] = Automobile.objects.filter(
             concessionaria=request.user.concessionaria,
             is_purchased=False
@@ -101,7 +112,6 @@ class SellMyCarView(LoginRequiredMixin, TemplateView):
             automobile.save()
 
             images = request.FILES.getlist("immagine")
-            print(images)
             for form_immagine in images:
                 photo = ImmaginiAutomobili(automobile=automobile, immagine=form_immagine)
                 photo.save()
@@ -228,6 +238,6 @@ class SingleProductView(LoginRequiredMixin, DetailView):
         automobile_selezionata = self.get_object()
         automobile_selezionata.is_purchased = True
         automobile_selezionata.save()
-        ordine = Ordine(data=datetime.now(), automobile=automobile_selezionata, acquirente=request.user)
+        ordine = Ordine(automobile=automobile_selezionata, acquirente=request.user)
         ordine.save()
         return redirect('vsb_app:my_transactions')

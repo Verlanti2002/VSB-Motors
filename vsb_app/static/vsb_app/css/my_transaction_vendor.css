@@ -151,6 +151,6 @@
   text-align: center;
 }
 
-i:hover{
+#delete:hover{
   color: red;
 }

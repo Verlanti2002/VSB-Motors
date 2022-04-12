@@ -1,4 +1,5 @@
 import datetime
+from datetime import date
 
 import os
 
@@ -149,7 +150,7 @@ class ImmaginiAutomobili(models.Model):
 
 
 class Ordine(models.Model):
-    data = models.DateTimeField(default=timezone.now)
+    data = models.DateField(default=date.today)
     automobile = models.ForeignKey(Automobile, on_delete=models.CASCADE, related_name='ordine')
     acquirente = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='ordine')
 

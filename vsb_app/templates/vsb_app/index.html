@@ -175,6 +175,7 @@
    <!-- End Future Section -->
 
    <!-- Slider Shop Section -->
+    {% if user.is_client %}
    <section class="popular section" style="margin-bottom: 3%; margin-top: 3%;">
       <h2 class="section__title" style="text-align: center; color: black; margin-bottom: 2%;">
          Scegli la macchina elettrica dei tuoi sogni!
@@ -182,268 +183,40 @@
 
       <div class="popular__container container swiper">
          <div class="swiper-wrapper">
-            {% comment %}
+            {% for automobile in shop_cars_list %}
             <!-- inizio card -->
             <article class="popular__card swiper-slide">
                <div class="shape shape__smaller">
-                  <h1 class="popular__title">Porsche</h1>
-                  <h3 class="popular__subtitle">Turbo S</h3>
-                  <img src="{% static 'vsb_app/images/popular1.png' %}" class="popular__img">
+                  <h1 class="popular__title"> {{ automobile.marca }}</h1>
+                  <h3 class="popular__subtitle"> {{ automobile.modello }}</h3>
+                  <img src="{{ automobile.immagini.all.0.immagine.url }}" class="popular__img">
                   <div class="popular__data">
                      <div class="popular__data-group">
-                        <i class="ri-dashboard-3-line"></i>3.7 Sec
+                        <i class="ri-dashboard-3-line"></i>{{ automobile.potenza }} kw
                      </div>
                      <div class="popular__data-group">
-                        <i class="ri-funds-box-line"></i> 356 Km/h
+                        <i class="ri-funds-box-line"></i> {{ automobile.batteria }} kwh
                      </div>
                      <div class="popular__data-group">
-                        <i class="ri-charging-pile-2-line"></i> Elettrica
+                        <i class="ri-charging-pile-2-line"></i> {{ automobile.alimentazione }}
                      </div>
                      <div class="popular__data-group">
-                        <i class="ri-flashlight-fill"></i> 580 Cv
+                        <i class="ri-flashlight-fill"></i> {{ automobile.cavalli }} cv
                      </div>
                   </div>
                </div>
-               <h3 class="popular__price">€ 224.500</h3>
+               <h3 class="popular__price">{{ automobile.prezzo|floatformat }} €</h3>
                <button class="popular__button">
-                  <i class="ri-shopping-bag-line"></i>
+                   <a style="text-decoration: none" href="{% url 'vsb_app:single_product' automobile.pk %}"><i class="ri-shopping-bag-line"></i></a>
                </button>
             </article>
-            {% endcomment %}
-            <!-- fine card -->
-
-            <!-- inizio card -->
-            <article class="popular__card swiper-slide">
-               <div class="shape shape__smaller">
-                  <h1 class="popular__title">Tesla</h1>
-                  <h3 class="popular__subtitle">Model X</h3>
-                  <img src="{% static 'vsb_app/images/featured1.png' %}" class="popular__img">
-                  <div class="popular__data">
-                     <div class="popular__data-group">
-                        <i class="ri-dashboard-3-line"></i>2.6 Sec
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-funds-box-line"></i> 262 Km/h
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-charging-pile-2-line"></i> Elettrica
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-flashlight-fill"></i> 1020 Cv
-                     </div>
-                  </div>
-               </div>
-               <h3 class="popular__price">€ 119.990</h3>
-               <button class="popular__button">
-                  <i class="ri-shopping-bag-line"></i>
-               </button>
-            </article>
+            {% endfor %}
              <!-- fine card -->
-
-            <!-- inizio card -->
-            <article class="popular__card swiper-slide">
-               <div class="shape shape__smaller">
-                  <h1 class="popular__title">Porsche</h1>
-                  <h3 class="popular__subtitle">Taycan</h3>
-                  <img src="{% static 'vsb_app/images/popular2.png' %}" class="popular__img">
-                  <div class="popular__data">
-                     <div class="popular__data-group">
-                        <i class="ri-dashboard-3-line"></i>3.7 Sec
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-funds-box-line"></i> 356 Km/h
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-charging-pile-2-line"></i> Elettrica
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-flashlight-fill"></i> 580 Cv
-                     </div>
-                  </div>
-               </div>
-               <h3 class="popular__price">€ 89.251</h3>
-               <button class="popular__button">
-                  <i class="ri-shopping-bag-line"></i>
-               </button>
-            </article>
-             <!-- fine card -->
-
-            <!-- inizio card -->
-            <article class="popular__card swiper-slide">
-               <div class="shape shape__smaller">
-                  <h1 class="popular__title">Audi</h1>
-                  <h3 class="popular__subtitle">E-tron</h3>
-                  <img src="{% static 'vsb_app/images/featured3.png' %}" class="popular__img">
-                  <div class="popular__data">
-                     <div class="popular__data-group">
-                        <i class="ri-dashboard-3-line"></i>4.5 Sec
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-funds-box-line"></i> 210 Km/h
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-charging-pile-2-line"></i> Elettrica
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-flashlight-fill"></i> 503 Cv
-                     </div>
-                  </div>
-               </div>
-               <h3 class="popular__price">€ 75.287</h3>
-               <button class="popular__button">
-                  <i class="ri-shopping-bag-line"></i>
-               </button>
-            </article>
-            <!-- fine card -->
-
-            <!-- inizio card -->
-            <article class="popular__card swiper-slide">
-               <div class="shape shape__smaller">
-                  <h1 class="popular__title">Ford</h1>
-                  <h3 class="popular__subtitle">Mustang Mach-E</h3>
-                  <img src="{% static 'vsb_app/images/featured6.png' %}" class="popular__img">
-                  <div class="popular__data">
-                     <div class="popular__data-group">
-                        <i class="ri-dashboard-3-line"></i>3.7 Sec
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-funds-box-line"></i> 200 Km/h
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-charging-pile-2-line"></i> Elettrica
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-flashlight-fill"></i> 487 Cv
-                     </div>
-                  </div>
-               </div>
-               <h3 class="popular__price">€ 55.841</h3>
-               <button class="popular__button">
-                  <i class="ri-shopping-bag-line"></i>
-               </button>
-            </article>
-            <!-- fine card -->
-
-            <!-- inizio card -->
-            <article class="popular__card swiper-slide">
-               <div class="shape shape__smaller">
-                  <h1 class="popular__title">Tesla</h1>
-                  <h3 class="popular__subtitle">Model 3</h3>
-                  <img src="{% static 'vsb_app/images/featured2.png' %}" class="popular__img">
-                  <div class="popular__data">
-                     <div class="popular__data-group">
-                        <i class="ri-dashboard-3-line"></i>3.3 Sec
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-funds-box-line"></i> 225 Km/h
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-charging-pile-2-line"></i> Elettrica
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-flashlight-fill"></i> 490 Cv
-                     </div>
-                  </div>
-               </div>
-               <h3 class="popular__price">€ 54.990</h3>
-               <button class="popular__button">
-                  <i class="ri-shopping-bag-line"></i>
-               </button>
-            </article>
-            {% comment %}
-            <!-- fine card -->
-
-            <!-- inizio card -->
-            <article class="popular__card swiper-slide">
-               <div class="shape shape__smaller">
-                  <h1 class="popular__title">Porsche</h1>
-                  <h3 class="popular__subtitle">Boxster 987</h3>
-                  <img src="{% static 'vsb_app/images/featured4.png' %}" class="popular__img">
-                  <div class="popular__data">
-                     <div class="popular__data-group">
-                        <i class="ri-dashboard-3-line"></i>4.5 Sec
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-funds-box-line"></i> 320 Km/h
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-charging-pile-2-line"></i> Elettrica
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-flashlight-fill"></i> 410 Cv
-                     </div>
-                  </div>
-               </div>
-               <h3 class="popular__price">€ 126.900</h3>
-               <button class="popular__button">
-                  <i class="ri-shopping-bag-line"></i>
-               </button>
-            </article>
-            {% endcomment %}
-            <!-- fine card -->
-
-            <!-- inizio card -->
-             {% comment %}
-             <article class="popular__card swiper-slide">
-               <div class="shape shape__smaller">
-                  <h1 class="popular__title">Porsche</h1>
-                  <h3 class="popular__subtitle">Panamera</h3>
-                  <img src="{% static 'vsb_app/images/featured5.png' %}" class="popular__img">
-                  <div class="popular__data">
-                     <div class="popular__data-group">
-                        <i class="ri-dashboard-3-line"></i>3.3 Sec
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-funds-box-line"></i> 315 Km/h
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-charging-pile-2-line"></i> Elettrica
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-flashlight-fill"></i> 700 Cv
-                     </div>
-                  </div>
-               </div>
-               <h3 class="popular__price">€ 98.986</h3>
-               <button class="popular__button">
-                  <i class="ri-shopping-bag-line"></i>
-               </button>
-            </article>
-            {% endcomment %}
-            <!-- fine card -->
-
-            <!-- inizio card -->
-            <article class="popular__card swiper-slide">
-               <div class="shape shape__smaller">
-                  <h1 class="popular__title">Fiat</h1>
-                  <h3 class="popular__subtitle">500</h3>
-                  <img src="{% static 'vsb_app/images/featured7.png' %}" class="popular__img">
-                  <div class="popular__data">
-                     <div class="popular__data-group">
-                        <i class="ri-dashboard-3-line"></i>13.8 Sec
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-funds-box-line"></i> 167 Km/h
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-charging-pile-2-line"></i> Elettrica
-                     </div>
-                     <div class="popular__data-group">
-                        <i class="ri-flashlight-fill"></i> 91 Cv
-                     </div>
-                  </div>
-               </div>
-               <h3 class="popular__price">€ 26.150</h3>
-               <button class="popular__button">
-                  <i class="ri-shopping-bag-line"></i>
-               </button>
-            </article>
-            <!-- fine card -->
          </div>
          <div class="swiper-pagination"></div>
       </div>
    </section>
-
+    {% endif %}
    <!-- End Slider Shop Section -->
 
     <!--Features Section-->

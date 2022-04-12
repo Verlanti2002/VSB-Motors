@@ -22,18 +22,18 @@
 
         <!-- Contenitore per una riga di vehicle-card -->
         <div class="vehicle_card_row_container">
-            {% for automobile in automobili_acquistate %}
+            {% for ordine in ordini_cliente %}
              <!-- Contenitore per una singola card -->
               <div class="vehicle_card">
                  <!-- Gestione stile Tabella degli attributi tramite row e cols di bootstrap -->
                  <div class="row">
                     <div class="col-md-12">
-                    <p class="title_car"> {{ automobile.marca }} {{ automobile.modello }}</p>
+                    <p class="title_car"> {{ ordine.automobile.marca }} {{ ordine.automobile.modello }}</p>
                     </div>
                  </div>
                  <div class="row">
                     <div class="col-md-12">
-                       <a href="{% url 'vsb_app:single_product' automobile.pk %}"><img src="{{ automobile.immagini.all.0.immagine.url }}" width="400px" alt=""></a>
+                       <a href="{% url 'vsb_app:single_product' ordine.automobile.pk %}"><img src="{{ ordine.automobile.immagini.all.0.immagine.url }}" width="400px" alt=""></a>
                     </div>
                  </div>
                  <div class="row align-items-center">
@@ -49,13 +49,13 @@
                  </div>
                  <div class="row align-items-center">
                     <div class="col-lg-4">
-                       <p class="desc"> {{ automobile.prezzo|floatformat }} €</p>
+                       <p class="desc"> {{ ordine.automobile.prezzo|floatformat }} €</p>
                     </div>
                     <div class="col-lg-4">
-                       <p class="desc"> {{ automobile.ordine.data|date:"d/m/Y" }} </p>
+                       <p class="desc"> {{ ordine.data|date:"d/m/Y" }} </p>
                     </div>
                     <div class="col-lg-4">
-                       <p class="desc"> {{ automobile.concessionaria.ragione_sociale }}</p>
+                       <p class="desc"> {{ ordine.automobile.concessionaria.ragione_sociale }}</p>
                     </div>
                     <!-- Fine Grid -->
                  </div>
@@ -83,14 +83,14 @@
                <div class="vehicle_card">
                    <div class="row">
                       <div class="col-md-10">
-                      <p class="title_car"> {{ automobile.marca }} {{ automobile.modello }}</p>
+                        <p class="title_car"> {{ automobile.marca }} {{ automobile.modello }}</p>
                       </div>
                       <div class="col-md-1">
                         <form method="post">
                             {% csrf_token %}
                             <input name="delete_car" value="{{ automobile.pk }}" style="display: none">
                             <button type="submit" name="delete" style="background-color: white; border: none; ">
-                                <i class="ri-delete-bin-line ri-2x"></i>
+                                <i class="ri-delete-bin-line ri-2x" id="delete"></i>
                             </button>
                         </form>
                       </div>
@@ -140,20 +140,19 @@
                <div class="h1" style="margin-bottom:3%;">Auto vendute</div>
             </div>
          </div>
-         {% if automobile_vendute %}
          <!-- Full-width images with number and caption text -->
-         <div class="mySlides2">
+         <div class="mySlides">
             <div class="vehicle_card_row_container">
-              {% for automobile in automobile_vendute %}
-               <div class="vehicle_card">
+              {% for ordine in ordini_concessionaria %}
+               <div class="vehicle_card" style="width: 30%">
                    <div class="row">
                       <div class="col-md-12">
-                      <p class="title_car"> {{ automobile.marca }} {{ automobile.modello }}</p>
+                        <p class="title_car"> {{ ordine.automobile.marca }} {{ ordine.automobile.modello }}</p>
                       </div>
                    </div>
                    <div class="row">
                       <div class="col-md-12">
-                         <a href="{% url 'vsb_app:single_product' automobile.pk %}"><img src="{{ automobile.immagini.all.0.immagine.url }}" width="400px" alt=""></a>
+                         <a href="{% url 'vsb_app:single_product' ordine.automobile.pk %}"><img src="{{ ordine.automobile.immagini.all.0.immagine.url }}" width="400px" alt=""></a>
                       </div>
                    </div>
                    <div class="row  align-items-center">
@@ -169,31 +168,30 @@
                    </div>
                    <div class="row   align-items-center">
                       <div class="col-md-4">
-                        <p class="desc">{{ automobile.prezzo|floatformat }} €</p>
+                        <p class="desc">{{ ordine.automobile.prezzo|floatformat }} €</p>
                       </div>
                       <div class="col-md-4 ">
-                        <p class="desc">{{ automobile.ordine.data|date:"d/m/Y" }}</p>
+                        <p class="desc">{{ ordine.data|date:"d/m/Y" }}</p>
                       </div>
                       <div class="col-md-4 ">
-                        <p class="desc">{{ automobile.concessionaria.ragione_sociale}}</p>
+                        <p class="desc">{{ ordine.acquirente.last_name }} {{ ordine.acquirente.first_name }}</p>
                       </div>
                    </div>
                </div>
                {% if forloop.counter|divisibleby:3 %}
             </div>
          </div>
-         <div class="mySlides2">
+         <div class="mySlides">
             <div class="vehicle_card_row_container">
                {% endif %}
             {% endfor %}
             </div>
          </div>
-         {% if automobile_vendute|length > 3 %}
+         {% if ordini_concessionaria|length > 3 %}
          <!-- Next and previous buttons -->
              <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
              <a class="next" onclick="plusSlides2(1)">&#10095;</a>
          {% endif %}
-      {% endif %}
       </div>
     {% endif %}
 
