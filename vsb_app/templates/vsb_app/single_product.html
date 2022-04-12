@@ -113,14 +113,14 @@
                 <div class="vehicle_card">
                    <h4 class="title_car" id="marca_modello">{{ automobile.marca }} {{ automobile.modello }}</h4>
                    <a href="{% url 'vsb_app:single_product' automobile.pk %}"><img src="{{ automobile.immagini.all.0.immagine.url }}" id="img_car"></a>
-                   <h3>€ {{ automobile.prezzo }}</h3>
+                   <h3>€ {{ automobile.prezzo|floatformat }}</h3>
                    <table class="details">
                       <tbody>
                          <tr>
                             <td>
                                <h6>Kilometraggio</h6>
                                <hr class="line">
-                               <p class="desc">{{ automobile.km_percorsi }} KM</p>
+                               <p class="desc">{{ automobile.km_percorsi }} km</p>
                             </td>
                             <td>
                                <h6>Anno</h6>
@@ -130,7 +130,7 @@
                             <td>
                                <h6>Potenza</h6>
                                <hr class="line">
-                               <p class="desc">{{ automobile.potenza }} KW</p>
+                               <p class="desc">{{ automobile.potenza }} kw</p>
                             </td>
                             <td>
                                <h6>Alimentazione</h6>
@@ -142,12 +142,12 @@
                             <td>
                                <h6>Cavalli</h6>
                                <hr class="line">
-                               <p class="desc">{{ automobile.cavalli }} CV</p>
+                               <p class="desc">{{ automobile.cavalli }} cv</p>
                             </td>
                             <td>
-                               <h6>Cambio</h6>
+                               <h6>Peso</h6>
                                <hr class="line">
-                               <p class="desc">{{ automobile.cambio }}</p>
+                               <p class="desc">{{ automobile.peso_a_vuoto }} kg</p>
                             </td>
                             <td>
                                <h6>Stato</h6>
@@ -157,7 +157,7 @@
                             <td>
                                <h6>Proprietario</h6>
                                <hr class="line">
-                               <p class="desc">{{ automobile.numero_proprietari }}</p>
+                               <p class="desc">{{ automobile.batteria }} kwh</p>
                             </td>
                          </tr>
                       </tbody>
