@@ -1,0 +1,156 @@
+/**** --------------------------- Card singola prodotto ----------------------------****/
+
+.vehicle_card_row_container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.vehicle_card{
+  height: auto;
+  width: 27%;
+  /*border: 1px solid red;*/
+  border-radius: 10px;
+  background-color: white;
+  -webkit-transition: all 0.3s 0s ease-in;
+  -moz-transition: all 0.3s 0s ease-in;
+  -o-transition: all 0.3s 0s ease-in;
+  transition: all 0.3s 0s ease-in;
+  padding: 1% 1% 1% 1%;
+  box-shadow: 0 20px 30px rgba(0,0,0,.2);
+  margin-bottom: 3%;
+
+}
+
+.title_car{
+  font-size: 1.5em;
+}
+
+.desc{
+  /*border: 1px solid rgb(0, 60, 255);*/
+  margin: 0px;
+  margin-right: 2px;
+  font-size: 1em;
+  color: grey;
+}
+
+.vehicle_card:hover{
+  box-shadow: 0 12px 16px 0 rgb(0,0,0,0.30), 0 17px 50px 0 rgba(0,0,0,0.30);
+  background-color: white;
+}
+
+.details{
+  /*border: 1px solid salmon;*/
+  display: block;
+  font-size: 1.2em;
+}
+
+    
+/* Slideshow container */
+.slideshow-container {
+  max-width: 90%;
+  position: relative;
+  margin: auto;
+  /*Aggiunta margine*/
+  margin-top: 1%;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  top: 55%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: black;
+  opacity: .5;
+}
+
+/* commento : Aggiunta animazioni per lo slider*/
+.mySlides > * {animation: 20s autoplay6  ;
+  position:relative; top: 0; left: 0; opacity: 1.0}
+
+.mySlides2 > * {animation: 20s autoplay6  ;
+  position:relative; top: 0; left: 0; opacity: 1.0}
+
+  @keyframes autoplay6 {
+    0% {opacity: 0.0}
+    4% {opacity: 1.0}
+    33.33% {opacity: 1.0}
+    
+  }
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.col{
+  border-width:  1px;
+  border-color: #111111;
+}
+
+.line{
+  border-top: 1px solid black;
+  margin-top: 5px;
+}
+
+.h1{
+  font-family: Orbitron;
+  text-align: center;
+}
+
+#delete:hover{
+  color: red;
+}

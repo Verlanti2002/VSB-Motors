@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{% static 'vsb_app/css/sign_up.css' %}" />
+    <title>VSB-MOTORS | SIGN-UP</title>
+  </head>
+  <body>
+   <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {% for e in error.values %}
+            <p>{{ e }}</p>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+              <form class="sign-in-form" method="post">
+                  {% csrf_token %}
+                <table>
+                    <img src="{% static 'vsb_app/images/logo.png' %}" class="image" alt=""/>
+
+                    <thead><h2 class="title">Registrazione Vendor</h2></thead>
+
+                    <tr>
+                    <td>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input name="ragione_sociale" type="text" placeholder="Ragione Sociale" required/>
+                          </div>
+                    </td>
+                    <td>
+                        <div class="input-field">
+                            <i class="fas fa-industry"></i>
+                            <input name="partita_iva" type="text" placeholder="Partita IVA" maxlength="11" required/>
+                          </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-field">
+                            <i class="fas fa-envelope" aria-hidden="false"></i>
+                            <input name="email" type="email" placeholder="Email" required/>
+                          </div>
+                    </td>
+                    <td>
+                        <div class="input-field">
+                            <i class="fas fa-map"></i>
+                            <input name="indirizzo" type="text" placeholder="Indirizzo"/>
+                          </div>
+                    </td>
+                </tr>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    <i class="far fa-building"></i>
+                                    <input name="citta" type="text" placeholder="Città" />
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="input-field">
+                                    <i class="fas fa-phone-square	"></i>
+                                    <input name="telefono" type="text" placeholder="Telefono" />
+                                  </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    <i class="fas fa-lock"></i>
+                                    <input name="password" type="password" placeholder="Password" required/>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="input-field">
+                                    <i class="fas fa-lock"></i>
+                                    <input name="password2" type="password" placeholder="Conferma Password" required/>
+                                  </div>
+                            </td>
+                        </tr>
+
+                </table>
+                <input type="submit" value="Submit" class="btn solid" />
+              </form>
+              <form class="sign-up-form" method="post">
+                  {% csrf_token %}
+                <table>
+                    <img src="{% static 'vsb_app/images/logo.png' %}" class="image" alt="" />
+
+                    <thead><h2 class="title">Registrazione Cliente</h2></thead>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    <i class="fas fa-user"></i>
+                                    <input name="nome" type="text" placeholder="Nome" required/>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="input-field">
+                                    <i class="fas fa-user"></i>
+                                    <input name="cognome" type="text" placeholder="Cognome" required/>
+                                  </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    <i class="fas fa-phone-square" aria-hidden="false"></i>
+                                    <input name="telefono" type="text" placeholder="Telefono" />
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="input-field">
+                                    <i class="fas fa-envelope"></i>
+                                    <input name="email" type="email" placeholder="Email" required/>
+                                  </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    <i class="fas fa-lock"></i>
+                                    <input name="password" type="password" placeholder="Password" required/>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="input-field">
+                                    <i class="fas fa-lock"></i>
+                                    <input name="password2" type="password" placeholder="Conferma Password" required/>
+                                  </div>
+                            </td>
+                        </tr>
+                </table>
+                <input type="submit" class="btn" value="submit" />
+              </form>
+            </div>
+          </div>
+
+          <div class="panels-container">
+            <div class="panel left-panel">
+              <div class="content">
+                <h3> Registrati come Cliente </h3>
+                <p>
+                   Con noi avrai accesso all'inventario di tutti i Vendors Partner presenti in Italia e potrai scegliere l'auto più adatta alle tue esigenze.
+                </p>
+                <button class="btn transparent" id="sign-up-btn">
+                  Cliente
+                </button>
+              </div>
+            </div>
+            <div class="panel right-panel">
+              <div class="content">
+                <h3>Registrati come Vendor</h3>
+                <p>
+                    Garantiamo visibilità ai nostri Vendors Partner, andando incontro sia alle vostre esigenze che quella dei vostri futuri clienti.
+                </p>
+                <button class="btn transparent" id="sign-in-btn">
+                  Vendor
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+   <script src="{% static 'vsb_app/js/app.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/superfish.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.easing.js' %}"></script>
+   <script src="{% static 'vsb_app/js/wow.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.isotope.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/owl.carousel.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.magnific-popup.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jflickrfeed.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.fitvids.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.fractionslider.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery-ui-1.10.4.custom.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/SmoothScroll.js' %}"></script>
+   <script src="{% static 'vsb_app/js/main.js' %}"></script>
+  </body>
+</html>

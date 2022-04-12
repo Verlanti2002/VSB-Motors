@@ -1,0 +1,87 @@
+.vehicle_card_row_container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.vehicle_card{
+  height: auto;
+  width: 28%;
+  /*border: 1px solid red;*/
+  border-radius: 10px;
+  background-color: white;
+  -webkit-transition: all 0.3s 0s ease-in;
+  -moz-transition: all 0.3s 0s ease-in;
+  -o-transition: all 0.3s 0s ease-in;
+  transition: all 0.3s 0s ease-in;
+  padding: 1% 1% 1% 1%;
+  box-shadow: 0 20px 30px rgba(0,0,0,.2);
+  margin-bottom: 3%;
+
+}
+
+.desc{
+  /*border: 1px solid rgb(0, 60, 255);*/
+  margin: 0;
+  font-size: 1em;
+  color: grey;
+}
+
+.vehicle_card:hover{
+  box-shadow: 0 12px 16px 0 rgb(0,0,0,0.30), 0 17px 50px 0 rgba(0,0,0,0.30);
+  background-color: #ffffff6e;
+}
+
+.details{
+  /*border: 1px solid salmon;*/
+  display: block;
+  font-size: 1.1em;
+}
+
+.col{
+  border-width:  1px;
+  border-color: #111111;
+}
+
+.line{
+  border-top: 1px solid black;
+  margin-top: 5px;
+}
+
+.h1{
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.title_car{
+  font-size: 1.5em;
+}
+
+/** Alert message **/
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #04AA6D; /* Green */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}

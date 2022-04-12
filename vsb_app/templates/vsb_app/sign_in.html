@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{% static 'vsb_app/css/sign_in.css' %}" />
+    <title>VSB-MOTORS | SIGN-IN</title>
+  </head>
+  <body>
+
+  {% if form.non_field_errors %}
+   <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+  {% endif %}
+
+    <div class="container">
+          <div class="forms-container">
+            <div class="signin-signup">
+              <form class="sign-in-form" action="" method="post">
+                  {% csrf_token %}
+                <table>
+                    <img src="{% static 'vsb_app/images/logo.png' %}" class="image" alt=""/>
+                        <div class="input-field">
+                            <i class="fas fa-envelope" aria-hidden="false"></i>
+                            <input type="email" id="{{ form.username.html_id }}" name="{{ form.username.html_name }}" placeholder="Email" />
+                          </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="{{ form.password.html_id }}" name="{{ form.password.html_name }}" placeholder="Password" />
+                        </div>
+                </table>
+                <input type="submit" value="Submit" class="btn solid" />
+              </form>
+
+            </div>
+          </div>
+
+          <div class="panels-container">
+            <div class="panel left-panel">
+              <div class="content">
+                <h3> Non sei registrato? </h3>
+                <p>
+                    Verrai reindirizzato su una pagina, sia se sei Vendor che un Cliente
+                </p>
+                <a href="{% url 'vsb_app:sign_up' %}">
+                    <button class="btn transparent" id="sign-in-btn">
+                    Sign Up
+                    </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+  </body>

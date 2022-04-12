@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!-- Questa pagina html contiene tutti gli elementi in comune (codice) tra tutte le pagine-->
+{% load static %}
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <title>VSB-MOTORS | {% block title %} {% endblock %}</title>
+   <!--From fontawesome.com-->
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+   <!-- Caricamento css comune con base.css-->
+   <link rel="stylesheet" href="{% static 'vsb_app/css/base.css' %}">
+   <!-- Google Fonts -->
+   <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,500,600,300,700' rel='stylesheet' type='text/css'>
+   <!-- ionicons Fonts for icons -->
+   <link href="{% static 'vsb_app/css/ionicons.min.css' %}" rel="stylesheet">
+   <!--Font for nav-bar-->
+   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Orbitron" />
+   <!-- bootstrap -->
+   <link href="{% static 'vsb_app/css/bootstrap.css' %}" rel="stylesheet">
+   <!-- Animate CSS-->
+   <link href="{% static 'vsb_app/css/animate.css' %}" rel="stylesheet">
+   <!-- Import delle icone bootstrap -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+   <!-- Import delle remix icon per footer -->
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+   {% block add_css %}
+
+   {% endblock %}
+</head>
+    <body class="box-layout" onload="slider()">
+      <div class="header-inner">
+          <div class="container">   <!-- Container per Header -->
+             <div class="row">
+                <div class="header-table col-md-12">
+                   <div class="brand">
+                      <a href="{% url 'vsb_app:homepage' %}">  <!-- per reindirizzare nella homepage -->
+                         <img src="{% static 'vsb_app/images/logo.png' %}"> <!-- clicco il logo -->
+                      </a>
+                   </div>
+                   <nav id="nav-wrap" class="main-nav">  <!-- container per nav-bar -->
+                      <div id="mobnav-btn"> </div>
+                      <ul class="sf-menu">   <!-- Voci del menu -->
+                         {% if request.path == '/' %} <!-- Inizio if per determinare la presenza di determinate voci -->
+                             <li>
+                                <a href="#about" class="effect">Chi siamo</a>
+                             </li>
+                             <li>
+                                <a href="#future" class="effect">Future</a>
+                             </li>
+                         {% else %}
+                             <li>
+                                <a href="{% url 'vsb_app:homepage' %}" class="effect">Home</a>
+                            </li>
+                         {% endif %}
+                          <!-- Se è una concessionaria ad accedere allora vede "sell_my_car" -->
+                         {% if user.is_authenticated and user.concessionaria.ragione_sociale %}
+                             <li>
+                                <a href="{% url 'vsb_app:sell_my_car' %}" class="effect">Vendi la tua auto</a>
+                             </li>
+                         <!-- Altrimenti se è un utente normale ad accedere allora vede shop -->
+                         {% elif user.is_authenticated and not user.concessionaria.ragione_sociale %}
+                             <li>
+                                <a href="{% url 'vsb_app:shop' %}" class="effect">Negozio</a>
+                             </li>
+                         {% else %}
+                             <!-- Nel caso non si ha fatto l'accesso si vede sia sell_my_car e shop  -->
+                             <li>
+                                <a href="{% url 'vsb_app:sell_my_car' %}" class="effect">Vendi la tua auto</a>
+                             </li>
+                             <li>
+                                <a href="{% url 'vsb_app:shop' %}" class="effect">Negozio</a>
+                             </li>
+                         {% endif %}
+                          <button class="button" style="margin-left: 5%;">Test Drive</button>
+                         <li class="has-children" style="width: 10%; height: auto;">
+                            <h2 class="user_icon"><i class="bi bi-person-circle" style="cursor: pointer;"></i></h2>
+                            <!-- si apre un dropdown nella quale si visualizzano info riguardo il profilo -->
+                            <ul class="dropdown" style="border-top: 3px solid black;">
+                                {% if not user.is_authenticated %} <!-- Se non c'è alcun accesso da parte dell'utente allora di dà la possibilità di fare login e registrazione -->
+                                    <li><a href="{% url 'vsb_app:sign_up' %}">REGISTRAZIONE</a></li>
+                                    <li><a href="{% url 'vsb_app:sign_in' %}">LOGIN</a></li>
+                                {% endif %}
+                               <li class="has-children">
+                                  {% if user.is_authenticated %}  <!-- Se è stato fatto l'accesso, si ha la possibilità di accedere alla propria pagina profilo -->
+                                      {% if not request.path == 'profile/' %}
+                                          <li><a href="{% url 'vsb_app:profile' %}">IL MIO PROFILO</a></li>
+                                      {% endif %}
+                                      <!-- Inoltre posso vedere le transazioni eseguite dalla concessionaria o dal cliente (in base all'accesso) -->
+                                      <li><a href="{% url 'vsb_app:my_transactions' %}">LE MIE TRANSAZIONI</a></li>
+                                      <!-- Voce per logout -->
+                                      <li><a href="{% url 'vsb_app:logout' %}">LOG OUT</a></li>
+                                  {% endif %}
+                               </li>
+                            </ul>
+                         </li>
+                      </ul>
+                   </nav>
+                </div>
+             </div>
+          </div>
+       </div>
+
+   {% block main %}
+
+   {% endblock %}
+
+   <!--Logos Section -->
+   <section class="logos section">
+      <div class="logos__container container grid">
+         <div class="logos__content">
+             <a href="https://www.porsche.com/italy/" target="_blank"><img src="{% static 'vsb_app/images/logos1.png' %}" alt="" class="logos__img"></a>
+         </div>
+         <div class="logos__content">
+             <a href="https://www.audi.it/it/web/it.html" target="_blank"><img src="{% static 'vsb_app/images/logos2.png' %}" alt="" class="logos__img"></a>
+         </div>
+         <div class="logos__content">
+             <a href="https://www.tesla.com/it_it" target="_blank"><img src="{% static 'vsb_app/images/logos3.png' %}" alt="" class="logos__img"></a>
+         </div>
+         <div class="logos__content">
+             <a href="https://www.lamborghini.com/it-en" target="_blank"><img src="{% static 'vsb_app/images/logos4.png' %}" alt="" class="logos__img"></a>
+         </div>
+         <div class="logos__content">
+             <a href="https://www.bmw.it/it/home.html" target="_blank"><img src="{% static 'vsb_app/images/logos5.png' %}" alt="" class="logos__img"></a>
+         </div>
+         <div class="logos__content">
+             <a href="https://www.mitsubishi-motors.it/" target="_blank"><img src="{% static 'vsb_app/images/logos6.png' %}" alt="" class="logos__img"></a>
+         </div>
+      </div>
+   </section>
+   <!-- End Logos Section -->
+
+   <!--Footer Section-->
+   <section class="footer section">
+      <div class="shape shape__big"></div>
+      <div class="shape shape__small"></div>
+      <div class="footer__container container grid">
+         <div class="footer_content">
+            <a href="" class="footer__logo">
+               <i class="ri-steering-fill"></i>VSB-MOTORS
+            </a>
+            <p class="footer__description">
+               Noi offriamo i migliori veicoli <br> delle marche più riconosciute <br> al mondo
+            </p>
+         </div>
+         <div class="footer_content">
+            <h3 class="footer__title">Azienda</h3>
+            <ul class="footer__links">
+               <li>
+                  <a href="" class="footer__link">Chi siamo</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Macchine</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Storia</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Negozio</a>
+               </li>
+            </ul>
+         </div>
+
+         <div class="footer_content">
+            <h3 class="footer__title">Informazioni</h3>
+            <ul class="footer__links">
+               <li>
+                  <a href="" class="footer__link">Richiedi un preventivo</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Trova un rivenditore</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Contattaci</a>
+               </li>
+               <li>
+                  <a href="" class="footer__link">Servizi</a>
+               </li>
+            </ul>
+         </div>
+
+         <div class="footer_content">
+            <h3 class="footer__title">Seguici</h3>
+            <ul class="footer__social">
+               <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                  <i class="ri-facebook-fill"></i>
+               </a>
+               <a href="https://www.instagram.com" target="_blank" class="footer__social-link">
+                  <i class="ri-instagram-line"></i>
+               </a>
+               <a href="https://www.twitter.com" target="_blank" class="footer__social-link">
+                  <i class="ri-twitter-line"></i>
+               </a>
+            </ul>
+         </div>
+      </div>
+   </section>
+   <!-- End Footer Section -->
+
+   <script src="{% static 'vsb_app/js/jquery.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/superfish.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.easing.js' %}"></script>
+   <script src="{% static 'vsb_app/js/wow.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.isotope.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/owl.carousel.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.magnific-popup.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jflickrfeed.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.fitvids.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery.fractionslider.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/jquery-ui-1.10.4.custom.min.js' %}"></script>
+   <script src="{% static 'vsb_app/js/SmoothScroll.js' %}"></script>
+   <script src="{% static 'vsb_app/js/main.js' %}"></script>
+
+   {% block add_js %}
+
+   {% endblock %}
+</body>
+</html>

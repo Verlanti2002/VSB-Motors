@@ -1,0 +1,212 @@
+{% extends 'vsb_app/base.html' %}
+{% load static %}
+
+{% block title %}
+    SELL-MY-CAR
+{% endblock %}
+
+{% block add_css %}
+    <link rel="stylesheet" href="{% static 'vsb_app/css/sell_my_car.css' %}">
+    <link rel="stylesheet" href="{% static 'vsb_app/css/style.css' %}">
+{% endblock %}
+{% block main %}
+    {% if automobile_form.errors %}
+        {% for field, errors in automobile_form.errors.items  %}
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <b>{{ field }}:</b>
+                {% for error in errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if message %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+                {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+    {% endif %}
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 class="sell__title">Registrazione Veicolo</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.targa.label_tag }}
+                        {{ automobile_form.targa }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.stato.label_tag }}
+                        {{ automobile_form.stato }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.marca.label_tag }}
+                        {{ automobile_form.marca }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.modello.label_tag }}
+                        {{ automobile_form.modello }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.cavalli.label_tag }}
+                        {{ automobile_form.cavalli }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.potenza.label_tag }}
+                        {{ automobile_form.potenza }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.alimentazione.label_tag }}
+                        {{ automobile_form.alimentazione }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.km_percorsi.label_tag }}
+                        {{ automobile_form.km_percorsi }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.anno_immatricolazione.label_tag }}
+                        {{ automobile_form.anno_immatricolazione }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.numero_proprietari.label_tag }}
+                        {{ automobile_form.numero_proprietari }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.tipologie_di_uso.label_tag }}
+                        {{ automobile_form.tipologie_di_uso }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.neopatentato.label_tag }}
+                        {{ automobile_form.neopatentato }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.peso_a_vuoto.label_tag }}
+                        {{ automobile_form.peso_a_vuoto }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.trazione.label_tag }}
+                        {{ automobile_form.trazione }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.consumo.label_tag }}
+                        {{ automobile_form.consumo }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.batteria.label_tag }}
+                        {{ automobile_form.batteria }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.colore.label_tag }}
+                        {{ automobile_form.colore }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.carrozzeria.label_tag }}
+                        {{ automobile_form.carrozzeria }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.porte.label_tag }}
+                        {{ automobile_form.porte }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.posti.label_tag }}
+                        {{ automobile_form.posti }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ automobile_form.prezzo.label_tag }}
+                        {{ automobile_form.prezzo }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ image_form.immagine.label_tag }}
+                        {{ image_form.immagine }}
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="Registra" class="submit">
+        </form>
+    </div>
+{% endblock %}
+{% block add_js %}
+    <script type="text/javascript">
+      function changePlaceholderSelect(sel){
+         sel.style.color = "#fff";
+      }
+   </script>
+{% endblock %}
+

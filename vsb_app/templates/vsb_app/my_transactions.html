@@ -1,0 +1,210 @@
+{% extends 'vsb_app/base.html' %}
+{% load static %}
+
+{% block title %}
+    MY-TRANSACTIONS
+{% endblock %}
+{% block add_css %}
+    {% if user.is_client %}
+        <link rel="stylesheet" href="{% static 'vsb_app/css/my_transaction_client.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'vsb_app/css/my_transaction_vendor.css' %}">
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'vsb_app/css/style.css' %}">
+{% endblock %}
+{% block main %}
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    {% if user.is_client %}
+         <div class="row">
+             <div class="col">
+                <div class="h1">Auto Acquistate</div>
+             </div>
+         </div>
+
+        <!-- Contenitore per una riga di vehicle-card -->
+        <div class="vehicle_card_row_container">
+            {% for ordine in ordini_cliente %}
+             <!-- Contenitore per una singola card -->
+              <div class="vehicle_card">
+                 <!-- Gestione stile Tabella degli attributi tramite row e cols di bootstrap -->
+                 <div class="row">
+                    <div class="col-md-12">
+                    <p class="title_car"> {{ ordine.automobile.marca }} {{ ordine.automobile.modello }}</p>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12">
+                       <a href="{% url 'vsb_app:single_product' ordine.automobile.pk %}"><img src="{{ ordine.automobile.immagini.all.0.immagine.url }}" width="400px" alt=""></a>
+                    </div>
+                 </div>
+                 <div class="row align-items-center">
+                    <div class="col-lg-4">
+                       <p class="details">Prezzo</p>
+                    </div>
+                    <div class="col-lg-4">
+                       <p class="details">Acquistata</p>
+                    </div>
+                    <div class="col-lg-4">
+                       <p class="details">Concessionaria</p>
+                    </div>
+                 </div>
+                 <div class="row align-items-center">
+                    <div class="col-lg-4">
+                       <p class="desc"> {{ ordine.automobile.prezzo|floatformat }} €</p>
+                    </div>
+                    <div class="col-lg-4">
+                       <p class="desc"> {{ ordine.data|date:"d/m/Y" }} </p>
+                    </div>
+                    <div class="col-lg-4">
+                       <p class="desc"> {{ ordine.automobile.concessionaria.ragione_sociale }}</p>
+                    </div>
+                    <!-- Fine Grid -->
+                 </div>
+                 <!-- Fine vehicle-card -->
+              </div>
+              {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class="vehicle_card_row_container">
+              {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+      <div class="slideshow-container">
+         <div class="row">
+            <div class="col">
+               <div class="h1" style="margin-bottom:3%;">Auto registrate</div>
+            </div>
+         </div>
+
+         <!-- Full-width images with number and caption text -->
+         {% if automobile_registrate %}
+         <div class="mySlides2">
+            <div class="vehicle_card_row_container">
+              {% for automobile in automobile_registrate %}
+               <div class="vehicle_card">
+                   <div class="row">
+                      <div class="col-md-10">
+                        <p class="title_car"> {{ automobile.marca }} {{ automobile.modello }}</p>
+                      </div>
+                      <div class="col-md-1">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input name="delete_car" value="{{ automobile.pk }}" style="display: none">
+                            <button type="submit" name="delete" style="background-color: white; border: none; ">
+                                <i class="ri-delete-bin-line ri-2x" id="delete"></i>
+                            </button>
+                        </form>
+                      </div>
+                   </div>
+                   <div class="row">
+                      <div class="col-md-12">
+                         <a href="{% url 'vsb_app:single_product' automobile.pk %}"><img src="{{ automobile.immagini.all.0.immagine.url }}" width="400px" alt=""></a>
+                      </div>
+                   </div>
+                   <div class="row   align-items-center">
+                      <div class="col-md-6">
+                         <p class="details">Prezzo</p>
+                      </div>
+                      <div class="col-md-6">
+                         <p class="details">Registrata</p>
+                      </div>
+                   </div>
+                   <div class="row   align-items-center">
+                      <div class="col-md-6">
+                         <p class="desc">{{ automobile.prezzo|floatformat }} €</p>
+                      </div>
+                      <div class="col-md-6 ">
+                         <p class="desc">{{ automobile.data_registrazione|date:"d/m/Y" }}</p>
+                      </div>
+                   </div>
+               </div>
+               {% if forloop.counter|divisibleby:3 %}
+            </div>
+         </div>
+         <div class="mySlides2">
+            <div class="vehicle_card_row_container">
+               {% endif %}
+            {% endfor %}
+            </div>
+         </div>
+         {% if automobile_registrate|length > 3 %}
+             <!-- Next and previous buttons -->
+             <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+             <a class="next" onclick="plusSlides2(1)">&#10095;</a>
+          {% endif %}
+         {% endif %}
+      </div>
+
+      <div class="slideshow-container">
+         <div class="row">
+            <div class="col">
+               <div class="h1" style="margin-bottom:3%;">Auto vendute</div>
+            </div>
+         </div>
+         <!-- Full-width images with number and caption text -->
+         <div class="mySlides">
+            <div class="vehicle_card_row_container">
+              {% for ordine in ordini_concessionaria %}
+               <div class="vehicle_card" style="width: 30%">
+                   <div class="row">
+                      <div class="col-md-12">
+                        <p class="title_car"> {{ ordine.automobile.marca }} {{ ordine.automobile.modello }}</p>
+                      </div>
+                   </div>
+                   <div class="row">
+                      <div class="col-md-12">
+                         <a href="{% url 'vsb_app:single_product' ordine.automobile.pk %}"><img src="{{ ordine.automobile.immagini.all.0.immagine.url }}" width="400px" alt=""></a>
+                      </div>
+                   </div>
+                   <div class="row  align-items-center">
+                      <div class="col-md-4">
+                            <p class="details">Prezzo</p>
+                      </div>
+                      <div class="col-md-4">
+                         <p class="details">Venduta</p>
+                      </div>
+                      <div class="col-md-4">
+                         <p class="details">Acquirente</p>
+                      </div>
+                   </div>
+                   <div class="row   align-items-center">
+                      <div class="col-md-4">
+                        <p class="desc">{{ ordine.automobile.prezzo|floatformat }} €</p>
+                      </div>
+                      <div class="col-md-4 ">
+                        <p class="desc">{{ ordine.data|date:"d/m/Y" }}</p>
+                      </div>
+                      <div class="col-md-4 ">
+                        <p class="desc">{{ ordine.acquirente.last_name }} {{ ordine.acquirente.first_name }}</p>
+                      </div>
+                   </div>
+               </div>
+               {% if forloop.counter|divisibleby:3 %}
+            </div>
+         </div>
+         <div class="mySlides">
+            <div class="vehicle_card_row_container">
+               {% endif %}
+            {% endfor %}
+            </div>
+         </div>
+         {% if ordini_concessionaria|length > 3 %}
+         <!-- Next and previous buttons -->
+             <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+             <a class="next" onclick="plusSlides2(1)">&#10095;</a>
+         {% endif %}
+      </div>
+    {% endif %}
+
+
+{% endblock %}
+{% block add_js %}
+    <script src="{% static 'vsb_app/js/slider-carousel.js' %}"></script>
+    <script src="{% static 'vsb_app/js/slider-carousel2.js' %}"></script>
+{% endblock %}
