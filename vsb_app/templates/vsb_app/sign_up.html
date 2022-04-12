@@ -12,14 +12,12 @@
     <title>VSB-MOTORS | SIGN-UP</title>
   </head>
   <body>
-  {% if form.non_field_errors %}
    <div class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        {% for error in form.non_field_errors %}
-            <p>{{ error }}</p>
+        {% for e in error.values %}
+            <p>{{ e }}</p>
         {% endfor %}
     </div>
-  {% endif %}
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">

@@ -1,9 +1,11 @@
 from datetime import datetime
 
 from django.contrib.auth import logout
+from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import FormView
 from .forms import AutomobileForm, ImmaginiAutomobiliForm, LoginForm
@@ -240,4 +242,5 @@ class SingleProductView(LoginRequiredMixin, DetailView):
         automobile_selezionata.save()
         ordine = Ordine(automobile=automobile_selezionata, acquirente=request.user)
         ordine.save()
+        messages.add_message(request, messages.INFO, 'Ordine avvenuto correttamente!')
         return redirect('vsb_app:my_transactions')
