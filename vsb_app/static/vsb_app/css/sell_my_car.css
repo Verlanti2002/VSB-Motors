@@ -42,7 +42,7 @@ input[type=submit]:hover {
 /* The alert message box */
 .alert {
   padding: 20px;
-  background-color: #f44336; /* Red */
+  background-color: #04AA6D; /* Red */
   color: white;
   margin-bottom: 15px;
 }

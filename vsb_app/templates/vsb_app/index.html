@@ -26,8 +26,9 @@
                  <h2>{{ user.concessionaria.ragione_sociale }}</h2>
              {% endif %}
              {% if not user.is_authenticated %}
-                 <div style="margin-top: 50px">
-                    <h3 style="margin-top: 30px">Registrati per scoprire i nostri fantastici contenuti!</h3>
+                 <div>
+                    <h3>Qui potrai trovare le migliori auto elettriche vendute dalle più grandi concessionarie d'Italia!</h3>
+                    <!--<h3>Registrati per scoprire i nostri fantastici contenuti!</h3>-->
                     <button class="banner__button" type="button"><a href="{% url 'vsb_app:sign_in' %}">ACCEDI</a></button>
                    <button class="banner__button" type="button"><a href="{% url 'vsb_app:sign_up' %}">ISCRIVITI</a></button>
                  </div>
