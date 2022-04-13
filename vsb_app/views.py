@@ -232,7 +232,7 @@ class SingleProductView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         automobile_selezionata = self.get_object()
-        automobili_correlate = Automobile.objects.exclude(pk=automobile_selezionata.pk)
+        automobili_correlate = Automobile.objects.exclude(pk=automobile_selezionata.pk).exclude(is_purchased=True)
         context["automobili_correlate"] = automobili_correlate
         return context
 

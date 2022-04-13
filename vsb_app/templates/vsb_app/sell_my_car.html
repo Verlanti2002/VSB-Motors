@@ -12,7 +12,7 @@
 {% block main %}
     {% if automobile_form.errors %}
         {% for field, errors in automobile_form.errors.items  %}
-            <div class="alert">
+            <div class="alert" style="background-color: #f44336;">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 <b>{{ field }}:</b>
                 {% for error in errors %}
@@ -21,13 +21,10 @@
             </div>
         {% endfor %}
     {% endif %}
-
     {% if message %}
-        <div class="alert alert-success alert-dismissible" role="alert">
+            <div class="alert" style="background-color: #04AA6D;">
                 {{ message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             </div>
     {% endif %}
     <div class="container">
