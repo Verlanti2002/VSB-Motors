@@ -20,7 +20,7 @@
          <div class="content">
             {% if user.is_authenticated and user.is_client %}
                 <h1>Benvenuto su VSB-Motors</h1>
-                <h2>{{ user.last_name }} {{ user.first_name }}</h2>
+                <h2>{{ user.first_name }} {{ user.last_name }}</h2>
             {% else %}
                  <h1>Benvenuto su VSB-Motors</h1>
                  <h2>{{ user.concessionaria.ragione_sociale }}</h2>
@@ -177,6 +177,7 @@
 
    <!-- Slider Shop Section -->
     {% if user.is_client %}
+    <a name="popular"></a>
    <section class="popular section" style="margin-bottom: 3%; margin-top: 3%;">
       <h2 class="section__title" style="text-align: center; color: black; margin-bottom: 2%;">
          Scegli la macchina elettrica dei tuoi sogni!

@@ -35,7 +35,7 @@ body {
   background: white;
 }
 
-@media (max-width: 1300px) {
+footer__link@media (max-width: 1300px) {
   .box-layout {
     padding: 0px 20px;
   }
