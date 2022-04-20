@@ -60,7 +60,7 @@ class ShopView(TemplateView):
         context["marche"] = Marca.objects.all()
         context["stati"] = Automobile.STATE_CHOICES
         context["neopatentato"] = Automobile.NEW_DRIVER_CHOICES
-        context["object_list"] = Automobile.objects.filter(**filter_dict)
+        context["object_list"] = Automobile.objects.filter(**filter_dict, is_purchased=False)
         # context["object_list"] = Automobile.objects.filter(
         #     Q(stato=filter_dict.get("stato")) |
         #     Q(prezzo__lte=filter_dict.get("prezzo")) |
