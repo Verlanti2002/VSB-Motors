@@ -33,7 +33,7 @@
                <span class="vendor_number">{{object.concessionaria.user.telefono }}</span>
                <span class="vendor_email">{{ object.concessionaria.user.email }}</span>
             </div>
-            {% if user.is_client %}
+            {% if user.is_client and not automobile.is_purchased %}
              <div style="margin-top: 2.8%;">
                <form method="post">
                    {% csrf_token %}
